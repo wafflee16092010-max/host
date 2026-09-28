@@ -6,12 +6,13 @@
 <title>РТ-одежда — одежда с характером</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 <style>
   :root{
-    --bg:#1a0f08;
-    --bg-alt:#24160e;
-    --bg-card:#2a1a10;
+    --bg:#0d0805;
+    --bg-alt:#140d08;
+    --bg-card:#1a1109;
     --gold:#c9a24d;
     --gold-soft:#e6c87a;
     --gold-dim:rgba(201,162,77,.25);
@@ -27,7 +28,7 @@
   body{
     background:var(--bg);
     color:var(--cream);
-    font-family:'Inter',-apple-system,sans-serif;
+    font-family:'Inter',sans-serif;
     font-size:16px;
     line-height:1.6;
     -webkit-font-smoothing:antialiased;
@@ -53,17 +54,18 @@
     display:flex;
     align-items:center;
     justify-content:space-between;
-    background:rgba(26,15,8,.75);
-    backdrop-filter:blur(14px);
-    -webkit-backdrop-filter:blur(14px);
+    background:rgba(13,8,5,.8);
+    backdrop-filter:blur(16px);
+    -webkit-backdrop-filter:blur(16px);
     border-bottom:1px solid var(--hairline);
+    transition:background .3s;
   }
 
   .nav-logo{
     font-family:'Cormorant Garamond',serif;
-    font-size:22px;
+    font-size:24px;
     font-weight:600;
-    letter-spacing:.02em;
+    letter-spacing:.04em;
     color:var(--gold);
   }
 
@@ -71,21 +73,21 @@
     display:flex;
     gap:36px;
     font-size:14px;
-    letter-spacing:.06em;
+    letter-spacing:.08em;
     text-transform:uppercase;
     color:var(--muted);
   }
 
-  .nav-links a{transition:color .25s}
+  .nav-links a{transition:color .3s}
   .nav-links a:hover{color:var(--gold-soft)}
 
   .nav-cta{
-    padding:10px 22px;
+    padding:10px 24px;
     border:1px solid var(--gold);
     border-radius:999px;
     color:var(--gold);
     font-size:13px;
-    letter-spacing:.08em;
+    letter-spacing:.1em;
     text-transform:uppercase;
     transition:all .3s;
   }
@@ -93,6 +95,7 @@
   .nav-cta:hover{
     background:var(--gold);
     color:var(--bg);
+    box-shadow:0 0 24px rgba(201,162,77,.35);
   }
 
   /* ---------- HERO ---------- */
@@ -106,8 +109,8 @@
     position:relative;
     overflow:hidden;
     background:
-      radial-gradient(ellipse at 50% 30%, rgba(201,162,77,.12) 0%, transparent 60%),
-      radial-gradient(ellipse at 50% 100%, rgba(201,162,77,.06) 0%, transparent 70%),
+      radial-gradient(ellipse at 50% 20%, rgba(201,162,77,.14) 0%, transparent 65%),
+      radial-gradient(ellipse at 50% 100%, rgba(201,162,77,.08) 0%, transparent 70%),
       var(--bg);
   }
 
@@ -116,53 +119,57 @@
     position:absolute;
     inset:0;
     background-image:
-      repeating-linear-gradient(45deg, rgba(201,162,77,.02) 0 1px, transparent 1px 40px);
+      repeating-linear-gradient(45deg, rgba(201,162,77,.03) 0 1px, transparent 1px 50px);
     pointer-events:none;
   }
 
   .hero-inner{
     position:relative;
     z-index:1;
-    max-width:800px;
+    max-width:820px;
   }
 
   .hero-logo{
-    width:140px;
-    height:140px;
-    margin:0 auto 32px;
+    width:150px;
+    height:150px;
+    margin:0 auto 36px;
     border-radius:50%;
     background:linear-gradient(135deg, var(--gold) 0%, var(--gold-soft) 50%, var(--gold) 100%);
     display:flex;
     align-items:center;
     justify-content:center;
     font-family:'Cormorant Garamond',serif;
-    font-size:64px;
+    font-size:72px;
     font-weight:600;
     color:var(--bg);
-    box-shadow:0 20px 60px rgba(201,162,77,.25);
+    box-shadow:0 24px 72px rgba(201,162,77,.3);
     position:relative;
+    animation:pulseGlow 4s ease-in-out infinite;
   }
 
   .hero-logo::after{
     content:"";
     position:absolute;
-    inset:-8px;
+    inset:-10px;
     border-radius:50%;
     border:1px solid var(--gold-dim);
+    animation:spinSlow 20s linear infinite;
   }
 
   .hero-eyebrow{
     font-size:13px;
-    letter-spacing:.28em;
+    letter-spacing:.32em;
     text-transform:uppercase;
     color:var(--gold);
-    margin-bottom:24px;
+    margin-bottom:28px;
+    animation:fadeUp .8s ease backwards .1s;
   }
 
   .hero h1{
-    font-size:clamp(48px, 8vw, 92px);
+    font-size:clamp(52px, 9vw, 104px);
     color:var(--cream);
-    margin-bottom:20px;
+    margin-bottom:24px;
+    animation:fadeUp .8s ease backwards .2s;
   }
 
   .hero h1 em{
@@ -172,28 +179,30 @@
   }
 
   .hero-sub{
-    font-size:clamp(15px, 1.4vw, 18px);
+    font-size:clamp(16px, 1.5vw, 19px);
     color:var(--muted);
-    max-width:520px;
-    margin:0 auto 44px;
+    max-width:540px;
+    margin:0 auto 48px;
     font-weight:300;
+    animation:fadeUp .8s ease backwards .3s;
   }
 
   .hero-actions{
     display:flex;
-    gap:16px;
+    gap:18px;
     justify-content:center;
     flex-wrap:wrap;
+    animation:fadeUp .8s ease backwards .4s;
   }
 
   .btn{
     display:inline-block;
-    padding:16px 38px;
+    padding:17px 42px;
     font-size:14px;
-    letter-spacing:.1em;
+    letter-spacing:.12em;
     text-transform:uppercase;
     border-radius:999px;
-    transition:all .3s ease;
+    transition:all .35s ease;
     cursor:pointer;
     font-family:'Inter',sans-serif;
   }
@@ -206,8 +215,8 @@
   }
 
   .btn-primary:hover{
-    transform:translateY(-2px);
-    box-shadow:0 12px 32px rgba(201,162,77,.35);
+    transform:translateY(-3px);
+    box-shadow:0 16px 48px rgba(201,162,77,.4);
   }
 
   .btn-ghost{
@@ -218,38 +227,40 @@
   .btn-ghost:hover{
     border-color:var(--gold);
     color:var(--gold);
+    background:rgba(201,162,77,.05);
   }
 
   /* ---------- SECTIONS ---------- */
   section{
-    padding:120px 6vw;
+    padding:140px 6vw;
     position:relative;
   }
 
   .section-head{
     text-align:center;
-    margin-bottom:70px;
+    margin-bottom:80px;
   }
 
   .section-eyebrow{
     font-size:12px;
-    letter-spacing:.28em;
+    letter-spacing:.32em;
     text-transform:uppercase;
     color:var(--gold);
-    margin-bottom:18px;
+    margin-bottom:20px;
   }
 
   .section-head h2{
-    font-size:clamp(36px, 5vw, 56px);
+    font-size:clamp(40px, 5.5vw, 64px);
     color:var(--cream);
-    margin-bottom:18px;
+    margin-bottom:20px;
   }
 
   .section-head p{
     color:var(--muted);
-    max-width:560px;
+    max-width:580px;
     margin:0 auto;
     font-weight:300;
+    font-size:17px;
   }
 
   /* ---------- ABOUT ---------- */
@@ -269,35 +280,35 @@
   }
 
   .about-text h2{
-    font-size:clamp(32px, 4vw, 48px);
-    margin-bottom:24px;
+    font-size:clamp(36px, 4.5vw, 52px);
+    margin-bottom:28px;
   }
 
   .about-text p{
     color:var(--muted);
-    margin-bottom:18px;
+    margin-bottom:20px;
     font-weight:300;
     font-size:17px;
   }
 
   .about-features{
     list-style:none;
-    margin-top:32px;
+    margin-top:36px;
     display:grid;
-    gap:16px;
+    gap:18px;
   }
 
   .about-features li{
     display:flex;
     align-items:center;
-    gap:16px;
-    font-size:15px;
+    gap:18px;
+    font-size:16px;
     color:var(--cream);
   }
 
   .about-features li::before{
     content:"";
-    width:24px;
+    width:28px;
     height:1px;
     background:var(--gold);
     flex-shrink:0;
@@ -305,9 +316,9 @@
 
   .about-visual{
     aspect-ratio:4/5;
-    border-radius:24px;
+    border-radius:28px;
     background:
-      radial-gradient(circle at 30% 30%, rgba(201,162,77,.2) 0%, transparent 60%),
+      radial-gradient(circle at 30% 30%, rgba(201,162,77,.25) 0%, transparent 60%),
       linear-gradient(135deg, var(--bg-card) 0%, var(--bg) 100%);
     border:1px solid var(--hairline);
     display:flex;
@@ -315,81 +326,90 @@
     justify-content:center;
     position:relative;
     overflow:hidden;
+    transition:transform .5s ease, border-color .5s;
+  }
+
+  .about-visual:hover{
+    transform:scale(1.02);
+    border-color:var(--gold-dim);
   }
 
   .about-visual::before{
     content:"РТ";
     font-family:'Cormorant Garamond',serif;
-    font-size:180px;
+    font-size:200px;
     font-weight:600;
     color:var(--gold);
-    opacity:.15;
+    opacity:.12;
     letter-spacing:-.04em;
   }
 
   /* ---------- COLLECTION ---------- */
   .grid-products{
     display:grid;
-    grid-template-columns:repeat(auto-fill, minmax(260px, 1fr));
-    gap:32px;
+    grid-template-columns:repeat(auto-fill, minmax(280px, 1fr));
+    gap:36px;
     max-width:1280px;
     margin:0 auto;
   }
 
   .product{
     cursor:pointer;
-    transition:transform .4s ease;
+    transition:transform .5s cubic-bezier(.2,.8,.2,1);
   }
 
-  .product:hover{transform:translateY(-6px)}
+  .product:hover{transform:translateY(-10px)}
 
   .product-image{
     aspect-ratio:3/4;
-    border-radius:18px;
+    border-radius:22px;
     background:linear-gradient(135deg, var(--bg-card) 0%, var(--bg-alt) 100%);
     border:1px solid var(--hairline);
-    margin-bottom:20px;
+    margin-bottom:22px;
     position:relative;
     overflow:hidden;
     display:flex;
     align-items:center;
     justify-content:center;
-    transition:border-color .3s;
+    transition:border-color .4s, box-shadow .4s;
   }
 
-  .product:hover .product-image{border-color:var(--gold)}
+  .product:hover .product-image{
+    border-color:var(--gold);
+    box-shadow:0 0 40px rgba(201,162,77,.15);
+  }
 
   .product-image::before{
     content:"ФОТО";
     font-size:12px;
-    letter-spacing:.2em;
+    letter-spacing:.24em;
     color:var(--muted);
-    opacity:.4;
+    opacity:.35;
   }
 
   .product-badge{
     position:absolute;
-    top:14px;left:14px;
-    padding:5px 12px;
+    top:16px;left:16px;
+    padding:6px 14px;
     background:var(--gold);
     color:var(--bg);
     font-size:11px;
-    letter-spacing:.1em;
+    letter-spacing:.12em;
     text-transform:uppercase;
     border-radius:999px;
     font-weight:500;
   }
 
   .product h3{
-    font-size:22px;
+    font-size:24px;
     color:var(--cream);
     margin-bottom:6px;
   }
 
   .product-price{
-    font-size:15px;
+    font-size:16px;
     color:var(--gold);
-    letter-spacing:.04em;
+    letter-spacing:.06em;
   }
 
   /* ---------- LOOKBOOK ---------- */
@@ -409,15 +429,16 @@
 
   .look{
     aspect-ratio:3/4;
-    border-radius:20px;
+    border-radius:24px;
     background:linear-gradient(160deg, var(--bg-card) 0%, var(--bg) 100%);
     border:1px solid var(--hairline);
     position:relative;
     overflow:hidden;
-    transition:all .4s;
+    transition:all .5s cubic-bezier(.2,.8,.2,1);
     display:flex;
     align-items:flex-end;
-    padding:24px;
+    padding:28px;
+    cursor:pointer;
   }
 
   .look:nth-child(1){grid-row:span 2; aspect-ratio:auto}
@@ -425,15 +446,19 @@
 
   .look:hover{
     border-color:var(--gold);
-    transform:scale(1.01);
+    transform:scale(1.02);
+    box-shadow:0 0 50px rgba(201,162,77,.12);
   }
 
   .look-label{
     font-size:13px;
-    letter-spacing:.14em;
+    letter-spacing:.18em;
     text-transform:uppercase;
     color:var(--muted);
+    transition:color .3s;
   }
+
+  .look:hover .look-label{color:var(--gold-soft)}
 
   .look::after{
     content:"ОБРАЗ";
@@ -441,9 +466,9 @@
     top:50%;left:50%;
     transform:translate(-50%,-50%);
     font-size:12px;
-    letter-spacing:.2em;
+    letter-spacing:.24em;
     color:var(--muted);
-    opacity:.3;
+    opacity:.25;
   }
 
   /* ---------- HOW TO ORDER ---------- */
@@ -457,102 +482,121 @@
 
   .step{
     text-align:center;
-    padding:40px 28px;
-    border-radius:20px;
+    padding:48px 32px;
+    border-radius:24px;
     border:1px solid var(--hairline);
     background:var(--bg-alt);
-    transition:all .3s;
+    transition:all .45s cubic-bezier(.2,.8,.2,1);
   }
 
   .step:hover{
     border-color:var(--gold);
-    transform:translateY(-4px);
+    transform:translateY(-8px);
+    box-shadow:0 20px 60px rgba(201,162,77,.1);
   }
 
   .step-num{
     font-family:'Cormorant Garamond',serif;
-    font-size:64px;
+    font-size:72px;
     color:var(--gold);
     line-height:1;
-    margin-bottom:20px;
+    margin-bottom:24px;
     font-weight:600;
   }
 
   .step h3{
-    font-size:24px;
-    margin-bottom:14px;
+    font-size:26px;
+    margin-bottom:16px;
     color:var(--cream);
   }
 
   .step p{
     color:var(--muted);
-    font-size:15px;
+    font-size:16px;
     font-weight:300;
   }
 
   /* ---------- CONTACTS ---------- */
   .contacts{
     background:
-      radial-gradient(ellipse at 50% 0%, rgba(201,162,77,.1) 0%, transparent 60%),
+      radial-gradient(ellipse at 50% 0%, rgba(201,162,77,.12) 0%, transparent 60%),
       var(--bg);
     text-align:center;
   }
 
-  .contacts-inner{max-width:640px;margin:0 auto}
+  .contacts-inner{max-width:680px;margin:0 auto}
 
   .contacts h2{
-    font-size:clamp(36px, 5vw, 56px);
-    margin-bottom:24px;
+    font-size:clamp(40px, 5.5vw, 64px);
+    margin-bottom:28px;
   }
 
   .contacts p{
     color:var(--muted);
-    margin-bottom:44px;
+    margin-bottom:48px;
     font-weight:300;
+    font-size:17px;
   }
 
   .contact-links{
     display:flex;
-    gap:16px;
+    gap:18px;
     justify-content:center;
     flex-wrap:wrap;
-    margin-bottom:44px;
+    margin-bottom:48px;
   }
 
   .contact-link{
     display:inline-flex;
     align-items:center;
-    gap:10px;
-    padding:16px 28px;
+    gap:12px;
+    padding:17px 32px;
     border:1px solid var(--hairline);
     border-radius:999px;
     font-size:14px;
-    letter-spacing:.06em;
-    transition:all .3s;
+    letter-spacing:.08em;
+    transition:all .35s;
   }
 
   .contact-link:hover{
     border-color:var(--gold);
     color:var(--gold);
-    transform:translateY(-2px);
+    transform:translateY(-3px);
+    background:rgba(201,162,77,.05);
   }
 
   /* ---------- FOOTER ---------- */
   footer{
-    padding:48px 6vw;
+    padding:52px 6vw;
     border-top:1px solid var(--hairline);
     text-align:center;
     color:var(--muted);
     font-size:13px;
-    letter-spacing:.04em;
+    letter-spacing:.05em;
   }
 
   footer .footer-logo{
     font-family:'Cormorant Garamond',serif;
-    font-size:24px;
+    font-size:26px;
     color:var(--gold);
-    margin-bottom:12px;
-    letter-spacing:.04em;
+    margin-bottom:14px;
+    letter-spacing:.06em;
+  }
+
+  /* ---------- ANIMATIONS ---------- */
+  @keyframes fadeUp{
+    from{opacity:0;transform:translateY(30px)}
+    to{opacity:1;transform:translateY(0)}
+  }
+
+  @keyframes pulseGlow{
+    0%,100%{box-shadow:0 24px 72px rgba(201,162,77,.3)}
+    50%{box-shadow:0 24px 90px rgba(201,162,77,.5)}
+  }
+
+  @keyframes spinSlow{
+    from{transform:rotate(0deg)}
+    to{transform:rotate(360deg)}
   }
 
   /* ---------- MOBILE ---------- */
@@ -560,7 +604,7 @@
     .nav-links{display:none}
     nav{padding:16px 5vw}
 
-    section{padding:80px 5vw}
+    section{padding:90px 5vw}
 
     .about-grid{
       grid-template-columns:1fr;
@@ -580,27 +624,11 @@
 
     .steps{
       grid-template-columns:1fr;
-      gap:20px;
+      gap:24px;
     }
 
-    .section-head{margin-bottom:48px}
+    .section-head{margin-bottom:56px}
   }
-
-  /* ---------- ANIMATIONS ---------- */
-  @keyframes fadeUp{
-    from{opacity:0;transform:translateY(20px)}
-    to{opacity:1;transform:translateY(0)}
-  }
-
-  .hero-inner > *{
-    animation:fadeUp .8s ease backwards;
-  }
-
-  .hero-inner > *:nth-child(1){animation-delay:.1s}
-  .hero-inner > *:nth-child(2){animation-delay:.2s}
-  .hero-inner > *:nth-child(3){animation-delay:.3s}
-  .hero-inner > *:nth-child(4){animation-delay:.4s}
-  .hero-inner > *:nth-child(5){animation-delay:.5s}
 </style>
 </head>
 <body>
@@ -633,7 +661,7 @@
 <!-- ABOUT -->
 <section class="about" id="about">
   <div class="about-grid">
-    <div class="about-text">
+    <div class="about-text" data-aos="fade-right" data-aos-duration="800">
       <div class="section-eyebrow">О бренде</div>
       <h2>Сшито с теплом<br>и вниманием к деталям</h2>
       <p>РТ-одежда — это небольшой бренд, где каждая вещь создаётся с любовью. Мы не гонимся за массовостью — нам важно, чтобы ты чувствовала себя в нашей одежде особенной.</p>
@@ -644,34 +672,34 @@
         <li>Индивидуальный подход к каждому заказу</li>
       </ul>
     </div>
-    <div class="about-visual"></div>
+    <div class="about-visual" data-aos="fade-left" data-aos-duration="800" data-aos-delay="200"></div>
   </div>
 </section>
 
 <!-- COLLECTION -->
 <section id="collection">
-  <div class="section-head">
+  <div class="section-head" data-aos="fade-up" data-aos-duration="800">
     <div class="section-eyebrow">Коллекция</div>
     <h2>Наши вещи</h2>
     <p>Каждая модель — отдельная история. Выбирай то, что откликается именно тебе.</p>
   </div>
   <div class="grid-products">
-    <div class="product">
+    <div class="product" data-aos="fade-up" data-aos-duration="700" data-aos-delay="0">
       <div class="product-image"><span class="product-badge">Новинка</span></div>
       <h3>Платье «Аврора»</h3>
       <div class="product-price">от 4 900 ₽</div>
     </div>
-    <div class="product">
+    <div class="product" data-aos="fade-up" data-aos-duration="700" data-aos-delay="100">
       <div class="product-image"></div>
       <h3>Костюм «Ночь»</h3>
       <div class="product-price">от 7 500 ₽</div>
     </div>
-    <div class="product">
+    <div class="product" data-aos="fade-up" data-aos-duration="700" data-aos-delay="200">
       <div class="product-image"></div>
       <h3>Юбка «Тёплый вечер»</h3>
       <div class="product-price">от 2 900 ₽</div>
     </div>
-    <div class="product">
+    <div class="product" data-aos="fade-up" data-aos-duration="700" data-aos-delay="300">
       <div class="product-image"><span class="product-badge">Хит</span></div>
       <h3>Рубашка «Мираж»</h3>
       <div class="product-price">от 3 400 ₽</div>
@@ -681,38 +709,38 @@
 
 <!-- LOOKBOOK -->
 <section class="lookbook" id="lookbook">
-  <div class="section-head">
+  <div class="section-head" data-aos="fade-up" data-aos-duration="800">
     <div class="section-eyebrow">Lookbook</div>
     <h2>Как это носить</h2>
     <p>Образы, которые вдохновляют. Комбинируй, экспериментируй, находи своё.</p>
   </div>
   <div class="lookbook-grid">
-    <div class="look"><div class="look-label">Образ 01</div></div>
-    <div class="look"><div class="look-label">Образ 02</div></div>
-    <div class="look"><div class="look-label">Образ 03</div></div>
-    <div class="look"><div class="look-label">Образ 04</div></div>
+    <div class="look" data-aos="fade-up" data-aos-duration="700" data-aos-delay="0"><div class="look-label">Образ 01</div></div>
+    <div class="look" data-aos="fade-up" data-aos-duration="700" data-aos-delay="100"><div class="look-label">Образ 02</div></div>
+    <div class="look" data-aos="fade-up" data-aos-duration="700" data-aos-delay="200"><div class="look-label">Образ 03</div></div>
+    <div class="look" data-aos="fade-up" data-aos-duration="700" data-aos-delay="300"><div class="look-label">Образ 04</div></div>
   </div>
 </section>
 
 <!-- HOW TO ORDER -->
 <section id="order">
-  <div class="section-head">
+  <div class="section-head" data-aos="fade-up" data-aos-duration="800">
     <div class="section-eyebrow">Как заказать</div>
     <h2>Три простых шага</h2>
     <p>Никаких сложных корзин и регистраций — всё через личное сообщение.</p>
   </div>
   <div class="steps">
-    <div class="step">
+    <div class="step" data-aos="fade-up" data-aos-duration="700" data-aos-delay="0">
       <div class="step-num">01</div>
       <h3>Выбираешь</h3>
       <p>Смотришь коллекцию, находишь то, что по душе.</p>
     </div>
-    <div class="step">
+    <div class="step" data-aos="fade-up" data-aos-duration="700" data-aos-delay="150">
       <div class="step-num">02</div>
       <h3>Пишешь нам</h3>
       <p>Отправляешь сообщение в Telegram или Instagram с номером модели.</p>
     </div>
-    <div class="step">
+    <div class="step" data-aos="fade-up" data-aos-duration="700" data-aos-delay="300">
       <div class="step-num">03</div>
       <h3>Получаешь</h3>
       <p>Обсуждаем размер, оплату и доставку. Ждёшь свою посылку.</p>
@@ -722,7 +750,7 @@
 
 <!-- CONTACTS -->
 <section class="contacts" id="contacts">
-  <div class="contacts-inner">
+  <div class="contacts-inner" data-aos="fade-up" data-aos-duration="800">
     <div class="section-eyebrow">Контакты</div>
     <h2>Свяжись с нами</h2>
     <p>Ответим на любые вопросы, поможем с размером и подберём образ.</p>
@@ -740,6 +768,16 @@
   <div class="footer-logo">РТ — одежда</div>
   <div>© 2026 · Все права защищены</div>
 </footer>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init({
+    once: true,
+    offset: 80,
+    duration: 800,
+    easing: 'ease-out-cubic'
+  });
+</script>
 
 </body>
 </html>
