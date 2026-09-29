@@ -1008,7 +1008,8 @@
   @media (max-width:820px){
     section{padding:64px 24px}
     .hero{padding:calc(var(--header-h) + 40px) 24px 96px}
-    .footer{padding:36px 24px calc(36px + var(--safe-b))}
+    /* снизу добавлена липкая полоса — не закрываем копирайт */
+    .footer{padding:36px 24px calc(36px + 68px + var(--safe-b))}
 
     .nav{display:none}
     .burger{display:block}
