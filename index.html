@@ -2,30 +2,62 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>РТ-одежда — женская одежда малыми партиями</title>
-<meta name="description" content="РТ-одежда — небольшой бренд женской одежды: малые партии, натуральные ткани, ручная работа.">
+<meta name="description" content="РТ-одежда — небольшой бренд женской одежды: малые партии по 12–20 штук, натуральные ткани, ручная работа. Размеры 42–50.">
+
+<!-- Поведение тёмной темы в браузере и системных контролах -->
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#1a0f08">
+
+<!-- Превью при пересылке ссылки в Telegram / WhatsApp / VK.
+     Картинку 1200×630 положи рядом с index.html и в og:image поставь
+     ПОЛНЫЙ адрес со своим доменом: относительные пути мессенджеры не подхватывают. -->
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:site_name" content="РТ-одежда">
+<meta property="og:url" content="https://rt-odezhda.ru/">
+<meta property="og:title" content="РТ-одежда — женская одежда малыми партиями">
+<meta property="og:description" content="Малые партии по 12–20 штук. Натуральные ткани. Ручная работа. Размеры 42–50.">
+<meta property="og:image" content="https://rt-odezhda.ru/og-cover.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://rt-odezhda.ru/og-cover.jpg">
+
+<!-- Иконка вкладки. Когда придёт настоящий логотип — замени на <link rel="icon" href="favicon.svg"> -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%2064%2064%22%3E%3Crect%20width=%2264%22%20height=%2264%22%20rx=%2214%22%20fill=%22%231a0f08%22/%3E%3Ccircle%20cx=%2232%22%20cy=%2232%22%20r=%2221%22%20fill=%22%23c9a24d%22/%3E%3Ctext%20x=%2232%22%20y=%2240%22%20font-family=%22Georgia,serif%22%20font-size=%2220%22%20font-weight=%22700%22%20text-anchor=%22middle%22%20fill=%22%231a0f08%22%3E%D0%A0%D0%A2%3C/text%3E%3C/svg%3E">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+
 <style>
   :root{
+    color-scheme:dark;
+
     --bg:#1a0f08;
     --bg-alt:#24160e;
     --bg-card:#2a1a10;
     --gold:#c9a24d;
     --gold-soft:#e6c87a;
     --cream:#f0e6d6;
-    --muted:#8a7460;
+    /* #8a7460 давал контраст 4.26:1 — ниже порога AA.
+       #9c8471: 5.33:1 на --bg и 4.98:1 на --bg-alt, тон тот же */
+    --muted:#9c8471;
     --line:rgba(201,162,77,.18);
     --ease:cubic-bezier(.28,.84,.42,1);
     --spring:cubic-bezier(.34,1.4,.64,1);
     --header-h:72px;
+    --safe-b:env(safe-area-inset-bottom,0px);
   }
 
   *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 
-  html{scroll-behavior:smooth;scroll-padding-top:calc(var(--header-h) + 24px)}
+  html{
+    scroll-behavior:smooth;
+    scroll-padding-top:calc(var(--header-h) + 24px);
+    -webkit-text-size-adjust:100%;
+  }
 
   body{
     background:var(--bg);
@@ -35,6 +67,7 @@
     font-weight:400;
     line-height:1.7;
     -webkit-font-smoothing:antialiased;
+    -webkit-tap-highlight-color:transparent;
     overflow-x:hidden;
   }
 
@@ -58,12 +91,45 @@
     color:var(--cream);
   }
 
-  a{color:inherit;text-decoration:none}
-  img{display:block;max-width:100%}
+  a{color:inherit;text-decoration:none;touch-action:manipulation}
+  img{display:block;max-width:100%;height:auto}
   li{list-style:none}
-  button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+  button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;touch-action:manipulation}
+
+  ::selection{background:rgba(201,162,77,.32);color:var(--cream)}
+
+  a:focus-visible,
+  button:focus-visible,
+  summary:focus-visible{
+    outline:2px solid var(--gold);
+    outline-offset:3px;
+    border-radius:2px;
+  }
 
   .wrap{max-width:1200px;margin:0 auto;width:100%}
+
+  .visually-hidden{
+    position:absolute;
+    width:1px;height:1px;
+    margin:-1px;padding:0;border:0;
+    clip:rect(0 0 0 0);
+    clip-path:inset(50%);
+    overflow:hidden;
+    white-space:nowrap;
+  }
+
+  .skip{
+    position:fixed;
+    top:-120px;left:24px;
+    z-index:400;
+    padding:14px 24px;
+    background:var(--gold);
+    color:#24160e;
+    font-size:14px;
+    transition:top .25s var(--ease);
+  }
+
+  .skip:focus{top:12px}
 
   /* ---------- Прогресс-бар ---------- */
   .progress{
@@ -89,7 +155,7 @@
     backdrop-filter:blur(16px) saturate(140%);
     -webkit-backdrop-filter:blur(16px) saturate(140%);
     border-bottom:1px solid transparent;
-    transition:background .4s var(--ease),border-color .4s var(--ease);
+    transition:background .4s var(--ease),border-color .4s var(--ease),transform .45s var(--ease);
   }
 
   .header.is-scrolled{
@@ -97,11 +163,14 @@
     border-bottom-color:var(--line);
   }
 
+  /* Шапка уезжает вверх при прокрутке вниз и возвращается при прокрутке вверх */
+  .header.is-hidden{transform:translateY(-100%)}
+
   .header .wrap{
     display:flex;
     align-items:center;
     justify-content:space-between;
-    gap:28px;
+    gap:20px;
   }
 
   .logo{
@@ -117,7 +186,7 @@
   }
 
   /* Монограмма в шапке. Когда придёт файл логотипа —
-     замени этот блок на <img class="logo-img" src="logo.svg" alt="РТ-одежда"> */
+     замени этот блок на <img src="logo.svg" alt="РТ-одежда" width="32" height="32"> */
   .mono{
     width:32px;
     height:32px;
@@ -153,6 +222,9 @@
 
   .nav-cta{
     flex-shrink:0;
+    display:inline-flex;
+    align-items:center;
+    min-height:44px;
     padding:10px 22px;
     border:1px solid var(--line);
     border-radius:999px;
@@ -170,6 +242,108 @@
     transform:translateY(-2px);
   }
 
+  .header-right{display:flex;align-items:center;gap:12px;flex-shrink:0}
+
+  /* ---------- Бургер + полноэкранное меню ---------- */
+  .burger{
+    display:none;
+    position:relative;
+    width:48px;height:48px;
+    border:1px solid var(--line);
+    border-radius:999px;
+    color:var(--gold);
+    transition:border-color .3s var(--ease);
+  }
+
+  .burger:hover{border-color:var(--gold)}
+
+  .burger i{
+    position:absolute;
+    left:14px;right:14px;
+    height:1px;
+    background:currentColor;
+    transition:transform .35s var(--ease),opacity .2s var(--ease);
+  }
+
+  .burger i:nth-child(1){top:19px}
+  .burger i:nth-child(2){top:24px}
+  .burger i:nth-child(3){top:29px}
+
+  body.menu-open .burger i:nth-child(1){transform:translateY(5px) rotate(45deg)}
+  body.menu-open .burger i:nth-child(2){opacity:0}
+  body.menu-open .burger i:nth-child(3){transform:translateY(-5px) rotate(-45deg)}
+
+  .menu{
+    position:fixed;
+    inset:0;
+    z-index:190;
+    background:var(--bg);
+    padding:calc(var(--header-h) + 32px) 24px calc(32px + var(--safe-b));
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    overflow-y:auto;
+    -webkit-overflow-scrolling:touch;
+    visibility:hidden;
+    transform:translateY(-101%);
+    transition:transform .55s var(--ease),visibility 0s linear .55s;
+  }
+
+  body.menu-open .menu{
+    visibility:visible;
+    transform:none;
+    transition:transform .55s var(--ease),visibility 0s;
+  }
+
+  body.menu-open{overflow:hidden}
+
+  .menu-list{display:grid;gap:2px}
+
+  .menu-list a{
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    gap:16px;
+    padding:16px 0;
+    min-height:56px;
+    border-bottom:1px solid var(--line);
+    font-family:'Cormorant Garamond',serif;
+    font-size:clamp(30px,8vw,42px);
+    font-weight:500;
+    color:var(--cream);
+    transition:color .3s var(--ease),padding-left .3s var(--ease);
+  }
+
+  .menu-list a:hover,.menu-list a:focus-visible{color:var(--gold);padding-left:6px}
+
+  .menu-list .num{
+    font-family:'Inter',sans-serif;
+    font-size:11px;
+    letter-spacing:.2em;
+    color:var(--muted);
+  }
+
+  .menu-bottom{margin-top:40px}
+
+  .menu-quick{display:flex;gap:12px;flex-wrap:wrap}
+
+  .menu-quick a{
+    display:inline-flex;
+    align-items:center;
+    min-height:48px;
+    padding:12px 22px;
+    border:1px solid var(--line);
+    border-radius:999px;
+    font-size:14px;
+    color:var(--gold);
+  }
+
+  .menu-note{
+    margin-top:20px;
+    font-size:13px;
+    color:var(--muted);
+  }
+
   /* ---------- Hero ---------- */
   .hero{
     position:relative;
@@ -184,7 +358,6 @@
     z-index:1;
   }
 
-  /* Мягкое золотое свечение */
   .hero::before{
     content:"";
     position:absolute;
@@ -207,14 +380,14 @@
     to{opacity:1;transform:translateY(0)}
   }
 
-  @keyframes spin{
-    to{transform:rotate(360deg)}
-  }
+  @keyframes spin{to{transform:rotate(360deg)}}
 
   @keyframes fadeUp{
     from{opacity:0;transform:translateY(18px)}
     to{opacity:1;transform:translateY(0)}
   }
+
+  @keyframes marquee{to{transform:translateX(-50%)}}
 
   .hero-inner{
     position:relative;
@@ -253,15 +426,13 @@
     animation:spin 36s linear infinite;
   }
 
-  /* Появление hero: элементы въезжают по очереди.
-     fill-mode: backwards — после анимации стили возвращаются к обычным,
-     поэтому hover-трансформы работают. */
+  /* fill-mode: backwards — после анимации стили возвращаются к обычным,
+     поэтому hover-трансформы работают */
   .hero-inner > *{animation:heroIn 1s var(--ease) backwards}
   .hero-inner > *:nth-child(2){animation-delay:.08s}
   .hero-inner > *:nth-child(3){animation-delay:.16s}
   .hero-inner > *:nth-child(4){animation-delay:.24s}
   .hero-inner > *:nth-child(5){animation-delay:.32s}
-  .hero-inner > *:nth-child(6){animation-delay:.4s}
 
   .hero-eyebrow{
     font-size:12px;
@@ -287,10 +458,9 @@
     font-size:clamp(16px,2vw,19px);
     color:var(--muted);
     max-width:30em;
-    margin:0 auto;
+    margin:0 auto 40px;
   }
 
-  /* Нижняя строка hero: засечки по краям + указатель скролла */
   .hero-foot{
     position:absolute;
     left:0;right:0;bottom:0;
@@ -307,7 +477,7 @@
     font-size:11px;
     letter-spacing:.24em;
     text-transform:uppercase;
-    color:rgba(244,237,225,.38);
+    color:rgba(244,237,225,.55);
     padding-bottom:14px;
   }
 
@@ -319,7 +489,7 @@
     font-size:10px;
     letter-spacing:.3em;
     text-transform:uppercase;
-    color:rgba(244,237,225,.42);
+    color:rgba(244,237,225,.55);
   }
 
   .hero-line{
@@ -337,22 +507,25 @@
     100%{transform:scaleY(.35);transform-origin:bottom;background-position:0 100%}
   }
 
-
   .hero-actions{display:flex;gap:16px;justify-content:center;align-items:center;flex-wrap:wrap}
 
   .hero-note{
     font-size:12px;
     letter-spacing:.16em;
     text-transform:uppercase;
-    color:rgba(244,237,225,.42);
+    color:rgba(244,237,225,.55);
   }
 
   .btn{
-    display:inline-block;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    min-height:48px;
     padding:16px 36px;
     border-radius:999px;
     font-size:14px;
     letter-spacing:.04em;
+    will-change:transform;
     transition:transform .35s var(--spring),box-shadow .35s var(--ease),border-color .3s,color .3s,background .3s;
   }
 
@@ -415,7 +588,46 @@
     transform:translateY(-5px);
   }
 
-  /* Заглушка под фото мастерской: вставь внутрь <img src="about.jpg" alt="Мастерская"> */
+  /* Кто шьёт. Имя и ссылку на личный telegram замени на свои */
+  .maker{
+    margin-top:44px;
+    padding-top:28px;
+    border-top:1px solid var(--line);
+    display:flex;
+    gap:20px;
+    align-items:flex-start;
+  }
+
+  .maker-photo{
+    width:84px;height:84px;
+    flex-shrink:0;
+    border:1px solid var(--line);
+    border-radius:50%;
+    background:linear-gradient(150deg,var(--bg-card),var(--bg));
+    display:grid;place-items:center;
+    font-size:10px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--muted);
+    transition:border-color .4s var(--ease);
+  }
+
+  .maker-photo:hover{border-color:var(--gold)}
+
+  .maker-name{
+    font-family:'Cormorant Garamond',serif;
+    font-size:21px;
+    font-weight:600;
+    color:var(--gold);
+    margin-bottom:6px;
+  }
+
+  .maker p{font-size:15px;color:var(--muted);max-width:44ch}
+
+  .maker a{color:var(--cream);text-decoration:underline;text-decoration-color:var(--line);text-underline-offset:3px}
+  .maker a:hover{text-decoration-color:var(--gold)}
+
+  /* Заглушка под фото мастерской: вставь внутрь <img src="about.jpg" alt="Мастерская" width="800" height="1000"> */
   .about-photo{
     position:relative;
     aspect-ratio:4/5;
@@ -456,11 +668,7 @@
     gap:28px;
   }
 
-  .product{
-    transition:transform .45s var(--spring);
-  }
-
-  .product:hover{transform:translateY(-8px)}
+  .product{transition:transform .45s var(--spring)}
 
   .product-img{
     position:relative;
@@ -483,16 +691,47 @@
     opacity:.55;
   }
 
-  .product:hover .product-img{
-    border-color:var(--gold);
-    box-shadow:0 18px 50px rgba(201,162,77,.12);
+  /* Спотлайт под курсором: координаты пишет JS в --mx/--my */
+  .product-img::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    z-index:1;
+    opacity:0;
+    background:radial-gradient(220px circle at var(--mx,50%) var(--my,50%),rgba(230,200,122,.22),transparent 65%);
+    transition:opacity .4s var(--ease);
   }
 
   .product h3{font-size:22px;margin-bottom:6px}
 
   .product-price{font-size:15px;color:var(--gold);letter-spacing:.02em}
 
-  .product-note{font-size:13px;color:var(--muted);margin-top:6px}
+  .product-note{font-size:13px;color:var(--muted);margin-top:6px;max-width:36ch}
+
+  /* Кнопка заказа с предзаполненным текстом сообщения */
+  .order{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    margin-top:16px;
+    min-height:48px;
+    padding:12px 24px;
+    border:1px solid var(--line);
+    border-radius:999px;
+    font-size:13px;
+    letter-spacing:.04em;
+    color:var(--gold);
+    transition:border-color .3s var(--ease),background .3s var(--ease),transform .35s var(--spring);
+  }
+
+  .order::before{
+    content:"";
+    width:6px;height:6px;
+    border-radius:50%;
+    background:var(--gold);
+    flex-shrink:0;
+  }
 
   .products-foot{
     margin-top:48px;
@@ -501,6 +740,103 @@
     font-size:14px;
     color:var(--muted);
   }
+
+  /* ---------- Разметка и остатки ---------- */
+  .specs{margin-top:64px;display:grid;gap:20px}
+
+  /* min-width:0 обязателен: без него grid-элемент не сжимается
+     в ширину больше содержимого, и таблица на телефоне вылезает за экран */
+  .spec{
+    min-width:0;
+    border:1px solid var(--line);
+    background:var(--bg-alt);
+  }
+
+  .spec summary{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:16px;
+    padding:20px 24px;
+    min-height:56px;
+    cursor:pointer;
+    list-style:none;
+    font-family:'Cormorant Garamond',serif;
+    font-size:clamp(20px,3vw,26px);
+    font-weight:600;
+    color:var(--cream);
+  }
+
+  .spec summary::-webkit-details-marker{display:none}
+
+  .spec summary i{
+    position:relative;
+    width:20px;height:20px;
+    flex-shrink:0;
+    color:var(--gold);
+    font-style:normal;
+  }
+
+  .spec summary i::before,
+  .spec summary i::after{
+    content:"";
+    position:absolute;
+    top:50%;left:50%;
+    background:currentColor;
+    transition:transform .35s var(--ease),opacity .25s;
+  }
+
+  .spec summary i::before{width:14px;height:1px;transform:translate(-50%,-50%)}
+  .spec summary i::after{width:1px;height:14px;transform:translate(-50%,-50%)}
+
+  .spec[open] summary i::after{transform:translate(-50%,-50%) rotate(90deg);opacity:0}
+
+  .spec-body{padding:0 24px 26px}
+
+  .table-wrap{
+    overflow-x:auto;
+    -webkit-overflow-scrolling:touch;
+    border:1px solid var(--line);
+  }
+
+  table{width:100%;border-collapse:collapse;font-size:15px;min-width:520px}
+
+  caption{text-align:left;padding:14px 16px 0;color:var(--muted);font-size:13px}
+
+  th,td{
+    padding:13px 16px;
+    text-align:left;
+    border-bottom:1px solid var(--line);
+    color:var(--muted);
+    white-space:nowrap;
+  }
+
+  th{
+    font-size:11px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--gold);
+    font-weight:500;
+    background:rgba(201,162,77,.05);
+  }
+
+  tbody th{font-size:15px;letter-spacing:normal;text-transform:none;color:var(--cream);font-weight:500}
+
+  tbody tr:last-child td,tbody tr:last-child th{border-bottom:0}
+
+  .howto{margin-top:20px;display:grid;gap:10px;font-size:14px;color:var(--muted)}
+
+  .howto li{display:flex;gap:14px;align-items:baseline}
+
+  .howto li::before{
+    content:"";
+    width:14px;height:1px;
+    background:var(--gold);
+    flex-shrink:0;
+    transform:translateY(-4px);
+  }
+
+  .swipe-hint{margin-top:12px;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold)}
 
   /* ---------- Как заказать ---------- */
   .steps{
@@ -544,21 +880,73 @@
 
   .contacts .section-title{margin-bottom:20px}
 
-  .contacts-lead{color:var(--muted);max-width:46ch;margin:0 auto 44px}
+  .contacts-lead{color:var(--muted);max-width:46ch;margin:0 auto 40px}
 
   .contacts-links{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
 
   .contacts-links a{
-    padding:14px 24px;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    min-height:48px;
+    padding:14px 28px;
     border:1px solid var(--line);
     font-size:15px;
     letter-spacing:.02em;
-    transition:border-color .3s,color .3s,transform .35s var(--spring);
+    transition:border-color .3s,color .3s,background .3s,transform .35s var(--spring);
   }
 
-  .contacts-links a:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-3px)}
+  .contacts-links a:hover{
+    border-color:var(--gold);
+    color:var(--gold);
+    background:rgba(201,162,77,.06);
+    transform:translateY(-3px);
+  }
 
-  .contacts-note{margin-top:32px;font-size:13px;color:var(--muted)}
+  .contacts-direct{
+    margin-top:28px;
+    display:flex;
+    gap:28px;
+    justify-content:center;
+    flex-wrap:wrap;
+    font-size:14px;
+    color:var(--muted);
+  }
+
+  .contacts-direct a{border-bottom:1px solid var(--line);transition:border-color .3s,color .3s}
+  .contacts-direct a:hover{color:var(--gold);border-color:var(--gold)}
+
+  /* ---------- Бегущая строка ---------- */
+  .ticker{
+    position:relative;
+    z-index:1;
+    overflow:hidden;
+    padding:18px 0;
+    background:var(--bg-alt);
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+    white-space:nowrap;
+  }
+
+  .ticker-track{
+    display:flex;
+    width:max-content;
+    animation:marquee 32s linear infinite;
+  }
+
+  .ticker:hover .ticker-track{animation-play-state:paused}
+
+  .ticker-track span{
+    font-family:'Cormorant Garamond',serif;
+    font-size:clamp(20px,3vw,30px);
+    font-weight:500;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:rgba(240,230,214,.34);
+    padding-right:44px;
+  }
+
+  .ticker-track span b{color:var(--gold);font-weight:500;padding-right:44px}
 
   /* ---------- Footer ---------- */
   .footer{position:relative;z-index:1;border-top:1px solid var(--line);padding:44px 48px}
@@ -571,6 +959,39 @@
   }
 
   .footer-copy{font-size:14px;color:var(--muted)}
+
+  /* ---------- Липкая полоса действий (мобильный) ---------- */
+  .sticky-cta{
+    position:fixed;
+    left:0;right:0;bottom:0;
+    z-index:150;
+    display:none;
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+    padding:10px 16px calc(10px + var(--safe-b));
+    background:rgba(26,15,8,.94);
+    backdrop-filter:blur(14px);
+    -webkit-backdrop-filter:blur(14px);
+    border-top:1px solid var(--line);
+    transform:translateY(110%);
+    transition:transform .4s var(--ease);
+  }
+
+  .sticky-cta.is-on{transform:none}
+
+  .sticky-cta a{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    min-height:48px;
+    padding:12px 8px;
+    border-radius:999px;
+    font-size:13px;
+    letter-spacing:.04em;
+  }
+
+  .sticky-tg{border:1px solid var(--line);color:var(--gold)}
+  .sticky-wa{background:linear-gradient(120deg,var(--gold-soft),var(--gold));color:#24160e;font-weight:500}
 
   /* ---------- Появление при скролле ----------
      Скрыто только при включённом JS (html.js) — без JS контент виден сразу. */
@@ -586,19 +1007,45 @@
 
   @media (max-width:820px){
     section{padding:64px 24px}
-    .hero{padding:calc(var(--header-h) + 48px) 24px 72px}
-    .footer{padding:36px 24px}
+    .hero{padding:calc(var(--header-h) + 40px) 24px 96px}
+    .footer{padding:36px 24px calc(36px + var(--safe-b))}
+
     .nav{display:none}
+    .burger{display:block}
+    .sticky-cta{display:grid}
+
     .hero-mono{width:84px;height:84px;font-size:36px;margin-bottom:32px}
-    .hero-sub{margin-bottom:36px}
     .hero-foot{padding:0 24px 26px}
     .hero-side{display:none}
     .hero-line{height:46px}
-    .btn{width:100%;max-width:320px}
+    .hero-actions{flex-direction:column;align-items:stretch;max-width:340px;margin:0 auto}
+    .btn{width:100%}
+
     .section-head{margin-bottom:44px}
     .products-grid{grid-template-columns:1fr;gap:36px}
+    .order{width:100%}
     .steps-grid{grid-template-columns:1fr;gap:36px}
-    .contacts-links{flex-direction:column;max-width:320px;margin:0 auto}
+    .contacts-links{flex-direction:column;max-width:340px;margin:0 auto}
+    .contacts-direct{flex-direction:column;gap:14px}
+    .maker{gap:16px}
+    .spec summary{padding:18px 18px}
+    .spec-body{padding:0 18px 22px}
+    .table-wrap{margin:0 -18px;padding:0 18px}
+  }
+
+  /* Тач-устройства: не оставляем «залипший» hover-подъём карточки */
+  @media (hover:none){
+    .product:hover{transform:none}
+    .product:hover .product-img{border-color:var(--line);box-shadow:none}
+    .product-img::before{display:none}
+  }
+
+  /* Спотлайт включаем только при наведении мышью */
+  @media (hover:hover){
+    .product:hover .product-img::before{opacity:1}
+    .product:hover{transform:translateY(-8px)}
+    .product:hover .product-img{border-color:var(--gold);box-shadow:0 18px 50px rgba(201,162,77,.12)}
+    .order:hover{border-color:var(--gold);background:rgba(201,162,77,.08);transform:translateY(-2px)}
   }
 
   @media (prefers-reduced-motion:reduce){
@@ -606,11 +1053,13 @@
     *,*::before,*::after{animation:none !important;transition:none !important}
     .js .reveal{opacity:1;transform:none}
     .hero-foot{opacity:1}
+    .sticky-cta{transform:none}
   }
 </style>
 </head>
 <body>
 
+<a class="skip" href="#main">К содержимому</a>
 <div class="progress" id="progress" aria-hidden="true"></div>
 
 <header class="header" id="top">
@@ -619,17 +1068,44 @@
       <span class="mono">РТ</span>
       РТ — одежда
     </a>
-      <nav class="nav">
-        <a href="#about">О бренде</a>
-        <a href="#products">Коллекция</a>
-        <a href="#steps">Как заказать</a>
-        <a href="#contacts">Контакты</a>
-      </nav>
+
+    <nav class="nav" aria-label="Основная навигация">
+      <a href="#about">О бренде</a>
+      <a href="#products">Коллекция</a>
+      <a href="#steps">Как заказать</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+
+    <div class="header-right">
       <a class="nav-cta" href="#contacts">Связаться</a>
+      <button class="burger" id="burger" type="button" aria-label="Меню" aria-expanded="false" aria-controls="menu">
+        <i></i><i></i><i></i>
+      </button>
+    </div>
   </div>
 </header>
 
-<main>
+<!-- Полноэкранное меню для телефона и планшета -->
+<div class="menu" id="menu" aria-hidden="true">
+  <nav class="menu-list" aria-label="Меню">
+    <a href="#about"><span>О бренде</span><span class="num">01</span></a>
+    <a href="#products"><span>Коллекция</span><span class="num">02</span></a>
+    <a href="#sizing"><span>Размеры</span><span class="num">03</span></a>
+    <a href="#steps"><span>Как заказать</span><span class="num">04</span></a>
+    <a href="#contacts"><span>Контакты</span><span class="num">05</span></a>
+  </nav>
+
+  <div class="menu-bottom">
+    <div class="menu-quick">
+      <!-- Ссылки-заглушки: подставь свои ник/номер -->
+      <a href="https://t.me/rt_odezhda?utm_source=site&amp;utm_medium=menu" rel="noopener">Telegram</a>
+      <a href="https://wa.me/79990000000?utm_source=site&amp;utm_medium=menu" rel="noopener">WhatsApp</a>
+    </div>
+    <p class="menu-note">Отвечаю с 10:00 до 20:00 по Москве.</p>
+  </div>
+</div>
+
+<main id="main">
 
   <!-- 1. Hero -->
   <section class="hero">
@@ -674,46 +1150,132 @@
               <li>Пошив 7–10 дней после заказа</li>
             </ul>
           </div>
+
+          <!-- Блок «кто шьёт»: имя, опыт и личную ссылку замени на свои -->
+          <div class="maker reveal">
+            <div class="maker-photo">Фото</div>
+            <div>
+              <p class="maker-name">Имя Фамилия</p>
+              <p>Шью сама, без цеха и посредников. Шесть лет в конструировании, первые три — на заказ под знакомых. Пишите напрямую: <a href="https://t.me/rt_odezhda?utm_source=site&amp;utm_medium=maker" rel="noopener">@rt_odezhda</a>.</p>
+            </div>
+          </div>
         </div>
+
         <div class="about-photo reveal"><span>Фото мастерской</span></div>
       </div>
     </div>
   </section>
 
   <!-- 3. Коллекция -->
-  <section class="products" id="products">
+  <section id="products">
     <div class="wrap">
       <div class="section-head reveal">
         <p class="eyebrow">Коллекция</p>
         <h2 class="section-title">Вещи</h2>
       </div>
+
       <div class="products-grid">
         <article class="product reveal">
           <div class="product-img"></div>
           <h3>Платье «Лён»</h3>
           <p class="product-price">8 900 ₽</p>
           <p class="product-note">100% лён, 42–48</p>
+          <p class="product-note">Стирка 30°, без отбеливателя. После сушки даёт усадку около 5%.</p>
+          <a class="order" href="https://wa.me/79990000000?text=Здравствуйте,+интересует+платье+«Лён»,+размер&amp;utm_source=site&amp;utm_medium=card&amp;utm_campaign=lyon" rel="noopener">Заказать в WhatsApp</a>
         </article>
+
         <article class="product reveal">
           <div class="product-img"></div>
           <h3>Костюм «Город»</h3>
           <p class="product-price">14 500 ₽</p>
           <p class="product-note">Шерсть с вискозой, 42–50</p>
+          <p class="product-note">Химчистка или ручная стирка 30°, не сушить на батарее.</p>
+          <a class="order" href="https://wa.me/79990000000?text=Здравствуйте,+интересует+костюм+«Город»,+размер&amp;utm_source=site&amp;utm_medium=card&amp;utm_campaign=gorod" rel="noopener">Заказать в WhatsApp</a>
         </article>
+
         <article class="product reveal">
           <div class="product-img"></div>
           <h3>Юбка «Карман»</h3>
           <p class="product-price">5 400 ₽</p>
           <p class="product-note">Плотный хлопок, 42–48</p>
+          <p class="product-note">Стирка 40°, гладить при 150° с изнанки.</p>
+          <a class="order" href="https://wa.me/79990000000?text=Здравствуйте,+интересует+юбка+«Карман»,+размер&amp;utm_source=site&amp;utm_medium=card&amp;utm_campaign=karmans" rel="noopener">Заказать в WhatsApp</a>
         </article>
+
         <article class="product reveal">
           <div class="product-img"></div>
           <h3>Блуза «Стойка»</h3>
           <p class="product-price">6 200 ₽</p>
           <p class="product-note">Вискоза, 42–50</p>
+          <p class="product-note">Ручная стирка 30°, не выкручивать, сушить на плечиках.</p>
+          <a class="order" href="https://wa.me/79990000000?text=Здравствуйте,+интересует+блуза+«Стойка»,+размер&amp;utm_source=site&amp;utm_medium=card&amp;utm_campaign=stoyka" rel="noopener">Заказать в WhatsApp</a>
         </article>
       </div>
-      <p class="products-foot reveal">Названия и цены временные.</p>
+
+      <!-- Размеры и остатки. Цифры временные — сверь со своими лекалами -->
+      <div class="specs">
+        <details class="spec" id="sizing" open>
+          <summary>Размерная таблица <i aria-hidden="true"></i></summary>
+          <div class="spec-body">
+            <div class="table-wrap">
+              <table>
+                <caption class="visually-hidden">Мерки моделей по размерам 42–50, сантиметры</caption>
+                <thead>
+                  <tr>
+                    <th scope="col">Размер</th>
+                    <th scope="col">Грудь</th>
+                    <th scope="col">Талия</th>
+                    <th scope="col">Бёдра</th>
+                    <th scope="col">Длина изделия</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><th scope="row">42</th><td>84–86</td><td>66–68</td><td>92–94</td><td>118</td></tr>
+                  <tr><th scope="row">44</th><td>88–90</td><td>70–72</td><td>96–98</td><td>119</td></tr>
+                  <tr><th scope="row">46</th><td>92–94</td><td>74–76</td><td>100–102</td><td>120</td></tr>
+                  <tr><th scope="row">48</th><td>96–98</td><td>78–80</td><td>104–106</td><td>121</td></tr>
+                  <tr><th scope="row">50</th><td>100–102</td><td>82–84</td><td>108–110</td><td>122</td></tr>
+                </tbody>
+              </table>
+            </div>
+
+            <ul class="howto">
+              <li>Меряй обхват по самой широкой точке, сантиметр держи горизонтально.</li>
+              <li>Между двумя размерами бери больший: лён и шерсть садятся на 3–5%.</li>
+              <li>Сомневаешься — пришли свои три мерки в Telegram, скажу размер сама.</li>
+            </ul>
+            <p class="swipe-hint">Таблицу можно листать пальцем вправо</p>
+          </div>
+        </details>
+
+        <details class="spec" id="stock">
+          <summary>Свободно по партиям <i aria-hidden="true"></i></summary>
+          <div class="spec-body">
+            <div class="table-wrap">
+              <table>
+                <caption class="visually-hidden">Остатки по моделям на текущий момент</caption>
+                <thead>
+                  <tr>
+                    <th scope="col">Модель</th>
+                    <th scope="col">Размеры в наличии</th>
+                    <th scope="col">Свободно</th>
+                    <th scope="col">Партия</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><th scope="row">Платье «Лён»</th><td>42, 44, 46</td><td>5 из 16</td><td>осень</td></tr>
+                  <tr><th scope="row">Костюм «Город»</th><td>44–50</td><td>8 из 14</td><td>осень</td></tr>
+                  <tr><th scope="row">Юбка «Карман»</th><td>42, 44, 48</td><td>11 из 18</td><td>осень</td></tr>
+                  <tr><th scope="row">Блуза «Стойка»</th><td>42, 46, 50</td><td>3 из 20</td><td>осень</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="howto">Обновляю таблицу раз в неделю. Если размера нет — сшью в следующей партии, срок 7–10 дней.</p>
+          </div>
+        </details>
+      </div>
+
+      <p class="products-foot reveal">Названия, цены и остатки временные — замени на свои.</p>
     </div>
   </section>
 
@@ -751,17 +1313,31 @@
         <p class="eyebrow">Контакты</p>
         <h2 class="section-title">Написать</h2>
       </div>
-      <p class="contacts-lead reveal">Заказы и вопросы о размерах — в мессенджерах. Отвечаю с ##:## до ##:## по Москве.</p>
+      <p class="contacts-lead reveal">Заказы и вопросы о размерах — в мессенджерах. Отвечаю с 10:00 до 20:00 по Москве.</p>
+
       <div class="contacts-links reveal">
-        <a href="#">Telegram</a>
-        <a href="#">Instagram</a>
-        <a href="#">WhatsApp</a>
+        <!-- Подставь свои ссылки: ник в Telegram, аккаунт Instagram, номер WhatsApp -->
+        <a href="https://t.me/rt_odezhda?utm_source=site&amp;utm_medium=contacts" rel="noopener">Telegram</a>
+        <a href="https://instagram.com/rt_odezhda?utm_source=site&amp;utm_medium=contacts" rel="noopener">Instagram</a>
+        <a href="https://wa.me/79990000000?utm_source=site&amp;utm_medium=contacts" rel="noopener">WhatsApp</a>
       </div>
-      <p class="contacts-note reveal">Ссылки пока заглушки.</p>
+
+      <div class="contacts-direct reveal">
+        <a href="tel:+79990000000">+7 999 000-00-00</a>
+        <a href="mailto:zakaz@rt-odezhda.ru">zakaz@rt-odezhda.ru</a>
+      </div>
     </div>
   </section>
 
 </main>
+
+<!-- Бегущая строка: состав тканей -->
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track">
+    <span>Хлопок<b>·</b>Лён<b>·</b>Вискоза<b>·</b>Шерсть<b>·</b>Малые партии<b>·</b>Ручная работа<b>·</b></span>
+    <span>Хлопок<b>·</b>Лён<b>·</b>Вискоза<b>·</b>Шерсть<b>·</b>Малые партии<b>·</b>Ручная работа<b>·</b></span>
+  </div>
+</div>
 
 <footer class="footer">
   <div class="wrap">
@@ -770,6 +1346,12 @@
   </div>
 </footer>
 
+<!-- Липная полоса действий: видна только на телефоне -->
+<div class="sticky-cta" id="sticky">
+  <a class="sticky-tg" href="https://t.me/rt_odezhda?utm_source=site&amp;utm_medium=sticky">Telegram</a>
+  <a class="sticky-wa" href="https://wa.me/79990000000?utm_source=site&amp;utm_medium=sticky">WhatsApp</a>
+</div>
+
 <script>
   document.documentElement.classList.add('js');
 
@@ -777,17 +1359,92 @@
     var header = document.querySelector('.header');
     var progress = document.getElementById('progress');
     var hero = document.getElementById('hero-inner');
+    var burger = document.getElementById('burger');
+    var menu = document.getElementById('menu');
+    var sticky = document.getElementById('sticky');
+    var body = document.body;
     var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var fine = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+
+    var lastY = window.pageYOffset;
     var ticking = false;
 
+    /* ---------- Полноэкранное меню ---------- */
+    function openMenu() {
+      body.classList.add('menu-open');
+      burger.setAttribute('aria-expanded', 'true');
+      menu.setAttribute('aria-hidden', 'false');
+      var first = menu.querySelector('a');
+      if (first) first.focus({ preventScroll: true });
+    }
+
+    function closeMenu(restoreFocus) {
+      if (!body.classList.contains('menu-open')) return;
+      body.classList.remove('menu-open');
+      burger.setAttribute('aria-expanded', 'false');
+      menu.setAttribute('aria-hidden', 'true');
+      if (restoreFocus) burger.focus({ preventScroll: true });
+    }
+
+    if (burger && menu) {
+      burger.addEventListener('click', function () {
+        if (body.classList.contains('menu-open')) closeMenu(true);
+        else openMenu();
+      });
+
+      menu.addEventListener('click', function (e) {
+        if (e.target.closest('a')) closeMenu(false);
+      });
+
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') closeMenu(true);
+      });
+
+      /* Пока меню открыто — Tab циклит внутри него,
+         иначе фокус ушёл бы на невидимые ссылки под оверлеем */
+      document.addEventListener('keydown', function (e) {
+        if (e.key !== 'Tab' || !body.classList.contains('menu-open')) return;
+        var f = [burger].concat([].slice.call(menu.querySelectorAll('a')));
+        var first = f[0];
+        var last = f[f.length - 1];
+
+        if (e.shiftKey && (document.activeElement === first || document.activeElement === body)) {
+          e.preventDefault();
+          last.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault();
+          first.focus();
+        }
+      });
+
+      window.addEventListener('resize', function () {
+        if (window.innerWidth > 820) closeMenu(false);
+      });
+    }
+
+    /* ---------- Прокрутка: прогресс, шапка, параллакс, липкая полоса ---------- */
     function onScroll() {
       var y = window.pageYOffset;
       var max = document.documentElement.scrollHeight - window.innerHeight;
+      var vh = window.innerHeight;
 
-      if (header) header.classList.toggle('is-scrolled', y > 8);
       if (progress) progress.style.transform = 'scaleX(' + (max > 0 ? Math.min(y / max, 1) : 0) + ')';
-      if (hero && !reduce && y < window.innerHeight) hero.style.transform = 'translate3d(0,' + (y * 0.12) + 'px,0)';
+      if (header) header.classList.toggle('is-scrolled', y > 8);
 
+      /* Прячем шапку только при осмысленном движении вниз и не на первом экране */
+      if (header && !body.classList.contains('menu-open')) {
+        var down = y > lastY + 8;
+        var up = y < lastY - 8;
+        var focusInside = header.contains(document.activeElement);
+        if (down && y > vh * 0.7 && !focusInside) header.classList.add('is-hidden');
+        else if (up) header.classList.remove('is-hidden');
+        if (y < 12) header.classList.remove('is-hidden');
+      }
+
+      if (hero && !reduce && y < vh) hero.style.transform = 'translate3d(0,' + (y * 0.12) + 'px,0)';
+      if (sticky) sticky.classList.toggle('is-on', y > vh * 0.7);
+
+      if (y !== lastY) lastY = y;
       ticking = false;
     }
 
@@ -796,7 +1453,7 @@
     }, { passive: true });
     onScroll();
 
-    /* Появление блоков + stagger внутри одной группы */
+    /* ---------- Появление блоков + stagger внутри группы ---------- */
     var items = [].slice.call(document.querySelectorAll('.reveal'));
 
     if (reduce || !('IntersectionObserver' in window)) {
@@ -818,7 +1475,7 @@
       items.forEach(function (el) { io.observe(el); });
     }
 
-    /* Подсветка активного пункта меню */
+    /* ---------- Подсветка активного пункта меню ---------- */
     var links = [].slice.call(document.querySelectorAll('.nav a[href^="#"]:not(.nav-cta)'));
     var sections = links.map(function (l) { return document.querySelector(l.getAttribute('href')); }).filter(Boolean);
 
@@ -834,6 +1491,30 @@
 
       sections.forEach(function (s) { spy.observe(s); });
     }
+
+    if (reduce || !fine) return;
+
+    /* ---------- Магнитные кнопки ---------- */
+    [].forEach.call(document.querySelectorAll('.btn,.nav-cta'), function (el) {
+      el.addEventListener('pointermove', function (e) {
+        var r = el.getBoundingClientRect();
+        var x = (e.clientX - r.left - r.width / 2) * 0.18;
+        var y = (e.clientY - r.top - r.height / 2) * 0.24;
+        el.style.transform = 'translate3d(' + Math.max(-6, Math.min(6, x)) + 'px,' + Math.max(-5, Math.min(5, y)) + 'px,0)';
+      });
+      el.addEventListener('pointerleave', function () { el.style.transform = ''; });
+    });
+
+    /* ---------- Спотлайт на карточках ---------- */
+    [].forEach.call(document.querySelectorAll('.product'), function (card) {
+      var img = card.querySelector('.product-img');
+      if (!img) return;
+      card.addEventListener('pointermove', function (e) {
+        var r = img.getBoundingClientRect();
+        img.style.setProperty('--mx', ((e.clientX - r.left) / r.width * 100).toFixed(1) + '%');
+        img.style.setProperty('--my', ((e.clientY - r.top) / r.height * 100).toFixed(1) + '%');
+      });
+    });
   })();
 </script>
 
