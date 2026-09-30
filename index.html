@@ -1,1508 +1,953 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ru">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>РТ-одежда — женская одежда собственного производства</title>
-<meta name="description" content="РТ-одежда — женская одежда собственного производства: цех, натуральные ткани, размерный ряд 42–50. Отшиваем партиями.">
-
-<!-- Поведение тёмной темы в браузере и системных контролах -->
-<meta name="color-scheme" content="dark">
+<meta charset="utf-8">
+<script>document.documentElement.className='js';</script>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>РТ-одежда — женская одежда своего производства, Бичура (Республика Бурятия)</title>
+<meta name="description" content="РТ-одежда — женская одежда собственного производства в Бичуре (Республика Бурятия): цех, натуральные ткани, размеры 42–50, пошив 7–10 дней.">
+<meta name="robots" content="index,follow,max-image-preview:large">
 <meta name="theme-color" content="#1a0f08">
-
-<!-- Превью при пересылке ссылки в Telegram / WhatsApp / VK.
-     Картинку 1200×630 потом положц рядом с index.html и в og:image поставлю
-     ПОЛНЫЙ адрес со своим доменом: относительные пути мессенджеры не подхватывают. -->
+<link rel="canonical" href="https://rt-odezhda.ru/">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="ru_RU">
 <meta property="og:site_name" content="РТ-одежда">
-<meta property="og:url" content="https://rt-odezhda.ru/">
-<meta property="og:title" content="РТ-одежда — женская одежда собственного производства">
-<meta property="og:description" content="Свой цех, натуральные ткани, размерный ряд 42–50. Отшиваем партиями.">
-<meta property="og:image" content="https://rt-odezhda.ru/og-cover.jpg">
+<meta property="og:title" content="РТ-одежда — женская одежда своего производства">
+<meta property="og:description" content="Свой цех в Бичуре. Хлопок, лён, вискоза, шерсть. Размеры 42–50, пошив 7–10 дней.">
+<meta property="og:image" content="https://rt-odezhda.ru/img/og-preview.jpg">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://rt-odezhda.ru/og-cover.jpg">
-
-<!-- Иконка вкладки. Когда придёт настоящий логотип — заменю на <link rel="icon" href="favicon.svg"> -->
-<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%2064%2064%22%3E%3Crect%20width=%2264%22%20height=%2264%22%20rx=%2214%22%20fill=%22%231a0f08%22/%3E%3Ccircle%20cx=%2232%22%20cy=%2232%22%20r=%2221%22%20fill=%22%23c9a24d%22/%3E%3Ctext%20x=%2232%22%20y=%2240%22%20font-family=%22Georgia,serif%22%20font-size=%2220%22%20font-weight=%22700%22%20text-anchor=%22middle%22%20fill=%22%231a0f08%22%3E%D0%A0%D0%A2%3C/text%3E%3C/svg%3E">
-<link rel="apple-touch-icon" href="apple-touch-icon.png">
-
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='32' fill='%23c9a24d'/%3E%3Ctext x='32' y='41' font-family='Georgia,serif' font-size='24' font-weight='600' text-anchor='middle' fill='%231a0f08'%3E%D0%A0%D0%A2%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
 
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org","@type":"ClothingStore","name":"РТ-одежда","url":"https://rt-odezhda.ru/",
+  "description":"Женская одежда собственного производства в Бичуре (Республика Бурятия): свой цех, натуральные ткани, размеры 42–50.",
+  "telephone":"+7 999 000-00-00","email":"hello@rt-odezhda.ru","priceRange":"3800–6900 RUB",
+  "address":{"@type":"PostalAddress","addressLocality":"Бичура","addressRegion":"Республика Бурятия","addressCountry":"RU"},
+  "openingHours":"Mo-Fr 10:00-20:00",
+  "sameAs":["https://t.me/rt_odezhda","https://instagram.com/rt.odezhda"],
+  "makesOffer":[
+    {"@type":"Offer","price":"6900","priceCurrency":"RUB","name":"Платье «Милан»"},
+    {"@type":"Offer","price":"4200","priceCurrency":"RUB","name":"Рубашка «Тиволи»"},
+    {"@type":"Offer","price":"3800","priceCurrency":"RUB","name":"Юбка «Кассель»"},
+    {"@type":"Offer","price":"5400","priceCurrency":"RUB","name":"Брюки «Палермо»"}
+  ]
+}
+</script>
+
 <style>
-  :root{
-    color-scheme:dark;
-
-    --bg:#1a0f08;
-    --bg-alt:#24160e;
-    --bg-card:#2a1a10;
-    --gold:#c9a24d;
-    --gold-soft:#e6c87a;
-    --cream:#f0e6d6;
-    /* #8a7460 давал контраст 4.26:1 — ниже порога AA.
-       #9c8471: 5.33:1 на --bg и 4.98:1 на --bg-alt, тон тот же */
-    --muted:#9c8471;
-    --line:rgba(201,162,77,.18);
-    --ease:cubic-bezier(.28,.84,.42,1);
-    --spring:cubic-bezier(.34,1.4,.64,1);
-    --header-h:72px;
-    --safe-b:env(safe-area-inset-bottom,0px);
-  }
-
-  *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-
-  html{
-    scroll-behavior:smooth;
-    scroll-padding-top:calc(var(--header-h) + 24px);
-    -webkit-text-size-adjust:100%;
-  }
-
-  body{
-    background:var(--bg);
-    color:var(--cream);
-    font-family:'Inter',sans-serif;
-    font-size:16px;
-    font-weight:400;
-    line-height:1.7;
-    -webkit-font-smoothing:antialiased;
-    -webkit-tap-highlight-color:transparent;
-    overflow-x:hidden;
-  }
-
-  /* Фактура «кожи» поверх фона */
-  body::before{
-    content:"";
-    position:fixed;
-    inset:0;
-    z-index:0;
-    pointer-events:none;
-    background:
-      radial-gradient(120% 80% at 50% -10%, rgba(201,162,77,.10), transparent 60%),
-      radial-gradient(100% 70% at 50% 115%, rgba(0,0,0,.55), transparent 60%);
-  }
-
-  h1,h2,h3{
-    font-family:'Cormorant Garamond',serif;
-    font-weight:600;
-    line-height:1.12;
-    letter-spacing:-.005em;
-    color:var(--cream);
-  }
-
-  a{color:inherit;text-decoration:none;touch-action:manipulation}
-  img{display:block;max-width:100%;height:auto}
-  li{list-style:none}
-  button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;touch-action:manipulation}
-
-  ::selection{background:rgba(201,162,77,.32);color:var(--cream)}
-
-  a:focus-visible,
-  button:focus-visible,
-  summary:focus-visible{
-    outline:2px solid var(--gold);
-    outline-offset:3px;
-    border-radius:2px;
-  }
-
-  .wrap{max-width:1200px;margin:0 auto;width:100%}
-
-  .visually-hidden{
-    position:absolute;
-    width:1px;height:1px;
-    margin:-1px;padding:0;border:0;
-    clip:rect(0 0 0 0);
-    clip-path:inset(50%);
-    overflow:hidden;
-    white-space:nowrap;
-  }
-
-  .skip{
-    position:fixed;
-    top:-120px;left:24px;
-    z-index:400;
-    padding:14px 24px;
-    background:var(--gold);
-    color:#24160e;
-    font-size:14px;
-    transition:top .25s var(--ease);
-  }
-
-  .skip:focus{top:12px}
-
-  /* ---------- Прогресс-бар ---------- */
-  .progress{
-    position:fixed;
-    top:0;left:0;
-    height:2px;
-    width:100%;
-    z-index:300;
-    background:linear-gradient(90deg,var(--gold),var(--gold-soft));
-    transform:scaleX(0);
-    transform-origin:0 50%;
-  }
-
-  /* ---------- Header ---------- */
-  .header{
-    position:fixed;
-    top:0;left:0;right:0;
-    z-index:200;
-    height:var(--header-h);
-    display:flex;
-    align-items:center;
-    background:rgba(26,15,8,.62);
-    backdrop-filter:blur(16px) saturate(140%);
-    -webkit-backdrop-filter:blur(16px) saturate(140%);
-    border-bottom:1px solid transparent;
-    transition:background .4s var(--ease),border-color .4s var(--ease),transform .45s var(--ease);
-  }
-
-  .header.is-scrolled{
-    background:rgba(26,15,8,.86);
-    border-bottom-color:var(--line);
-  }
-
-  /* Шапка уезжает вверх при прокрутке вниз и возвращается при прокрутке вверх */
-  .header.is-hidden{transform:translateY(-100%)}
-
-  .header .wrap{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:20px;
-  }
-
-  .logo{
-    display:flex;
-    align-items:center;
-    gap:12px;
-    font-family:'Cormorant Garamond',serif;
-    font-size:21px;
-    font-weight:600;
-    letter-spacing:.02em;
-    color:var(--gold);
-    white-space:nowrap;
-  }
-
-  /* Монограмма в шапке. Когда придёт файл логотипа —
-     заменю этот блок на <img src="logo.svg" alt="РТ-одежда" width="32" height="32"> */
-  .mono{
-    width:32px;
-    height:32px;
-    flex-shrink:0;
-    border-radius:50%;
-    display:grid;
-    place-items:center;
-    background:linear-gradient(140deg,var(--gold-soft),var(--gold) 55%,#8f6a2c);
-    color:#2a1a10;
-    font-family:'Cormorant Garamond',serif;
-    font-size:14px;
-    font-weight:600;
-    letter-spacing:.02em;
-  }
-
-  .nav{display:flex;align-items:center;gap:32px;font-size:14px;color:var(--muted);flex-shrink:0}
-
-  .nav a{position:relative;padding-bottom:4px;transition:color .3s var(--ease)}
-
-  .nav a::after{
-    content:"";
-    position:absolute;left:0;bottom:0;
-    width:100%;height:1px;
-    background:var(--gold);
-    transform:scaleX(0);
-    transform-origin:0 50%;
-    transition:transform .35s var(--ease);
-  }
-
-  .nav a:hover{color:var(--cream)}
-  .nav a:hover::after{transform:scaleX(1)}
-  .nav a.is-current{color:var(--gold)}
-
-  .nav-cta{
-    flex-shrink:0;
-    display:inline-flex;
-    align-items:center;
-    min-height:44px;
-    padding:10px 22px;
-    border:1px solid var(--line);
-    border-radius:999px;
-    color:var(--gold);
-    font-size:13px;
-    letter-spacing:.02em;
-    transition:border-color .3s,color .3s,background .3s,transform .3s var(--spring);
-  }
-
-  .nav-cta::after{display:none}
-
-  .nav-cta:hover{
-    border-color:var(--gold);
-    background:rgba(201,162,77,.08);
-    transform:translateY(-2px);
-  }
-
-  .header-right{display:flex;align-items:center;gap:12px;flex-shrink:0}
-
-  /* ---------- Бургер + полноэкранное меню ---------- */
-  .burger{
-    display:none;
-    position:relative;
-    width:48px;height:48px;
-    border:1px solid var(--line);
-    border-radius:999px;
-    color:var(--gold);
-    transition:border-color .3s var(--ease);
-  }
-
-  .burger:hover{border-color:var(--gold)}
-
-  .burger i{
-    position:absolute;
-    left:14px;right:14px;
-    height:1px;
-    background:currentColor;
-    transition:transform .35s var(--ease),opacity .2s var(--ease);
-  }
-
-  .burger i:nth-child(1){top:19px}
-  .burger i:nth-child(2){top:24px}
-  .burger i:nth-child(3){top:29px}
-
-  body.menu-open .burger i:nth-child(1){transform:translateY(5px) rotate(45deg)}
-  body.menu-open .burger i:nth-child(2){opacity:0}
-  body.menu-open .burger i:nth-child(3){transform:translateY(-5px) rotate(-45deg)}
-
-  .menu{
-    position:fixed;
-    inset:0;
-    z-index:190;
-    background:var(--bg);
-    padding:calc(var(--header-h) + 32px) 24px calc(32px + var(--safe-b));
-    display:flex;
-    flex-direction:column;
-    justify-content:space-between;
-    overflow-y:auto;
-    -webkit-overflow-scrolling:touch;
-    visibility:hidden;
-    transform:translateY(-101%);
-    transition:transform .55s var(--ease),visibility 0s linear .55s;
-  }
-
-  body.menu-open .menu{
-    visibility:visible;
-    transform:none;
-    transition:transform .55s var(--ease),visibility 0s;
-  }
-
-  body.menu-open{overflow:hidden}
-
-  .menu-list{display:grid;gap:2px}
-
-  .menu-list a{
-    display:flex;
-    align-items:baseline;
-    justify-content:space-between;
-    gap:16px;
-    padding:16px 0;
-    min-height:56px;
-    border-bottom:1px solid var(--line);
-    font-family:'Cormorant Garamond',serif;
-    font-size:clamp(30px,8vw,42px);
-    font-weight:500;
-    color:var(--cream);
-    transition:color .3s var(--ease),padding-left .3s var(--ease);
-  }
-
-  .menu-list a:hover,.menu-list a:focus-visible{color:var(--gold);padding-left:6px}
-
-  .menu-list .num{
-    font-family:'Inter',sans-serif;
-    font-size:11px;
-    letter-spacing:.2em;
-    color:var(--muted);
-  }
-
-  .menu-bottom{margin-top:40px}
-
-  .menu-quick{display:flex;gap:12px;flex-wrap:wrap}
-
-  .menu-quick a{
-    display:inline-flex;
-    align-items:center;
-    min-height:48px;
-    padding:12px 22px;
-    border:1px solid var(--line);
-    border-radius:999px;
-    font-size:14px;
-    color:var(--gold);
-  }
-
-  .menu-note{
-    margin-top:20px;
-    font-size:13px;
-    color:var(--muted);
-  }
-
-  /* ---------- Hero ---------- */
-  .hero{
-    position:relative;
-    min-height:100vh;
-    min-height:100dvh;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-    padding:calc(var(--header-h) + 72px) 48px 150px;
-    overflow:hidden;
-    z-index:1;
-  }
-
-  .hero::before{
-    content:"";
-    position:absolute;
-    top:-28%;left:50%;
-    width:820px;height:820px;
-    transform:translateX(-50%);
-    background:radial-gradient(circle,rgba(201,162,77,.20) 0%,rgba(201,162,77,.07) 42%,transparent 68%);
-    filter:blur(28px);
-    pointer-events:none;
-    animation:glow 8s ease-in-out infinite;
-  }
-
-  @keyframes glow{
-    0%,100%{opacity:.75;transform:translateX(-50%) scale(1)}
-    50%{opacity:1;transform:translateX(-50%) scale(1.06)}
-  }
-
-  @keyframes heroIn{
-    from{opacity:0;transform:translateY(26px)}
-    to{opacity:1;transform:translateY(0)}
-  }
-
-  @keyframes spin{to{transform:rotate(360deg)}}
-
-  @keyframes fadeUp{
-    from{opacity:0;transform:translateY(18px)}
-    to{opacity:1;transform:translateY(0)}
-  }
-
-  @keyframes marquee{to{transform:translateX(-50%)}}
-
-  .hero-inner{
-    position:relative;
-    z-index:2;
-    max-width:840px;
-    will-change:transform;
-  }
-
-  .hero-mono{
-    width:104px;height:104px;
-    margin:0 auto 40px;
-    border-radius:50%;
-    display:grid;place-items:center;
-    position:relative;
-    background:linear-gradient(140deg,var(--gold-soft) 0%,var(--gold) 48%,#8a6428 100%);
-    color:#24160e;
-    font-family:'Cormorant Garamond',serif;
-    font-size:44px;
-    font-weight:600;
-    letter-spacing:-.02em;
-    box-shadow:0 18px 60px rgba(201,162,77,.28);
-    transition:transform .5s var(--spring),box-shadow .5s var(--ease);
-  }
-
-  .hero-mono:hover{
-    transform:translateY(-4px) scale(1.04);
-    box-shadow:0 26px 80px rgba(201,162,77,.42);
-  }
-
-  .hero-mono::after{
-    content:"";
-    position:absolute;
-    inset:-16px;
-    border-radius:50%;
-    border:1px dashed rgba(201,162,77,.3);
-    animation:spin 36s linear infinite;
-  }
-
-  /* fill-mode: backwards — после анимации стили возвращаются к обычным,
-     поэтому hover-трансформы работают */
-  .hero-inner > *{animation:heroIn 1s var(--ease) backwards}
-  .hero-inner > *:nth-child(2){animation-delay:.08s}
-  .hero-inner > *:nth-child(3){animation-delay:.16s}
-  .hero-inner > *:nth-child(4){animation-delay:.24s}
-  .hero-inner > *:nth-child(5){animation-delay:.32s}
-
-  .hero-eyebrow{
-    font-size:12px;
-    letter-spacing:.3em;
-    text-transform:uppercase;
-    color:var(--gold);
-    margin-bottom:22px;
-  }
-
-  .hero h1{
-    font-size:clamp(62px,11vw,134px);
-    font-weight:600;
-    letter-spacing:-.03em;
-    /* подзаголовка в hero больше нет — расстояние до кнопок держу здесь ыыыыы */
-    margin-bottom:46px;
-    background:linear-gradient(120deg,var(--cream) 0%,var(--gold-soft) 45%,var(--gold) 100%);
-    -webkit-background-clip:text;
-    background-clip:text;
-    -webkit-text-fill-color:transparent;
-    color:transparent;
-  }
-
-  .hero-foot{
-    position:absolute;
-    left:0;right:0;bottom:0;
-    padding:0 24px 34px;
-    display:flex;
-    align-items:flex-end;
-    justify-content:space-between;
-    gap:24px;
-    opacity:0;
-    animation:fadeUp 1s ease 1.15s forwards;
-  }
-
-  .hero-side{
-    font-size:11px;
-    letter-spacing:.24em;
-    text-transform:uppercase;
-    color:rgba(244,237,225,.55);
-    padding-bottom:14px;
-  }
-
-  .hero-cue{
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    gap:12px;
-    font-size:10px;
-    letter-spacing:.3em;
-    text-transform:uppercase;
-    color:rgba(244,237,225,.55);
-  }
-
-  .hero-line{
-    width:1px;
-    height:64px;
-    background:linear-gradient(180deg,rgba(201,169,110,0) 0%,var(--gold) 55%,rgba(201,169,110,0) 100%);
-    background-size:100% 200%;
-    animation:cue 2.6s ease-in-out infinite;
-  }
-
-  @keyframes cue{
-    0%{transform:scaleY(.35);transform-origin:top;background-position:0 -100%}
-    45%{transform:scaleY(1);transform-origin:top}
-    55%{transform:scaleY(1);transform-origin:bottom}
-    100%{transform:scaleY(.35);transform-origin:bottom;background-position:0 100%}
-  }
-
-  .hero-actions{display:flex;gap:16px;justify-content:center;align-items:center;flex-wrap:wrap}
-
-  .btn{
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-    min-height:48px;
-    padding:16px 36px;
-    border-radius:999px;
-    font-size:14px;
-    letter-spacing:.04em;
-    will-change:transform;
-    transition:transform .35s var(--spring),box-shadow .35s var(--ease),border-color .3s,color .3s,background .3s;
-  }
-
-  .btn-primary{
-    background:linear-gradient(120deg,var(--gold-soft),var(--gold));
-    color:#24160e;
-    font-weight:500;
-    box-shadow:0 12px 40px rgba(201,162,77,.22);
-  }
-
-  .btn-primary:hover{
-    transform:translateY(-3px);
-    box-shadow:0 20px 60px rgba(201,162,77,.38);
-  }
-
-  .btn-ghost{border:1px solid var(--line);color:var(--cream)}
-  .btn-ghost:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-3px)}
-
-  /* ---------- Секции ---------- */
-  section{position:relative;z-index:1;padding:104px 48px}
-
-  .section-head{margin-bottom:64px}
-
-  .eyebrow{
-    font-size:12px;
-    letter-spacing:.28em;
-    text-transform:uppercase;
-    color:var(--gold);
-    margin-bottom:16px;
-  }
-
-  .section-title{font-size:clamp(34px,4.6vw,54px)}
-
-  /* ---------- О бренде ---------- */
-  .about{
-    background:var(--bg-alt);
-    border-top:1px solid var(--line);
-    border-bottom:1px solid var(--line);
-  }
-
-  .about-grid{
-    display:grid;
-    grid-template-columns:1.05fr .95fr;
-    gap:72px;
-    align-items:center;
-  }
-
-  .about-text p{color:var(--muted);max-width:52ch}
-  .about-text p + p{margin-top:20px}
-
-  .facts{margin-top:36px;display:grid;gap:14px;font-size:15px}
-
-  .facts li{display:flex;gap:16px;align-items:baseline;color:var(--cream)}
-
-  .facts li::before{
-    content:"";
-    width:22px;height:1px;
-    background:var(--gold);
-    flex-shrink:0;
-    transform:translateY(-5px);
-  }
-
-  /* Кто шьёт. Имя и ссылку на личный telegram заменю потом на свои */
-  .maker{
-    margin-top:44px;
-    padding-top:28px;
-    border-top:1px solid var(--line);
-    display:flex;
-    gap:20px;
-    align-items:flex-start;
-  }
-
-  .maker-photo{
-    width:84px;height:84px;
-    flex-shrink:0;
-    border:1px solid var(--line);
-    border-radius:50%;
-    background:linear-gradient(150deg,var(--bg-card),var(--bg));
-    display:grid;place-items:center;
-    font-size:10px;
-    letter-spacing:.14em;
-    text-transform:uppercase;
-    color:var(--muted);
-    transition:border-color .4s var(--ease);
-  }
-
-  .maker-photo:hover{border-color:var(--gold)}
-
-  .maker-name{
-    font-family:'Cormorant Garamond',serif;
-    font-size:21px;
-    font-weight:600;
-    color:var(--gold);
-    margin-bottom:6px;
-  }
-
-  .maker p{font-size:15px;color:var(--muted);max-width:44ch}
-
-  .maker a{color:var(--cream);text-decoration:underline;text-decoration-color:var(--line);text-underline-offset:3px}
-  .maker a:hover{text-decoration-color:var(--gold)}
-
-  /* Заглушка под фото мастерской: вставлю потом внутрь <img src="about.jpg" alt="Мастерская" width="800" height="1000"> */
-  .about-photo{
-    position:relative;
-    aspect-ratio:4/5;
-    border:1px solid var(--line);
-    background:linear-gradient(150deg,var(--bg-card),var(--bg));
-    display:grid;
-    place-items:center;
-    overflow:hidden;
-    transition:border-color .4s var(--ease);
-  }
-
-  .about-photo:hover{border-color:var(--gold)}
-
-  .about-photo::before{
-    content:"РТ";
-    font-family:'Cormorant Garamond',serif;
-    font-size:180px;
-    font-weight:600;
-    color:var(--gold);
-    opacity:.10;
-    letter-spacing:-.04em;
-  }
-
-  .about-photo span{
-    position:absolute;
-    bottom:20px;left:0;right:0;
-    text-align:center;
-    font-size:11px;
-    letter-spacing:.24em;
-    text-transform:uppercase;
-    color:var(--muted);
-  }
-
-  /* ---------- Коллекция ---------- */
-  .products-grid{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:28px;
-  }
-
-  .product{transition:transform .45s var(--spring)}
-
-  .product-img{
-    position:relative;
-    aspect-ratio:3/4;
-    border:1px solid var(--line);
-    background:linear-gradient(150deg,var(--bg-card),var(--bg-alt));
-    display:grid;
-    place-items:center;
-    overflow:hidden;
-    margin-bottom:20px;
-    transition:border-color .4s var(--ease),box-shadow .4s var(--ease);
-  }
-
-  .product-img::after{
-    content:"Фото";
-    font-size:11px;
-    letter-spacing:.24em;
-    text-transform:uppercase;
-    color:var(--muted);
-    opacity:.55;
-  }
-
-  /* Спотлайт под курсором: координаты пишет JS в --mx/--my */
-  .product-img::before{
-    content:"";
-    position:absolute;
-    inset:0;
-    z-index:1;
-    opacity:0;
-    background:radial-gradient(220px circle at var(--mx,50%) var(--my,50%),rgba(230,200,122,.22),transparent 65%);
-    transition:opacity .4s var(--ease);
-  }
-
-  .product h3{font-size:22px;margin-bottom:6px}
-
-  .product-price{font-size:15px;color:var(--gold);letter-spacing:.02em}
-
-  .product-note{font-size:13px;color:var(--muted);margin-top:6px;max-width:36ch}
-
-  /* Кнопка заказа с предзаполненным текстом сообщения */
-  .order{
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-    gap:10px;
-    margin-top:16px;
-    min-height:48px;
-    padding:12px 24px;
-    border:1px solid var(--line);
-    border-radius:999px;
-    font-size:13px;
-    letter-spacing:.04em;
-    color:var(--gold);
-    transition:border-color .3s var(--ease),background .3s var(--ease),transform .35s var(--spring);
-  }
-
-  .order::before{
-    content:"";
-    width:6px;height:6px;
-    border-radius:50%;
-    background:var(--gold);
-    flex-shrink:0;
-  }
-
-  .products-foot{
-    margin-top:48px;
-    padding-top:24px;
-    border-top:1px solid var(--line);
-    font-size:14px;
-    color:var(--muted);
-  }
-
-  /* ---------- Разметка и остатки ---------- */
-  .specs{margin-top:64px;display:grid;gap:20px}
-
-  /* min-width:0 обязателен: без него grid-элемент не сжимается
-     в ширину больше содержимого, и таблица на телефоне вылезает за экран */
-  .spec{
-    min-width:0;
-    border:1px solid var(--line);
-    background:var(--bg-alt);
-  }
-
-  .spec summary{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:16px;
-    padding:20px 24px;
-    min-height:56px;
-    cursor:pointer;
-    list-style:none;
-    font-family:'Cormorant Garamond',serif;
-    font-size:clamp(20px,3vw,26px);
-    font-weight:600;
-    color:var(--cream);
-  }
-
-  .spec summary::-webkit-details-marker{display:none}
-
-  .spec summary i{
-    position:relative;
-    width:20px;height:20px;
-    flex-shrink:0;
-    color:var(--gold);
-    font-style:normal;
-  }
-
-  .spec summary i::before,
-  .spec summary i::after{
-    content:"";
-    position:absolute;
-    top:50%;left:50%;
-    background:currentColor;
-    transition:transform .35s var(--ease),opacity .25s;
-  }
-
-  .spec summary i::before{width:14px;height:1px;transform:translate(-50%,-50%)}
-  .spec summary i::after{width:1px;height:14px;transform:translate(-50%,-50%)}
-
-  .spec[open] summary i::after{transform:translate(-50%,-50%) rotate(90deg);opacity:0}
-
-  .spec-body{padding:0 24px 26px}
-
-  .table-wrap{
-    overflow-x:auto;
-    -webkit-overflow-scrolling:touch;
-    border:1px solid var(--line);
-  }
-
-  table{width:100%;border-collapse:collapse;font-size:15px;min-width:520px}
-
-  caption{text-align:left;padding:14px 16px 0;color:var(--muted);font-size:13px}
-
-  th,td{
-    padding:13px 16px;
-    text-align:left;
-    border-bottom:1px solid var(--line);
-    color:var(--muted);
-    white-space:nowrap;
-  }
-
-  th{
-    font-size:11px;
-    letter-spacing:.14em;
-    text-transform:uppercase;
-    color:var(--gold);
-    font-weight:500;
-    background:rgba(201,162,77,.05);
-  }
-
-  tbody th{font-size:15px;letter-spacing:normal;text-transform:none;color:var(--cream);font-weight:500}
-
-  tbody tr:last-child td,tbody tr:last-child th{border-bottom:0}
-
-  .howto{margin-top:20px;display:grid;gap:10px;font-size:14px;color:var(--muted)}
-
-  .howto li{display:flex;gap:14px;align-items:baseline}
-
-  .howto li::before{
-    content:"";
-    width:14px;height:1px;
-    background:var(--gold);
-    flex-shrink:0;
-    transform:translateY(-4px);
-  }
-
-  .swipe-hint{margin-top:12px;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold)}
-
-  /* ---------- Как заказать ---------- */
-  .steps{
-    background:var(--bg-alt);
-    border-top:1px solid var(--line);
-    border-bottom:1px solid var(--line);
-  }
-
-  .steps-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:48px;
-  }
-
-  .step{
-    padding-top:28px;
-    border-top:1px solid var(--line);
-    transition:border-color .4s var(--ease);
-  }
-
-  .step:hover{border-top-color:var(--gold)}
-
-  .step-num{
-    font-family:'Cormorant Garamond',serif;
-    font-size:clamp(48px,6vw,74px);
-    font-weight:600;
-    line-height:1;
-    background:linear-gradient(120deg,var(--gold-soft),var(--gold));
-    -webkit-background-clip:text;
-    background-clip:text;
-    -webkit-text-fill-color:transparent;
-    color:transparent;
-    margin-bottom:18px;
-  }
-
-  .step h3{font-size:23px;margin-bottom:10px}
-  .step p{color:var(--muted);font-size:15px;max-width:34ch}
-
-  /* ---------- Контакты ---------- */
-  .contacts{text-align:center}
-
-  .contacts .section-title{margin-bottom:20px}
-
-  .contacts-lead{color:var(--muted);max-width:46ch;margin:0 auto 40px}
-
-  .contacts-links{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
-
-  .contacts-links a{
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-    min-height:48px;
-    padding:14px 28px;
-    border:1px solid var(--line);
-    font-size:15px;
-    letter-spacing:.02em;
-    transition:border-color .3s,color .3s,background .3s,transform .35s var(--spring);
-  }
-
-  .contacts-links a:hover{
-    border-color:var(--gold);
-    color:var(--gold);
-    background:rgba(201,162,77,.06);
-    transform:translateY(-3px);
-  }
-
-  .contacts-direct{
-    margin-top:28px;
-    display:flex;
-    gap:28px;
-    justify-content:center;
-    flex-wrap:wrap;
-    font-size:14px;
-    color:var(--muted);
-  }
-
-  .contacts-direct a{border-bottom:1px solid var(--line);transition:border-color .3s,color .3s}
-  .contacts-direct a:hover{color:var(--gold);border-color:var(--gold)}
-
-  /* ---------- Бегущая строка ---------- */
-  .ticker{
-    position:relative;
-    z-index:1;
-    overflow:hidden;
-    padding:18px 0;
-    background:var(--bg-alt);
-    border-top:1px solid var(--line);
-    border-bottom:1px solid var(--line);
-    white-space:nowrap;
-  }
-
-  .ticker-track{
-    display:flex;
-    width:max-content;
-    animation:marquee 32s linear infinite;
-  }
-
-  .ticker:hover .ticker-track{animation-play-state:paused}
-
-  .ticker-track span{
-    font-family:'Cormorant Garamond',serif;
-    font-size:clamp(20px,3vw,30px);
-    font-weight:500;
-    letter-spacing:.14em;
-    text-transform:uppercase;
-    color:rgba(240,230,214,.34);
-    padding-right:44px;
-  }
-
-  .ticker-track span b{color:var(--gold);font-weight:500;padding-right:44px}
-
-  /* ---------- Footer ---------- */
-  .footer{position:relative;z-index:1;border-top:1px solid var(--line);padding:44px 48px}
-
-  .footer .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
-
-  .footer-name{
-    font-family:'Cormorant Garamond',serif;
-    font-size:19px;font-weight:600;color:var(--gold);
-  }
-
-  .footer-copy{font-size:14px;color:var(--muted)}
-
-  /* ---------- Липкая полоса действий (мобильный) ---------- */
-  .sticky-cta{
-    position:fixed;
-    left:0;right:0;bottom:0;
-    z-index:150;
-    display:none;
-    grid-template-columns:1fr 1fr;
-    gap:10px;
-    padding:10px 16px calc(10px + var(--safe-b));
-    background:rgba(26,15,8,.94);
-    backdrop-filter:blur(14px);
-    -webkit-backdrop-filter:blur(14px);
-    border-top:1px solid var(--line);
-    transform:translateY(110%);
-    transition:transform .4s var(--ease);
-  }
-
-  .sticky-cta.is-on{transform:none}
-
-  .sticky-cta a{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    min-height:48px;
-    padding:12px 8px;
-    border-radius:999px;
-    font-size:13px;
-    letter-spacing:.04em;
-  }
-
-  .sticky-tg{border:1px solid var(--line);color:var(--gold)}
-  .sticky-wa{background:linear-gradient(120deg,var(--gold-soft),var(--gold));color:#24160e;font-weight:500}
-
-  /* ---------- Появление при скролле ----------
-     Скрыто только при включённом JS (html.js) — без JS контент виден сразу. */
-  .js .reveal{opacity:0;transform:translateY(24px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
-  .js .reveal.is-visible{opacity:1;transform:none}
-
-  /* ---------- Адаптив ---------- */
-  @media (max-width:1000px){
-    .products-grid{grid-template-columns:repeat(2,1fr);gap:32px}
-    .about-grid{grid-template-columns:1fr;gap:48px}
-    .about-photo{max-width:420px}
-  }
-
-  @media (max-width:820px){
-    section{padding:64px 24px}
-    .hero{padding:calc(var(--header-h) + 40px) 24px 96px}
-    /* снизу добавлена липкая полоса — не закрываем копирайт */
-    .footer{padding:36px 24px calc(36px + 68px + var(--safe-b))}
-
-    .nav{display:none}
-    .burger{display:block}
-    .sticky-cta{display:grid}
-
-    .hero-mono{width:84px;height:84px;font-size:36px;margin-bottom:32px}
-    .hero-foot{padding:0 24px 26px}
-    .hero-side{display:none}
-    .hero-line{height:46px}
-    .hero-actions{flex-direction:column;align-items:stretch;max-width:340px;margin:0 auto}
-    .btn{width:100%}
-
-    .section-head{margin-bottom:44px}
-    .products-grid{grid-template-columns:1fr;gap:36px}
-    .order{width:100%}
-    .steps-grid{grid-template-columns:1fr;gap:36px}
-    .contacts-links{flex-direction:column;max-width:340px;margin:0 auto}
-    .contacts-direct{flex-direction:column;gap:14px}
-    .maker{gap:16px}
-    .spec summary{padding:18px 18px}
-    .spec-body{padding:0 18px 22px}
-    .table-wrap{margin:0 -18px;padding:0 18px}
-  }
-
-  /* Тач-устройства: не оставляем «залипший» hover-подъём карточки */
-  @media (hover:none){
-    .product:hover{transform:none}
-    .product:hover .product-img{border-color:var(--line);box-shadow:none}
-    .product-img::before{display:none}
-  }
-
-  /* Спотлайт включаем только при наведении мышью */
-  @media (hover:hover){
-    .product:hover .product-img::before{opacity:1}
-    .product:hover{transform:translateY(-8px)}
-    .product:hover .product-img{border-color:var(--gold);box-shadow:0 18px 50px rgba(201,162,77,.12)}
-    .order:hover{border-color:var(--gold);background:rgba(201,162,77,.08);transform:translateY(-2px)}
-  }
-
-  @media (prefers-reduced-motion:reduce){
-    html{scroll-behavior:auto}
-    *,*::before,*::after{animation:none !important;transition:none !important}
-    .js .reveal{opacity:1;transform:none}
-    .hero-foot{opacity:1}
-    .sticky-cta{transform:none}
-  }
+/* ════════ ТОКЕНЫ ════════ */
+:root{
+  --bg:#1a0f08; --bg-alt:#24160e; --bg-card:#2a1a10;
+  --gold:#c9a24d; --gold-soft:#e6c87a; --cream:#f0e6d6; --muted:#9c8471;
+  --line:rgba(201,162,77,.18);
+  /* нижняя «домашняя» полоса iPhone: липкая полоса кнопок не залезает под неё */
+  --safe-b:env(safe-area-inset-bottom,0px);
+  --safe-t:env(safe-area-inset-top,0px);
+  --ease:cubic-bezier(.28,.84,.42,1); --spring:cubic-bezier(.34,1.4,.64,1);
+  --h1:clamp(2.9rem,10vw,7.5rem); --h2:clamp(2rem,5.6vw,3.9rem); --pad:clamp(20px,5vw,56px);
+  color-scheme:dark;
+}
+
+/* ════════ БАЗА ════════ */
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--cream);font:400 16px/1.7 Inter,system-ui,sans-serif;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+::selection{background:var(--gold);color:#1a0f08}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+section[id]{scroll-margin-top:88px}
+h1,h2,h3,h4{font-family:"Cormorant Garamond",Georgia,serif;font-weight:600;line-height:1.05;margin:0}
+p{margin:0 0 1.1em}
+.wrap{width:100%;max-width:1220px;margin:0 auto;padding:0 var(--pad)}
+section{position:relative}
+.eyebrow{font:500 12px/1 Inter;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);margin:0 0 22px}
+.muted{color:var(--muted)}
+.skip{position:fixed;top:8px;left:8px;z-index:400;padding:12px 18px;border-radius:8px;background:var(--gold);color:#1a0f08;font-size:14px;transform:translateY(-160%);transition:transform .3s var(--ease)}
+.skip:focus{transform:none}
+
+/* ════════ 1. ПЛЁНОЧНОЕ ЗЕРНО ════════
+   Перерисовка всего экрана ~5 раз/сек, поэтому только на мыши:
+   на телефоне слой выключен — бережём батарею и кадры скролла. */
+.grain{
+  position:fixed;inset:-120px;z-index:60;pointer-events:none;opacity:.19;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");
+  mix-blend-mode:soft-light;animation:grain .7s steps(3) infinite;
+}
+@media (pointer:coarse){.grain{display:none}}
+@keyframes grain{
+  0%{transform:translate(0,0)}33%{transform:translate(-24px,18px)}
+  66%{transform:translate(18px,-22px)}100%{transform:translate(0,0)}
+}
+
+/* ════════ 2. ВТОРОЙ КУРСОР (ТОЛЬКО МЫШЬ) ════════ */
+.cursor{
+  position:fixed;top:0;left:0;width:34px;height:34px;margin:-17px 0 0 -17px;z-index:70;
+  border:1px solid rgba(201,162,77,.55);border-radius:50%;pointer-events:none;opacity:0;
+  transition:width .35s var(--spring),height .35s var(--spring),margin .35s var(--spring),
+             opacity .4s linear,border-color .35s linear,background .35s linear;
+}
+.cursor.hot{width:64px;height:64px;margin:-32px 0 0 -32px;background:rgba(201,162,77,.1);border-color:var(--gold-soft)}
+.cursor.press{width:24px;height:24px;margin:-12px 0 0 -12px}
+@media (pointer:coarse){.cursor{display:none}}
+
+/* ════════ 3. ПРОГРЕСС + ИНЕРЦИЯ ════════ */
+.progress{position:fixed;top:0;left:0;height:2px;width:100%;z-index:100;background:linear-gradient(90deg,var(--gold),var(--gold-soft),#fff3d6);transform:scaleX(0);transform-origin:0 50%;box-shadow:0 0 14px rgba(201,162,77,.6)}
+
+/* ════════ 4. REVEAL ════════
+   Скрыто только когда JS включён (html.js). Без JS или при ошибке скрипта
+   контент остаётся видимым — иначе страница пустая для ботов и в браузере с JS-off. */
+.js .reveal{opacity:0;transform:translateY(24px);filter:blur(3px);transition:opacity .95s var(--ease),transform .95s var(--ease),filter .95s var(--ease);transition-delay:calc(var(--d,0)*110ms)}
+.js .reveal.in{opacity:1;transform:none;filter:blur(0)}
+
+/* ════════ HEADER ════════ */
+.hdr{position:fixed;inset:0 0 auto;z-index:90;padding-top:var(--safe-t);background:rgba(26,15,8,.55);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);border-bottom:1px solid transparent;transition:transform .5s var(--ease),border-color .4s linear,background .4s linear}
+.hdr.scrolled{border-bottom-color:var(--line);background:rgba(26,15,8,.8)}
+.hdr.hide{transform:translateY(-104%)}
+.hdr__in{display:flex;align-items:center;gap:22px;height:74px}
+.brand{display:flex;align-items:center;gap:12px;flex:0 0 auto}
+.mono{width:38px;height:38px;flex:0 0 38px;border-radius:50%;display:grid;place-items:center;font-family:"Cormorant Garamond",serif;font-weight:600;font-size:16px;color:#1a0f08;background:linear-gradient(140deg,#f0dca8,var(--gold) 48%,#8a6524);box-shadow:0 0 0 1px rgba(230,200,122,.35),0 6px 18px -8px rgba(201,162,77,.6);transition:rotate .8s var(--spring)}
+.brand:hover .mono{rotate:18deg}
+.brand b{font:500 14px/1 Inter;letter-spacing:.16em;text-transform:uppercase}
+.nav{display:flex;gap:26px;margin-left:auto;font-size:14px}
+.nav a{color:var(--muted);position:relative;padding:6px 0;transition:color .3s var(--ease)}
+.nav a::after{content:"";position:absolute;left:0;bottom:0;height:1px;width:100%;background:var(--gold);transform:scaleX(0);transform-origin:0 50%;transition:transform .45s var(--ease)}
+.nav a:hover,.nav a.active{color:var(--cream)}
+.nav a:hover::after,.nav a.active::after{transform:scaleX(1)}
+.hdr .btn{padding:11px 22px;font-size:13px}
+.snd{width:38px;height:38px;border:1px solid var(--line);border-radius:50%;display:grid;place-items:center;color:var(--gold);flex:0 0 38px;transition:border-color .3s,color .3s,transform .4s var(--spring)}
+.snd:hover{border-color:var(--gold);transform:translateY(-2px)}
+.snd[data-on="0"]{color:#6b5745}
+.snd svg{width:15px;height:15px;fill:currentColor}
+.snd[data-on="0"] .w1,.snd[data-on="0"] .w2{display:none}
+.burger{display:none;width:44px;height:44px;position:relative}
+.burger i{position:absolute;left:12px;width:20px;height:1px;background:var(--cream);transition:transform .4s var(--spring)}
+.burger i:nth-child(1){top:18px}.burger i:nth-child(2){top:25px}
+body.menu .burger i:nth-child(1){transform:translateY(3.5px) rotate(45deg)}
+body.menu .burger i:nth-child(2){transform:translateY(-3.5px) rotate(-45deg)}
+.menu{position:fixed;inset:0;z-index:85;background:var(--bg-alt);display:grid;place-content:center;gap:6px;padding:var(--pad);padding-top:calc(var(--pad) + env(safe-area-inset-top));padding-bottom:calc(var(--pad) + env(safe-area-inset-bottom));clip-path:circle(0% at 92% 6%);visibility:hidden;transition:clip-path .7s var(--ease),visibility 0s .7s}
+body.menu .menu{clip-path:circle(140% at 92% 6%);visibility:visible;transition:clip-path .7s var(--ease)}
+body.menu{overflow:hidden}
+.menu a{font-family:"Cormorant Garamond",serif;font-size:clamp(1.9rem,9vw,3rem);font-weight:500;padding:8px 0;border-bottom:1px solid var(--line);opacity:0;transform:translateY(20px);transition:opacity .5s var(--ease),transform .5s var(--ease)}
+body.menu .menu a{opacity:1;transform:none;transition-delay:calc(.12s + var(--d)*.08s)}
+
+/* ════════ КНОПКИ + ОТБЛИК ════════ */
+.btn{position:relative;overflow:hidden;display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:15px 30px;border-radius:999px;font-size:14px;border:1px solid var(--line);min-height:48px;transition:transform .45s var(--spring),box-shadow .45s var(--ease),background .35s,border-color .35s,color .35s;will-change:transform}
+.btn::after{content:"";position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,248,230,.4),transparent);transform:skewX(-18deg);transition:left .7s var(--ease)}
+.btn:hover::after{left:130%}
+.btn--gold{background:linear-gradient(140deg,var(--gold-soft),var(--gold));color:#221409;border-color:transparent;font-weight:500}
+.btn--gold:hover{transform:translateY(-3px);box-shadow:0 16px 34px -14px rgba(201,162,77,.75)}
+.btn--ghost{color:var(--cream)}
+.btn--ghost:hover{transform:translateY(-3px);border-color:var(--gold);background:rgba(201,162,77,.07)}
+
+/* ════════ HERO ════════ */
+.hero{min-height:100svh;display:grid;place-items:center;text-align:center;padding:calc(120px + var(--safe-t)) var(--pad) 0;overflow:hidden}
+.hero__glow{position:absolute;top:46%;left:50%;width:min(880px,120vw);aspect-ratio:1;translate:-50% -50%;border-radius:50%;pointer-events:none;background:radial-gradient(circle,rgba(201,162,77,.24),rgba(201,162,77,.06) 45%,transparent 70%);animation:pulse 7s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:.6;scale:1}50%{opacity:1;scale:1.12}}
+.hero__spot{position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity .6s var(--ease);background:radial-gradient(420px circle at var(--px,50%) var(--py,40%),rgba(230,200,122,.13),transparent 65%)}
+.hero:hover .hero__spot{opacity:1}
+.hero__in{position:relative;z-index:2;padding-bottom:80px}
+.hero__mark{position:relative;width:132px;height:132px;margin:0 auto 34px;display:grid;place-items:center;transition:transform .6s var(--ease)}
+.hero__ring{position:absolute;inset:-16px;border-radius:50%;border:1px dashed rgba(201,162,77,.5);animation:spin 26s linear infinite}
+.hero__ring::after{content:"";position:absolute;top:-3px;left:calc(50% - 2.5px);width:5px;height:5px;border-radius:50%;background:var(--gold-soft);box-shadow:0 0 12px var(--gold)}
+@keyframes spin{to{rotate:360deg}}
+.hero__mark .mono{width:104px;height:104px;flex:none;font-size:38px}
+.hero h1{font-size:var(--h1);letter-spacing:-.02em;margin:0 0 26px;overflow:hidden;padding-bottom:.14em;margin-bottom:calc(26px - .06em)}
+.hero h1 span{display:block;background:linear-gradient(105deg,#f6ecd8 5%,var(--gold-soft) 28%,#fff6e2 42%,var(--gold) 58%,#8a6524 88%);background-size:230% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shimmer 7s ease-in-out infinite,up 1.15s var(--ease) .15s both}
+@keyframes shimmer{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+@keyframes up{from{transform:translateY(108%);filter:blur(6px)}}
+.hero p.lead{max-width:560px;margin:0 auto 40px;color:var(--muted);font-size:17px;animation:up 1.1s var(--ease) .45s both}
+.hero__cta{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;animation:up 1.1s var(--ease) .6s both}
+.hero__foot{position:absolute;left:0;right:0;bottom:26px;z-index:2;display:flex;align-items:flex-end;justify-content:space-between;gap:20px;font:500 11px/1.4 Inter;letter-spacing:.24em;text-transform:uppercase;color:var(--muted);padding:0 var(--pad);padding-bottom:calc(26px + var(--safe-b))}
+.hero__foot span:first-child{color:var(--gold)}
+.drop{position:relative;width:1px;height:78px;background:var(--line);overflow:hidden;margin:0 auto}
+.drop::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent,var(--gold-soft));animation:drop 2.4s var(--ease) infinite}
+@keyframes drop{0%{transform:translateY(-100%)}70%,100%{transform:translateY(100%)}}
+
+/* ════════ БЕГУЩАЯ СТРОКА + СКОРОСТЬ ОТ СКРОЛЛА ════════ */
+.ticker{border-block:1px solid var(--line);background:var(--bg-alt);padding:16px 0;overflow:hidden;white-space:nowrap}
+.ticker__shear{display:inline-block;transform:skewX(var(--skew,0deg));transition:transform .25s linear}
+.ticker__track{display:inline-flex;animation:marq 34s linear infinite;will-change:transform}
+.ticker:hover .ticker__track{animation-play-state:paused}
+.ticker:hover i{color:var(--cream)}
+.ticker__grp{display:inline-flex;gap:44px;padding-right:44px}
+.ticker i{font-style:normal;font-family:"Cormorant Garamond",serif;font-size:22px;font-weight:500;color:var(--muted);display:inline-flex;align-items:center;gap:44px;transition:color .3s}
+.ticker i em{font-style:normal;color:var(--gold);font-size:9px}
+@keyframes marq{to{transform:translateX(-50%)}}
+
+/* ════════ СЕКЦИИ ════════ */
+.sec{padding:clamp(84px,12vw,150px) var(--pad)}
+.sec--alt{background:var(--bg-alt)}
+.sec__head{display:flex;align-items:baseline;gap:18px;margin-bottom:54px}
+.sec__head h2{font-size:var(--h2);overflow:hidden}
+  .sec__head h2 i{display:block;font-style:normal;transform:translateY(105%);transition:transform 1s var(--ease) .1s}
+  .reveal.in h2 i,h2.in i{transform:none}
+  .sec__head .rule{flex:1;height:1px;background:var(--line);transform:scaleX(0);transform-origin:0 50%;transition:transform 1.2s var(--ease) .2s}
+  .reveal.in .rule{transform:scaleX(1)}
+  /* без JS .reveal не скрывается, но заголовки должны быть видны */
+  .reveal:not(.in) h2 i,.reveal:not(.in) .rule{transform:none}
+.sec__head .idx{font:500 11px/1 Inter;letter-spacing:.24em;color:var(--gold)}
+
+/* — О бренде — */
+.about{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(32px,5vw,72px);align-items:start}
+.about__txt p{color:#c9b8a4;max-width:52ch}
+.facts{list-style:none;margin:34px 0 0;padding:0;display:grid;gap:1px;background:var(--line);border-block:1px solid var(--line)}
+.facts li{background:var(--bg);padding:17px 2px;display:flex;align-items:center;gap:16px;font-size:15px;transition:padding-left .4s var(--ease),background .4s}
+.sec--alt .facts li{background:var(--bg-alt)}
+.facts li:hover{padding-left:14px;background:#312014}
+.facts li::before{content:"";width:6px;height:6px;flex:none;rotate:45deg;background:var(--gold);transition:transform .5s var(--spring)}
+.facts li:hover::before{transform:scale(1.9)}
+.facts li em{font-style:normal;color:var(--muted);margin-left:auto;font-size:13px;text-align:right}
+.live{margin-top:26px;display:flex;gap:16px;align-items:flex-start;padding:18px 20px;border:1px solid var(--line);background:linear-gradient(150deg,rgba(201,162,77,.08),transparent 70%)}
+.live__dot{position:relative;width:9px;height:9px;flex:none;margin-top:9px;border-radius:50%;background:var(--gold-soft)}
+.live__dot::after{content:"";position:absolute;inset:-6px;border-radius:50%;border:1px solid var(--gold);animation:ping 2.2s var(--ease) infinite;opacity:0}
+@keyframes ping{0%{transform:scale(.4);opacity:.9}100%{transform:scale(1.7);opacity:0}}
+.live p{margin:0;font-size:14.5px}
+.live b{font-family:"Cormorant Garamond",serif;font-size:26px;font-weight:600;color:var(--gold-soft);vertical-align:-3px;margin-right:6px;font-variant-numeric:tabular-nums}
+.live .muted{font-size:13.5px;margin-top:4px}
+.ph{position:relative;overflow:hidden;border:1px solid var(--line);background:radial-gradient(120% 90% at 30% 10%,rgba(201,162,77,.14),transparent 60%),linear-gradient(160deg,var(--bg-card),var(--bg-alt))}
+.ph::after{content:attr(data-file);position:absolute;left:12px;bottom:10px;z-index:4;font:400 10px/1 Inter;letter-spacing:.14em;color:rgba(240,230,214,.35)}
+.ph .big-mono{position:absolute;inset:0;display:grid;place-items:center;font-family:"Cormorant Garamond",serif;font-weight:600;font-size:clamp(4rem,13vw,10rem);letter-spacing:.04em;color:transparent;-webkit-text-stroke:1px rgba(230,200,122,.32);transition:color .6s var(--ease)}
+.ph img{position:relative;z-index:2;width:100%;height:100%;object-fit:cover}
+.about__img{aspect-ratio:4/5}
+.about__img:hover .big-mono{color:rgba(230,200,122,.1)}
+.about__img img{animation:kb 18s ease-in-out infinite alternate}
+@keyframes kb{from{transform:scale(1.02)}to{transform:scale(1.13) translate(-2%,-2%)}}
+.maker{margin-top:clamp(48px,7vw,80px);display:flex;align-items:center;gap:26px;padding-top:38px;border-top:1px solid var(--line)}
+.maker__ph{width:104px;height:104px;flex:0 0 104px;border-radius:50%}
+.maker__ph .big-mono{font-size:30px;-webkit-text-stroke:1px rgba(230,200,122,.4)}
+.maker h3{font-size:24px;margin-bottom:6px}
+.maker p{margin:0;font-size:15px;color:var(--muted);max-width:52ch}
+
+/* — Коллекция: 3D-наклон + линза + спот — */
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(14px,1.8vw,24px)}
+.card{
+  position:relative;padding:14px 14px 22px;border:1px solid var(--line);background:var(--bg-card);
+  --mx:50%;--my:50%;--rx:0deg;--ry:0deg;--lift:0px;--z:1;--ox:50%;--oy:50%;
+  transform:perspective(900px) rotateX(var(--rx)) rotateY(var(--ry)) translateY(var(--lift));
+  transition:transform .55s var(--ease),box-shadow .55s var(--ease),border-color .4s linear;
+  transform-style:preserve-3d;
+}
+.card.live{transition:transform .12s linear,box-shadow .55s var(--ease),border-color .4s linear}
+.card:hover{--lift:-8px;border-color:rgba(201,162,77,.42);box-shadow:0 30px 54px -28px rgba(0,0,0,.9)}
+.card::before{content:"";position:absolute;inset:0;z-index:5;pointer-events:none;opacity:0;background:radial-gradient(300px circle at var(--mx) var(--my),rgba(230,200,122,.18),transparent 62%);transition:opacity .45s var(--ease)}
+.card:hover::before{opacity:1}
+.card__ph{aspect-ratio:3/4;margin-bottom:18px}
+.card__ph img{transform:scale(var(--z));transform-origin:var(--ox) var(--oy);transition:transform .5s var(--ease)}
+.card__ph::before{content:"";position:absolute;inset:0;z-index:3;pointer-events:none;opacity:0;background:radial-gradient(200px circle at var(--mx) var(--my),rgba(255,240,205,.32),transparent 60%);mix-blend-mode:soft-light;transition:opacity .5s var(--ease)}
+.card:hover .card__ph::before{opacity:1}
+.card__tag{position:absolute;z-index:6;top:22px;left:22px;font:500 10px/1 Inter;letter-spacing:.16em;text-transform:uppercase;color:#221409;background:var(--gold-soft);padding:6px 10px;border-radius:999px}
+.card h3{font-size:22px;margin-bottom:5px}
+.card .price{font:500 13px/1 Inter;letter-spacing:.08em;color:var(--gold-soft);display:block;margin-bottom:10px}
+.card .comp{font-size:13.5px;line-height:1.6;color:var(--muted);margin:0 0 18px}
+.card .btn{width:100%;padding:13px 16px;font-size:13px}
+
+/* — details — */
+.disc{margin-top:clamp(38px,5vw,60px);display:grid;gap:12px}
+details{border:1px solid var(--line);background:var(--bg-card);transition:border-color .4s}
+details[open]{border-color:rgba(201,162,77,.4)}
+summary{list-style:none;cursor:pointer;padding:20px 22px;display:flex;align-items:center;gap:14px;font-family:"Cormorant Garamond",serif;font-size:22px;font-weight:600;transition:padding-left .35s var(--ease)}
+summary:hover{padding-left:28px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";margin-left:auto;color:var(--gold);font-family:Inter;font-size:18px;transition:rotate .4s var(--spring)}
+details[open] summary::after{rotate:45deg}
+.details__body{padding:0 22px 24px}
+table{width:100%;border-collapse:collapse;font-size:14px;min-width:440px}
+th,td{padding:11px 10px;text-align:left;border-bottom:1px solid var(--line)}
+th{font:500 11px/1.4 Inter;letter-spacing:.16em;text-transform:uppercase;color:var(--gold)}
+td:first-child{font-family:"Cormorant Garamond",serif;font-size:19px;color:var(--cream)}
+td{color:#c9b8a4;transition:background .3s,color .3s}
+tbody tr:hover td{background:rgba(201,162,77,.07);color:var(--cream)}
+.scroll-x{overflow-x:auto}
+.stock{display:grid;gap:10px;font-size:14.5px;color:#c9b8a4}
+.stock div{display:flex;gap:12px;flex-wrap:wrap;padding-bottom:10px;border-bottom:1px solid var(--line)}
+.stock div:last-child{border-bottom:0;padding-bottom:0}
+.stock b{font-weight:500;color:var(--cream);min-width:210px}
+.stock span{transition:transform .3s var(--spring),color .3s}
+.stock span:hover{transform:translateY(-2px);color:var(--gold-soft)}
+.stock s{color:var(--muted)}
+.stock .no{color:#8a5b4a}
+.calc{display:grid;gap:14px;margin-top:14px}
+.calc__row{display:grid;gap:14px;grid-template-columns:repeat(3,1fr)}
+.field{display:grid;gap:7px}
+.field span{font:500 11px/1.4 Inter;letter-spacing:.16em;text-transform:uppercase;color:var(--gold)}
+.field input{padding:14px 16px;border:1px solid var(--line);background:var(--bg);color:var(--cream);border-radius:10px;font:400 16px/1.3 Inter;transition:border-color .3s,background .3s,box-shadow .3s}
+.field input:focus{outline:0;border-color:rgba(201,162,77,.6);background:#20130a;box-shadow:0 0 0 4px rgba(201,162,77,.1)}
+.field input::placeholder{color:#5f4c3d}
+.calc__out{min-height:96px;display:flex;flex-wrap:wrap;align-items:center;gap:18px;padding:18px 20px;border:1px dashed var(--line);background:var(--bg-alt);transition:border-color .5s var(--ease)}
+.calc__out.hit{border-color:rgba(201,162,77,.5);border-style:solid}
+.calc__hint{font-size:14px;color:var(--muted)}
+.calc__size{font-family:"Cormorant Garamond",serif;font-size:52px;font-weight:600;line-height:.9;color:var(--gold-soft);animation:pop .6s var(--spring)}
+.calc__size i{font-style:normal;font:500 10px/1 Inter;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);display:block;margin-top:8px}
+@keyframes pop{from{opacity:0;transform:scale(.7) translateY(8px)}}
+.calc__why{flex:1;min-width:200px;font-size:14.5px;color:#c9b8a4;margin:0}
+.calc__why b{color:var(--cream);font-weight:500}
+
+/* — Как заказать — */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(24px,3.5vw,54px)}
+.step{padding-top:26px;border-top:1px solid var(--line);transition:border-color .5s var(--ease)}
+.step:hover{border-color:var(--gold)}
+.step .num{display:block;font-family:"Cormorant Garamond",serif;font-weight:600;font-size:clamp(3.4rem,7vw,5.4rem);line-height:1;margin-bottom:18px;background:linear-gradient(150deg,#f6ecd8,var(--gold-soft) 45%,var(--gold) 70%,#7d5a1f);-webkit-background-clip:text;background-clip:text;color:transparent;transition:transform .6s var(--spring)}
+.step:hover .num{transform:translateY(-6px) rotate(-2deg)}
+.step h3{font-size:24px;margin-bottom:10px}
+.step p{font-size:15px;color:var(--muted);margin:0}
+.disclaim{font-size:13px;color:var(--muted);margin-top:38px;padding-left:16px;border-left:1px solid var(--line)}
+
+/* — Отзывы — */
+.revs{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,1.8vw,24px)}
+.rev{padding:24px;border:1px solid var(--line);background:var(--bg-card);transition:transform .5s var(--spring),border-color .4s,box-shadow .5s var(--ease)}
+.rev:hover{transform:translateY(-6px);border-color:rgba(201,162,77,.4);box-shadow:0 26px 44px -28px rgba(0,0,0,.85)}
+.rev__h{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+.rev__ava{width:46px;height:46px;flex:0 0 46px;border-radius:50%;overflow:hidden;border:1px solid var(--line);background:var(--bg-alt);display:grid;place-items:center;font-family:"Cormorant Garamond",serif;color:var(--gold-soft)}
+.rev__n{font-weight:500;font-size:15px}
+.rev__m{font-size:12.5px;color:var(--muted)}
+.rev__q{font-family:"Cormorant Garamond",serif;font-size:20px;line-height:1.35;color:var(--cream);margin:0 0 16px}
+.rev__f{font-size:13px;color:var(--muted);padding-top:14px;border-top:1px solid var(--line)}
+.shots{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:22px}
+.shots figure{margin:0}
+.shots .ph{aspect-ratio:1/1}
+.shots .ph img{animation:kb 22s ease-in-out infinite alternate}
+.shots figcaption{font:400 12px/1.5 Inter;color:var(--muted);margin-top:8px}
+
+/* — Контакты — */
+.contact{text-align:center;max-width:720px;margin:0 auto}
+.contact .sec__head{justify-content:center}
+.pills{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;margin:0 0 44px}
+.pill{display:inline-flex;align-items:center;gap:11px;padding:16px 30px;border-radius:999px;border:1px solid var(--line);font-size:15px;min-height:52px;background:linear-gradient(150deg,rgba(201,162,77,.07),transparent);transition:transform .45s var(--spring),border-color .35s,box-shadow .45s var(--ease)}
+.pill:hover{transform:translateY(-3px);border-color:rgba(201,162,77,.5);box-shadow:0 18px 34px -20px rgba(201,162,77,.6)}
+.pill svg{width:17px;height:17px;fill:var(--gold-soft);flex:none}
+.requisites{display:flex;flex-wrap:wrap;justify-content:center;gap:8px 34px;font-size:15px;color:var(--muted)}
+.requisites a{border-bottom:1px solid transparent;transition:border-color .3s,color .3s}
+.requisites a:hover{color:var(--gold-soft);border-color:var(--gold)}
+
+/* — FOOTER — */
+footer{border-top:1px solid var(--line);padding:44px var(--pad) calc(96px + var(--safe-b));background:var(--bg-alt)}
+.foot{display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between;font-size:13px;color:var(--muted)}
+.foot .brand b{color:var(--cream)}
+.legal{margin-top:22px;padding-top:22px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:6px 22px;font-size:12px;color:#7b6757}
+.legal button{font-size:12px;color:#7b6757;text-decoration:underline;text-underline-offset:3px;transition:color .3s}
+.legal button:hover{color:var(--gold-soft)}
+
+/* — модалка — */
+dialog.doc{width:min(680px,92vw);max-height:80vh;overflow:auto;padding:0;margin:auto;background:var(--bg-alt);color:var(--cream);border:1px solid var(--line)}
+dialog.doc::backdrop{background:rgba(10,5,2,.72);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+dialog.doc[open]{animation:dlg .45s var(--spring)}
+@keyframes dlg{from{opacity:0;transform:translateY(16px) scale(.97)}}
+.doc__h{position:sticky;top:0;background:var(--bg-alt);display:flex;align-items:center;gap:14px;padding:20px 24px;border-bottom:1px solid var(--line)}
+.doc__h h3{font-size:24px}
+.doc__x{margin-left:auto;font-size:22px;color:var(--gold);width:36px;height:36px}
+.doc__b{padding:22px 24px 30px;font-size:14.5px;color:#c9b8a4}
+.doc__b h4{font-family:"Cormorant Garamond",serif;font-size:19px;margin:22px 0 8px;color:var(--cream)}
+.doc__b ul{padding-left:22px;margin:0}
+.doc__b li{margin-bottom:6px}
+.copy{margin-top:14px;font-size:13px;color:var(--gold);text-decoration:underline;text-underline-offset:3px}
+
+/* — тост — */
+.toast{position:fixed;left:50%;bottom:28px;z-index:110;padding:13px 24px;border-radius:999px;background:var(--bg-card);border:1px solid var(--line);color:var(--cream);font-size:14px;transform:translate(-50%,140%);opacity:0;transition:transform .5s var(--spring),opacity .4s;pointer-events:none}
+.toast.on{transform:translate(-50%,0);opacity:1}
+
+/* — липкая полоса — */
+.sticky{position:fixed;left:10px;right:10px;bottom:calc(10px + var(--safe-b));z-index:80;display:none;gap:8px;opacity:0;transform:translateY(calc(100% + var(--safe-b)));transition:opacity .5s var(--ease),transform .5s var(--spring)}
+.sticky.on{opacity:1;transform:none}
+.sticky a{flex:1;text-align:center;padding:16px 10px;border-radius:14px;font-size:14px;font-weight:500;min-height:52px;display:flex;align-items:center;justify-content:center;background:linear-gradient(140deg,var(--gold-soft),var(--gold));color:#221409;box-shadow:0 14px 30px -14px rgba(0,0,0,.9)}
+.sticky a.alt{background:var(--bg-card);color:var(--cream);border:1px solid var(--line)}
+
+/* ════════ АДАПТИВ ════════ */
+@media (max-width:1040px){
+  .grid{grid-template-columns:repeat(2,1fr)} .about{grid-template-columns:1fr}
+  .about__img{max-width:440px} .steps{grid-template-columns:1fr;gap:0}
+  .revs{grid-template-columns:1fr} .calc__row{grid-template-columns:1fr}
+}
+@media (max-width:820px){
+  .nav,.hdr .btn{display:none} .burger{display:block}
+  .hero__foot{font-size:9.5px;letter-spacing:.18em} .drop{height:56px}
+  .card{--rx:0deg!important;--ry:0deg!important}
+}
+@media (max-width:760px){
+  .sticky{display:flex} .maker{flex-direction:column;align-items:flex-start;gap:18px}
+  .stock b{min-width:0} .shots{grid-template-columns:repeat(2,1fr)} .live{flex-wrap:wrap}
+}
+@media (max-width:520px){
+  .grid{grid-template-columns:1fr}
+  .hero__foot{flex-direction:column;align-items:center;gap:14px}
+  .facts li em{display:block;width:100%;margin:2px 0 0 22px}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  html{scroll-behavior:auto} .reveal{opacity:1;transform:none;filter:none}
+  .hero h1 span{transform:none;filter:none}
+  .cursor,.grain{display:none}
+}
 </style>
 </head>
 <body>
 
-<a class="skip" href="#main">К содержимому</a>
-<div class="progress" id="progress" aria-hidden="true"></div>
+<div class="grain" aria-hidden="true"></div>
+<div class="cursor" id="cursor" aria-hidden="true"></div>
+<div class="progress" id="progress"></div>
+<div class="toast" id="toast" role="status"></div>
 
-<header class="header" id="top">
-  <div class="wrap">
-    <a class="logo" href="#top">
-      <span class="mono">РТ</span>
-      РТ — одежда
-    </a>
+<a class="skip" href="#collection">К коллекции</a>
 
-    <nav class="nav" aria-label="Основная навигация">
-      <a href="#about">О бренде</a>
-      <a href="#products">Коллекция</a>
-      <a href="#steps">Как заказать</a>
-      <a href="#contacts">Контакты</a>
+<header class="hdr" id="hdr">
+  <div class="wrap hdr__in">
+    <a class="brand" href="#top" aria-label="РТ-одежда — наверх"><span class="mono">РТ</span><b>РТ&nbsp;—&nbsp;одежда</b></a>
+    <nav class="nav" id="nav">
+      <a href="#about">О бренде</a><a href="#collection">Коллекция</a>
+      <a href="#order">Как заказать</a><a href="#reviews">Отзывы</a><a href="#contacts">Контакты</a>
     </nav>
-
-    <div class="header-right">
-      <a class="nav-cta" href="#contacts">Связаться</a>
-      <button class="burger" id="burger" type="button" aria-label="Меню" aria-expanded="false" aria-controls="menu">
-        <i></i><i></i><i></i>
-      </button>
-    </div>
+    <button class="snd" id="snd" data-on="0" aria-label="Звук интерфейса" aria-pressed="false">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4z"/><path class="w1" d="M16 8.5a4.6 4.6 0 0 1 0 7v-7z"/><path class="w2" d="M18.4 6a7.8 7.8 0 0 1 0 12v-2a5.8 5.8 0 0 0 0-8V6z"/></svg>
+    </button>
+    <a class="btn btn--gold magnet" href="#contacts">Связаться</a>
+    <button class="burger" id="burger" aria-label="Меню" aria-expanded="false"><i></i><i></i></button>
   </div>
 </header>
 
-<!-- Полноэкранное меню для телефона и планшета -->
-<div class="menu" id="menu" aria-hidden="true">
-  <nav class="menu-list" aria-label="Меню">
-    <a href="#about"><span>О бренде</span><span class="num">01</span></a>
-    <a href="#products"><span>Коллекция</span><span class="num">02</span></a>
-    <a href="#sizing"><span>Размеры</span><span class="num">03</span></a>
-    <a href="#steps"><span>Как заказать</span><span class="num">04</span></a>
-    <a href="#contacts"><span>Контакты</span><span class="num">05</span></a>
-  </nav>
+<nav class="menu" id="menu" aria-label="Мобильное меню">
+  <a href="#about" style="--d:0">О бренде</a><a href="#collection" style="--d:1">Коллекция</a>
+  <a href="#order" style="--d:2">Как заказать</a><a href="#reviews" style="--d:3">Отзывы</a><a href="#contacts" style="--d:4">Контакты</a>
+</nav>
 
-  <div class="menu-bottom">
-    <div class="menu-quick">
-      <!-- Ссылки-заглушки: подставлю её ник/номер -->
-      <a href="https://t.me/rt_odezhda?utm_source=site&amp;utm_medium=menu" rel="noopener">Telegram</a>
-      <a href="https://wa.me/79990000000?utm_source=site&amp;utm_medium=menu" rel="noopener">WhatsApp</a>
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero__glow" id="glow"></div>
+  <div class="hero__spot" id="spot"></div>
+  <div class="hero__in">
+    <div class="hero__mark reveal" style="--d:0" id="heroMark">
+      <span class="hero__ring" aria-hidden="true"></span><span class="mono">РТ</span>
     </div>
-    <p class="menu-note">Отвечаю с 10:00 до 20:00 по Москве.</p>
+    <p class="eyebrow reveal" style="--d:1">Женская одежда&nbsp;&nbsp;·&nbsp;&nbsp;Бичура</p>
+    <h1><span>РТ-одежда</span></h1>
+    <p class="lead">Своё производство: натуральные ткани, размеры 42–50. Без склада, без уценки, без перепродажников.</p>
+    <div class="hero__cta">
+      <a class="btn btn--gold magnet" href="#collection">Смотреть каталог</a>
+      <a class="btn btn--ghost magnet" href="#fit">Подобрать размер</a>
+    </div>
   </div>
-</div>
-
-<main id="main">
-
-  <!-- 1. Hero -->
-  <section class="hero">
-    <div class="hero-inner" id="hero-inner">
-      <div class="hero-mono">РТ</div>
-      <p class="hero-eyebrow">Женская одежда · Бичура</p>
-      <h1>РТ-одежда</h1>
-      <div class="hero-actions">
-        <a class="btn btn-primary" href="#products">Смотреть каталог</a>
-        <a class="btn btn-ghost" href="#sizing">Подобрать размер</a>
-      </div>
-    </div>
-
-    <div class="hero-foot">
-      <p class="hero-side">Осень 2026</p>
-      <div class="hero-cue">
-        <span>Листайте</span>
-        <span class="hero-line"></span>
-      </div>
-      <p class="hero-side">Своё производство</p>
-    </div>
-  </section>
-
-  <!-- 2. О бренде -->
-  <section class="about" id="about">
-    <div class="wrap">
-      <div class="about-grid">
-        <div class="about-text">
-          <div class="section-head reveal">
-            <p class="eyebrow">О бренде</p>
-            <h2 class="section-title">Что это</h2>
-          </div>
-          <div class="reveal">
-            <p>РТ-одежда — мастерская по пошиву одежды. Шьём партиями, руками, в своём цеху. Модель в работе, пока есть ткань — без складских запасов и распродаж.</p>
-            <p>Ткани — те, что носятся каждый день: хлопок, лён, вискоза, шерсть. Перед запуском модель проверяем на двух фигурах, дальше следим за каждой строчкой: швы, петли, подгибка.</p>
-            <ul class="facts">
-              <li>Шьём сами, в своём цеху</li>
-              <li>Ткани: хлопок, лён, вискоза, шерсть</li>
-              <li>Размерный ряд: 42–50</li>
-              <li>Пошив 7–10 дней после заказа</li>
-            </ul>
-          </div>
-
-          <!-- Блок «кто шьёт»: имя, роль в цеху и личную ссылку заменю на свои -->
-          <div class="maker reveal">
-            <div class="maker-photo">Фото</div>
-            <div>
-              <p class="maker-name">Имя Фамилия</p>
-              <p>Основатель и технолог. Лекала, ткани и приёмку каждой партии веду сама — раскрой и пошив идут в цеху. Шесть лет в конструировании, первые три — на заказ под знакомых. Пишите напрямую: <a href="https://t.me/rt_odezhda?utm_source=site&amp;utm_medium=maker" rel="noopener">@rt_odezhda</a>.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="about-photo reveal"><span>Фото мастерской</span></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 3. Коллекция -->
-  <section id="products">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <p class="eyebrow">Коллекция</p>
-        <h2 class="section-title">Вещи</h2>
-      </div>
-
-      <div class="products-grid">
-        <article class="product reveal">
-          <div class="product-img"></div>
-          <h3>Платье «Лён»</h3>
-          <p class="product-price">8 900 ₽</p>
-          <p class="product-note">100% лён, 42–48</p>
-          <p class="product-note">Стирка 30°, без отбеливателя. После сушки даёт усадку около 5%.</p>
-          <a class="order" href="https://wa.me/79990000000?text=Здравствуйте,+интересует+платье+«Лён»,+размер&amp;utm_source=site&amp;utm_medium=card&amp;utm_campaign=lyon" rel="noopener">Заказать в WhatsApp</a>
-        </article>
-
-        <article class="product reveal">
-          <div class="product-img"></div>
-          <h3>Костюм «Город»</h3>
-          <p class="product-price">14 500 ₽</p>
-          <p class="product-note">Шерсть с вискозой, 42–50</p>
-          <p class="product-note">Химчистка или ручная стирка 30°, не сушить на батарее.</p>
-          <a class="order" href="https://wa.me/79990000000?text=Здравствуйте,+интересует+костюм+«Город»,+размер&amp;utm_source=site&amp;utm_medium=card&amp;utm_campaign=gorod" rel="noopener">Заказать в WhatsApp</a>
-        </article>
-
-        <article class="product reveal">
-          <div class="product-img"></div>
-          <h3>Юбка «Карман»</h3>
-          <p class="product-price">5 400 ₽</p>
-          <p class="product-note">Плотный хлопок, 42–48</p>
-          <p class="product-note">Стирка 40°, гладить при 150° с изнанки.</p>
-          <a class="order" href="https://wa.me/79990000000?text=Здравствуйте,+интересует+юбка+«Карман»,+размер&amp;utm_source=site&amp;utm_medium=card&amp;utm_campaign=karmans" rel="noopener">Заказать в WhatsApp</a>
-        </article>
-
-        <article class="product reveal">
-          <div class="product-img"></div>
-          <h3>Блуза «Стойка»</h3>
-          <p class="product-price">6 200 ₽</p>
-          <p class="product-note">Вискоза, 42–50</p>
-          <p class="product-note">Ручная стирка 30°, не выкручивать, сушить на плечиках.</p>
-          <a class="order" href="https://wa.me/79990000000?text=Здравствуйте,+интересует+блуза+«Стойка»,+размер&amp;utm_source=site&amp;utm_medium=card&amp;utm_campaign=stoyka" rel="noopener">Заказать в WhatsApp</a>
-        </article>
-      </div>
-
-      <!-- Размеры и остатки. Цифры временные — сверь со своими лекалами -->
-      <div class="specs">
-        <details class="spec" id="sizing" open>
-          <summary>Размерная таблица <i aria-hidden="true"></i></summary>
-          <div class="spec-body">
-            <div class="table-wrap">
-              <table>
-                <caption class="visually-hidden">Мерки моделей по размерам 42–50, сантиметры</caption>
-                <thead>
-                  <tr>
-                    <th scope="col">Размер</th>
-                    <th scope="col">Грудь</th>
-                    <th scope="col">Талия</th>
-                    <th scope="col">Бёдра</th>
-                    <th scope="col">Длина изделия</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr><th scope="row">42</th><td>84–86</td><td>66–68</td><td>92–94</td><td>118</td></tr>
-                  <tr><th scope="row">44</th><td>88–90</td><td>70–72</td><td>96–98</td><td>119</td></tr>
-                  <tr><th scope="row">46</th><td>92–94</td><td>74–76</td><td>100–102</td><td>120</td></tr>
-                  <tr><th scope="row">48</th><td>96–98</td><td>78–80</td><td>104–106</td><td>121</td></tr>
-                  <tr><th scope="row">50</th><td>100–102</td><td>82–84</td><td>108–110</td><td>122</td></tr>
-                </tbody>
-              </table>
-            </div>
-
-            <ul class="howto">
-              <li>Меряй обхват по самой широкой точке, сантиметр держи горизонтально.</li>
-              <li>Между двумя размерами бери больший: лён и шерсть садятся на 3–5%.</li>
-              <li>Сомневаешься — пришли свои три мерки в Telegram, скажу размер сама.</li>
-            </ul>
-            <p class="swipe-hint">Таблицу можно листать пальцем вправо</p>
-          </div>
-        </details>
-
-        <details class="spec" id="stock">
-          <summary>Свободно по партиям <i aria-hidden="true"></i></summary>
-          <div class="spec-body">
-            <div class="table-wrap">
-              <table>
-                <caption class="visually-hidden">Остатки по моделям на текущий момент</caption>
-                <thead>
-                  <tr>
-                    <th scope="col">Модель</th>
-                    <th scope="col">Размеры в наличии</th>
-                    <th scope="col">Свободно</th>
-                    <th scope="col">Партия</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr><th scope="row">Платье «Лён»</th><td>42, 44, 46</td><td>5 из 16</td><td>осень</td></tr>
-                  <tr><th scope="row">Костюм «Город»</th><td>44–50</td><td>8 из 14</td><td>осень</td></tr>
-                  <tr><th scope="row">Юбка «Карман»</th><td>42, 44, 48</td><td>11 из 18</td><td>осень</td></tr>
-                  <tr><th scope="row">Блуза «Стойка»</th><td>42, 46, 50</td><td>3 из 20</td><td>осень</td></tr>
-                </tbody>
-              </table>
-            </div>
-            <p class="howto">Обновляю таблицу раз в неделю. Если размера нет — сшью в следующей партии, срок 7–10 дней.</p>
-          </div>
-        </details>
-      </div>
-
-      <p class="products-foot reveal">Названия, цены и остатки временные.</p>
-    </div>
-  </section>
-
-  <!-- 4. Как заказать -->
-  <section class="steps" id="steps">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <p class="eyebrow">Как заказать</p>
-        <h2 class="section-title">Три шага</h2>
-      </div>
-      <div class="steps-grid">
-        <div class="step reveal">
-          <p class="step-num">01</p>
-          <h3>Выбираешь модель</h3>
-          <p>Смотришь коллекцию и пишешь, что нравится. Подсказываю по размеру и остатку ткани.</p>
-        </div>
-        <div class="step reveal">
-          <p class="step-num">02</p>
-          <h3>Пишешь в Telegram или Instagram</h3>
-          <p>Уточняем размер, цвет и срок. Отвечаю в течение дня.</p>
-        </div>
-        <div class="step reveal">
-          <p class="step-num">03</p>
-          <h3>Оплата и доставка</h3>
-          <p>Перевод на карту или счёт. Отправка СДЭКом и Почтой, по городу — курьер.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 5. Контакты -->
-  <section class="contacts" id="contacts">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <p class="eyebrow">Контакты</p>
-        <h2 class="section-title">Написать</h2>
-      </div>
-      <p class="contacts-lead reveal">Заказы и вопросы о размерах — в мессенджерах. Отвечаю с 10:00 до 20:00 по Москве.</p>
-
-      <div class="contacts-links reveal">
-        <!-- Подставь свои ссылки: ник в Telegram, аккаунт Instagram, номер WhatsApp -->
-        <a href="https://t.me/rt_odezhda?utm_source=site&amp;utm_medium=contacts" rel="noopener">Telegram</a>
-        <a href="https://instagram.com/rt_odezhda?utm_source=site&amp;utm_medium=contacts" rel="noopener">Instagram</a>
-        <a href="https://wa.me/79990000000?utm_source=site&amp;utm_medium=contacts" rel="noopener">WhatsApp</a>
-      </div>
-
-      <div class="contacts-direct reveal">
-        <a href="tel:+79990000000">+7 999 000-00-00</a>
-        <a href="mailto:zakaz@rt-odezhda.ru">zakaz@rt-odezhda.ru</a>
-      </div>
-    </div>
-  </section>
-
-</main>
-
-<!-- Бегущая строка: состав тканей -->
-<div class="ticker" aria-hidden="true">
-  <div class="ticker-track">
-    <span>Хлопок<b>·</b>Лён<b>·</b>Вискоза<b>·</b>Шерсть<b>·</b>Своё производство<b>·</b>Размеры 42–50<b>·</b></span>
-    <span>Хлопок<b>·</b>Лён<b>·</b>Вискоза<b>·</b>Шерсть<b>·</b>Своё производство<b>·</b>Размеры 42–50<b>·</b></span>
+  <div class="hero__foot">
+    <span>Осень 2026</span><span class="drop" aria-hidden="true"></span><span>Своё производство</span>
   </div>
-</div>
+</section>
 
-<footer class="footer">
+<div class="ticker"><span class="ticker__shear"><span class="ticker__track">
+  <span class="ticker__grp"><i>Хлопок<em>◆</em></i><i>Лён<em>◆</em></i><i>Вискоза<em>◆</em></i><i>Шерсть<em>◆</em></i><i>Своё производство<em>◆</em></i><i>Размеры 42–50<em>◆</em></i></span>
+  <span class="ticker__grp"><i>Хлопок<em>◆</em></i><i>Лён<em>◆</em></i><i>Вискоза<em>◆</em></i><i>Шерсть<em>◆</em></i><i>Своё производство<em>◆</em></i><i>Размеры 42–50<em>◆</em></i></span>
+</span></span></div>
+
+<!-- О БРЕНДЕ -->
+<section class="sec sec--alt" id="about">
   <div class="wrap">
-    <p class="footer-name">РТ-одежда</p>
-    <p class="footer-copy">© 2026</p>
+    <div class="sec__head reveal"><span class="idx">01</span><h2><i>Что это</i></h2><span class="rule"></span></div>
+    <div class="about">
+      <div class="about__txt">
+        <p class="reveal" style="--d:0">РТ-одежда — своё производство, малые партии, без складов и уценки. Шьём из хлопка, льна, вискозы и шерсти. Перед запуском каждая модель проходит примерку на двух фигурах — потом контроль пошива: швы, петли, подгибка.</p>
+        <p class="reveal" style="--d:1">Партия — от 5 до 20 изделий, поэтому размер не «заканчивается внезапно», а возвращается не всегда. Новое поступление выкладываем в Telegram: там же видно, что свободно прямо сейчас.</p>
+        <ul class="facts">
+          <li class="reveal" style="--d:2">Шьём сами, в своём цеху в Бичуре<em>не перепродаём</em></li>
+          <li class="reveal" style="--d:2">Хлопок, лён, вискоза, шерсть<em>без полиэстера в основе</em></li>
+          <li class="reveal" style="--d:3">Размерный ряд 42–50<em>44 и 46 обычно в наличии</em></li>
+          <li class="reveal" style="--d:3">Пошив под заказ<em>7–10 дней</em></li>
+        </ul>
+        <div class="live reveal" style="--d:4">
+          <span class="live__dot" aria-hidden="true"></span>
+          <div>
+            <p><b id="liveOrders" data-num="0">0</b> изделий сейчас в работе</p>
+            <p class="muted">Отшив <span id="liveLead">7–10 дней</span>. Ближайшая отгрузка СДЭКом — <span id="liveShip">по пятницам</span>.</p>
+          </div>
+        </div>
+      </div>
+      <div class="ph about__img reveal" style="--d:2" data-file="img/about.jpg">
+        <span class="big-mono">РТ</span>
+        <img src="img/about.jpg" alt="Съёмка коллекции РТ-одежда" width="900" height="1125" loading="lazy" onerror="this.remove()">
+      </div>
+    </div>
+    <div class="maker">
+      <div class="ph maker__ph reveal" style="--d:0" data-file="img/seamstress.jpg">
+        <span class="big-mono">РТ</span>
+        <img src="img/seamstress.jpg" alt="Мастер, которая шьёт" width="300" height="300" loading="lazy" onerror="this.remove()">
+      </div>
+      <div class="reveal" style="--d:1">
+        <h3>Кто шьёт</h3>
+        <p>Две швеи и закройщик. Всё на одном участке: раскрой, сборка, ВТО, контроль. Если партия задерживается — предупреждаем в тот же день, а не «когда придёт срок».</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- КОЛЛЕКЦИЯ -->
+<section class="sec" id="collection">
+  <div class="wrap">
+    <div class="sec__head reveal"><span class="idx">02</span><h2><i>Вещи</i></h2><span class="rule"></span></div>
+    <div class="grid">
+      <article class="card reveal" style="--d:0">
+        <div class="ph card__ph" data-file="img/look-01.jpg"><span class="card__tag">42 · 44 · 48 · 50</span><span class="big-mono">РТ</span>
+          <img src="img/look-01.jpg" alt="Платье «Милан», лён и вискоза" width="750" height="1000" loading="lazy" onerror="this.remove()"></div>
+        <h3>Платье «Милан»</h3><span class="price">6 900 ₽</span>
+        <p class="comp">60% лён, 40% вискоза. Длина 124 см, рукав ¾, потайная молния.</p>
+        <a class="btn btn--gold" href="https://wa.me/79990000000?text=%D0%9F%D0%BB%D0%B0%D1%82%D1%8C%D0%B5%20%D0%9C%D0%B8%D0%BB%D0%B0%D0%BD%2C%20%D1%80%D0%B0%D0%B7%D0%BC%D0%B5%D1%80%20">Заказать в WhatsApp</a>
+      </article>
+      <article class="card reveal" style="--d:1">
+        <div class="ph card__ph" data-file="img/look-02.jpg"><span class="card__tag">42 — 48</span><span class="big-mono">РТ</span>
+          <img src="img/look-02.jpg" alt="Рубашка «Тиволи», хлопок" width="750" height="1000" loading="lazy" onerror="this.remove()"></div>
+        <h3>Рубашка «Тиволи»</h3><span class="price">4 200 ₽</span>
+        <p class="comp">100% хлопок, поплин 120 г/м². Oversize, удлинённая спинка.</p>
+        <a class="btn btn--gold" href="https://wa.me/79990000000?text=%D0%A0%D1%83%D0%B1%D0%B0%D1%88%D0%BA%D0%B0%20%D0%A2%D0%B8%D0%B2%D0%BE%D0%BB%D0%B8%2C%20%D1%80%D0%B0%D0%B7%D0%BC%D0%B5%D1%80%20">Заказать в WhatsApp</a>
+      </article>
+      <article class="card reveal" style="--d:1">
+        <div class="ph card__ph" data-file="img/look-03.jpg"><span class="card__tag">42 · 44 · 46 · 50</span><span class="big-mono">РТ</span>
+          <img src="img/look-03.jpg" alt="Юбка «Кассель», шерсть" width="750" height="1000" loading="lazy" onerror="this.remove()"></div>
+        <h3>Юбка «Кассель»</h3><span class="price">3 800 ₽</span>
+        <p class="comp">70% шерсть, 30% вискоза. Миди, пояс на резинке сзади.</p>
+        <a class="btn btn--gold" href="https://wa.me/79990000000?text=%D0%AE%D0%B1%D0%BA%D0%B0%20%D0%9A%D0%B0%D1%81%D1%81%D0%B5%D0%BB%D1%8C%2C%20%D1%80%D0%B0%D0%B7%D0%BC%D0%B5%D1%80%20">Заказать в WhatsApp</a>
+      </article>
+      <article class="card reveal" style="--d:2">
+        <div class="ph card__ph" data-file="img/look-04.jpg"><span class="card__tag">44 — 50</span><span class="big-mono">РТ</span>
+          <img src="img/look-04.jpg" alt="Брюки «Палермо», лён" width="750" height="1000" loading="lazy" onerror="this.remove()"></div>
+        <h3>Брюки «Палермо»</h3><span class="price">5 400 ₽</span>
+        <p class="comp">55% лён, 45% вискоза. Строгий пояс, два кармана, длина 100 см.</p>
+        <a class="btn btn--gold" href="https://wa.me/79990000000?text=%D0%91%D1%80%D1%8E%D0%BA%D0%B8%20%D0%9F%D0%B0%D0%BB%D0%B5%D1%80%D0%BC%D0%BE%2C%20%D1%80%D0%B0%D0%B7%D0%BC%D0%B5%D1%80%20">Заказать в WhatsApp</a>
+      </article>
+    </div>
+
+    <div class="disc">
+      <details class="reveal" id="fit" style="--d:0">
+        <summary>Подбор размера по меркам</summary>
+        <div class="details__body">
+          <p class="muted" style="font-size:14px">Меряем всухую, по белью. Достаточно одной груди, но с тремя мерками точнее. Всё считается в браузере — никуда не уходит, пока вы сами не напишете.</p>
+          <div class="calc">
+            <div class="calc__row">
+              <label class="field"><span>Грудь, см</span><input id="mChest" type="number" inputmode="numeric" min="76" max="118" placeholder="92"></label>
+              <label class="field"><span>Талия, см</span><input id="mWaist" type="number" inputmode="numeric" min="56" max="112" placeholder="74"></label>
+              <label class="field"><span>Бёдра, см</span><input id="mHips" type="number" inputmode="numeric" min="82" max="124" placeholder="98"></label>
+            </div>
+            <div><button class="btn btn--gold magnet" id="calcBtn" type="button">Показать размер</button></div>
+            <div class="calc__out" id="out" role="status" aria-live="polite"><span class="calc__hint">Заполните хотя бы грудь — покажем размер по нашей таблице и объясним посадку.</span></div>
+          </div>
+        </div>
+      </details>
+
+      <details class="reveal" style="--d:1">
+        <summary>Размерная таблица</summary>
+        <div class="details__body"><div class="scroll-x">
+          <table><caption class="muted" style="text-align:left;font-size:13.5px;padding-bottom:12px">Мерки изделия, см. Если между двумя размерами — берите больший.</caption>
+            <thead><tr><th>Размер</th><th>Грудь</th><th>Талия</th><th>Бёдра</th><th>Длина</th></tr></thead>
+            <tbody>
+              <tr><td>42</td><td>84–87</td><td>65–68</td><td>90–93</td><td>124</td></tr>
+              <tr><td>44</td><td>88–91</td><td>69–72</td><td>94–97</td><td>124</td></tr>
+              <tr><td>46</td><td>92–95</td><td>73–76</td><td>98–101</td><td>125</td></tr>
+              <tr><td>48</td><td>96–99</td><td>77–80</td><td>102–105</td><td>125</td></tr>
+              <tr><td>50</td><td>100–104</td><td>81–85</td><td>106–109</td><td>126</td></tr>
+            </tbody></table></div>
+          <p class="muted" style="margin:16px 0 0;font-size:14px">Длину подгоняем под ваш рост без наценки, если до 178 см. Выше — +10 см, это +400 ₽.</p>
+        </div>
+      </details>
+
+      <details class="reveal" style="--d:2">
+        <summary>Свободно по партиям</summary>
+        <div class="details__body"><div class="stock">
+          <div><b>Платье «Милан» · лён/вискоза</b><span>42 — 1</span><span>44 — 2</span><span class="no"><s>46 — нет</s></span><span>48 — 3</span><span>50 — 1</span></div>
+          <div><b>Рубашка «Тиволи» · поплин</b><span>42 — 4</span><span>44 — 5</span><span>46 — 2</span><span>48 — 1</span><span class="no"><s>50 — нет</s></span></div>
+          <div><b>Юбка «Кассель» · шерсть</b><span>42 — 2</span><span>44 — 1</span><span>46 — 4</span><span class="no"><s>48 — нет</s></span><span>50 — 2</span></div>
+          <div><b>Брюки «Палермо» · лён</b><span class="no"><s>42 — нет</s></span><span>44 — 3</span><span>46 — 3</span><span>48 — 2</span><span>50 — 1</span></div>
+        </div>
+        <p class="muted" style="margin:16px 0 0;font-size:14px">Остатки обновлены <span id="stockDate">в этот понедельник</span>. Нет размера — шьём в следующей партии, 7–10 дней.</p>
+        </div>
+      </details>
+
+      <details class="reveal" style="--d:3">
+        <summary>Почему мы не на маркетплейсах</summary>
+        <div class="details__body"><ul style="margin:0;padding-left:22px;color:#c9b8a4">
+          <li style="margin-bottom:8px"><b>Контроль.</b> Каждое изделие смотрим до отправки: швы, строчка, пуговицы. Пачкой на склад не сдаём.</li>
+          <li style="margin-bottom:8px"><b>Честные сроки.</b> Если партия задерживается, пишем в день, когда это стало ясно, — а не «в пути» неделю.</li>
+          <li style="margin-bottom:8px"><b>Посадка.</b> Можем перекроить под мерки или предложить другую модель.</li>
+          <li><b>Цена.</b> Комиссия площадки — 25–35% сверху. Без неё те же 6 900 ₽ остаются у нас с вами.</li>
+        </ul><p style="margin:16px 0 0;font-size:15px;color:var(--cream)">Меньше продаж — но каждая отправка с трек-номером и фото изделия перед упаковкой.</p></div>
+      </details>
+
+      <details class="reveal" style="--d:3">
+        <summary>Как стирать, чтобы жило</summary>
+        <div class="details__body"><ul style="margin:0;padding-left:22px;color:#c9b8a4">
+          <li style="margin-bottom:8px"><b>Лён и вискоза:</b> 30°, отжим до 600, сушить в расправленном виде. Садятся на 2–3% — кроим это заранее.</li>
+          <li style="margin-bottom:8px"><b>Шерсть:</b> режим «шерсть» или ручная стирка, 30°, жидкое средство. Не вешать, сложить.</li>
+          <li><b>Хлопок-поплин:</b> 40°, глажка при 150°. Усадка в пределах 1–2%.</li>
+        </ul></div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<div class="ticker"><span class="ticker__shear"><span class="ticker__track">
+  <span class="ticker__grp"><i>Хлопок<em>◆</em></i><i>Лён<em>◆</em></i><i>Вискоза<em>◆</em></i><i>Шерсть<em>◆</em></i><i>Своё производство<em>◆</em></i><i>Размеры 42–50<em>◆</em></i></span>
+  <span class="ticker__grp"><i>Хлопок<em>◆</em></i><i>Лён<em>◆</em></i><i>Вискоза<em>◆</em></i><i>Шерсть<em>◆</em></i><i>Своё производство<em>◆</em></i><i>Размеры 42–50<em>◆</em></i></span>
+</span></span></div>
+
+<!-- КАК ЗАКАЗАТЬ -->
+<section class="sec sec--alt" id="order">
+  <div class="wrap">
+    <div class="sec__head reveal"><span class="idx">03</span><h2><i>Как заказать</i></h2><span class="rule"></span></div>
+    <div class="steps">
+      <div class="step reveal" style="--d:0"><span class="num">01</span><h3>Выбираете модель</h3><p>Смотрите остатки и таблицу размеров. Пришлёте мерки — ответим по факту посадки, а не «идёт всем».</p></div>
+      <div class="step reveal" style="--d:1"><span class="num">02</span><h3>Пишете в Telegram или Instagram</h3><p>До оплаты присылаем фото в реальный цвет, замеры и точный срок. Отвечаем с 10:00 до 20:00 по местному времени.</p></div>
+      <div class="step reveal" style="--d:2"><span class="num">03</span><h3>Оплата и доставка</h3><p>Перевод на карту или счёт. Отправляем СДЭКом на 2–5 день после отшива, трек приходит в тот же день.</p></div>
+    </div>
+    <p class="disclaim reveal" style="--d:3">Возврат в течение 14 дней, если изделие не было в носке и сохранены бирки — по ст. 26.1 ЗоЗПП. Обмен по нашей ошибке — за наш счёт.</p>
+  </div>
+</section>
+
+<!-- ОТЗЫВЫ -->
+<section class="sec" id="reviews">
+  <div class="wrap">
+    <div class="sec__head reveal"><span class="idx">04</span><h2><i>Что говорят</i></h2><span class="rule"></span></div>
+    <div class="revs">
+      <article class="rev reveal" style="--d:0">
+        <div class="rev__h"><div class="rev__ava"><img src="img/review-1.jpg" alt="" width="92" height="92" loading="lazy" onerror="this.remove()">А</div><div><div class="rev__n">Анна</div><div class="rev__m">Бичура · размер 44</div></div></div>
+        <p class="rev__q">«Платье «Милан» село по месту, лён не колется и после трёх стирок не полинял».</p>
+        <div class="rev__f">Заказ июль 2026 · со второго размера</div>
+      </article>
+      <article class="rev reveal" style="--d:1">
+        <div class="rev__h"><div class="rev__ava"><img src="img/review-2.jpg" alt="" width="92" height="92" loading="lazy" onerror="this.remove()">М</div><div><div class="rev__n">Марина</div><div class="rev__m">Казань · размер 48</div></div></div>
+        <p class="rev__q">«Сначала прислали замеры рубашки по факту, потом уже оплата. Цвет совпал с фото».</p>
+        <div class="rev__f">Заказ август 2026 · СДЭК до пункта, 3 дня</div>
+      </article>
+      <article class="rev reveal" style="--d:2">
+        <div class="rev__h"><div class="rev__ava"><img src="img/review-3.jpg" alt="" width="92" height="92" loading="lazy" onerror="this.remove()">Е</div><div><div class="rev__n">Елена</div><div class="rev__m">Санкт-Петербург · размер 46</div></div></div>
+        <p class="rev__q">«Шью сама, смотрю на изнанку: швы ровные, оверлок аккуратный, припуски одинаковые».</p>
+        <div class="rev__f">Заказ сентябрь 2026 · юбка «Кассель»</div>
+      </article>
+    </div>
+    <div class="shots reveal" style="--d:1">
+      <figure><div class="ph" data-file="img/shot-1.jpg"><span class="big-mono">РТ</span><img src="img/shot-1.jpg" alt="Фото клиентки: платье Милан" width="400" height="400" loading="lazy" onerror="this.remove()"></div><figcaption>Платье «Милан», 44</figcaption></figure>
+      <figure><div class="ph" data-file="img/shot-2.jpg"><span class="big-mono">РТ</span><img src="img/shot-2.jpg" alt="Фото клиентки: рубашка Тиволи" width="400" height="400" loading="lazy" onerror="this.remove()"></div><figcaption>Рубашка «Тиволи», 48</figcaption></figure>
+      <figure><div class="ph" data-file="img/shot-3.jpg"><span class="big-mono">РТ</span><img src="img/shot-3.jpg" alt="Фото клиентки: брюки Палермо" width="400" height="400" loading="lazy" onerror="this.remove()"></div><figcaption>Брюки «Палермо», 46</figcaption></figure>
+      <figure><div class="ph" data-file="img/shot-4.jpg"><span class="big-mono">РТ</span><img src="img/shot-4.jpg" alt="Фото клиентки: юбка Кассель" width="400" height="400" loading="lazy" onerror="this.remove()"></div><figcaption>Юбка «Кассель», 50</figcaption></figure>
+    </div>
+    <p class="disclaim reveal" style="--d:2">Отзывы и фото — из переписки в Telegram, опубликованы с разрешения клиенток. Обработанных фото фигуры не используем.</p>
+  </div>
+</section>
+
+<!-- КОНТАКТЫ -->
+<section class="sec sec--alt" id="contacts">
+  <div class="wrap contact">
+    <div class="sec__head reveal" style="--d:0"><span class="idx">05</span><h2><i>Написать</i></h2></div>
+    <div class="pills">
+      <a class="pill magnet" href="https://t.me/rt_odezhda" style="--d:0"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21.9 4.3 18.9 19c-.2 1-.8 1.2-1.6.8l-4.4-3.3-2.2 2.1c-.2.2-.4.4-.9.4l.3-4.4 8-7.2c.6-.5-.1-.8-.8-.3L6.7 13.5l-4.2-1.3c-.9-.3-.9-.9.2-1.3l16.4-6.3c.8-.3 1.4.2 1.1 1.3Z"/></svg>Telegram</a>
+      <a class="pill magnet" href="https://instagram.com/rt.odezhda" style="--d:1"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c2.7 0 3 .1 4.1.5 1 .5 1.8 1.2 2.3 2.3.4 1 .5 1.4.5 4.1s-.1 3-.5 4.1a6.2 6.2 0 0 1-2.3 2.3c-1 .4-1.4.5-4.1.5s-3-.1-4.1-.5a6.2 6.2 0 0 1-2.3-2.3c-.4-1-.5-1.4-.5-4.1s.1-3 .5-4.1a6.2 6.2 0 0 1 2.3-2.3c1-.4 1.4-.5 4.1-.5Zm0 3a6.8 6.8 0 1 0 0 13.6 6.8 6.8 0 0 0 0-13.6Zm0 11.2a4.4 4.4 0 1 1 0-8.8 4.4 4.4 0 0 1 0 8.8Zm7-11.5a1.6 1.6 0 1 1-3.2 0 1.6 1.6 0 0 1 3.2 0Z"/></svg>Instagram</a>
+      <a class="pill magnet" href="https://wa.me/79990000000" style="--d:2"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.5 15.2L2 22l4.9-1.4A10 10 0 1 0 12 2Zm5.3 14c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-1.7-.1-2-.6-3.5-2.1-4.5-3.6-.6-1-1-2-1-2.9 0-.9.5-1.6 1-2 .3-.3.6-.4.8-.4h.6c.2 0 .4 0 .6.5l.8 2c.1.3 0 .5-.2.7l-.4.5c-.2.2-.2.4 0 .6.5.9 1.4 1.7 2.4 2.1.3.1.5.1.6-.1l.6-.7c.2-.2.4-.2.6-.1l2 1c.2.1.3.2.3.3 0 .1 0 .4-.2 1Z"/></svg>WhatsApp</a>
+    </div>
+    <div class="requisites reveal" style="--d:0">
+      <span>Телефон: <a href="tel:+79990000000">+7 999 000-00-00</a></span>
+      <span>Почта: <a href="mailto:hello@rt-odezhda.ru">hello@rt-odezhda.ru</a></span>
+      <span>Бичура, будни 10:00–20:00</span>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <span class="brand"><span class="mono">РТ</span><b>РТ&nbsp;—&nbsp;одежда</b></span>
+      <span>© <span id="year">2026</span> РТ-одежда. Своё производство, Бичура.</span>
+    </div>
+    <div class="legal">
+      <span id="legalWho">ИП Фамилия И. О. · ИНН 000000000000 · ОГРНИП 000000000000000</span>
+      <button type="button" data-doc="privacy">Политика обработки данных</button>
+      <button type="button" data-doc="offer">Публичная оферта</button>
+      <button type="button" data-doc="requisites">Реквизиты для оплаты</button>
+    </div>
   </div>
 </footer>
 
-<!-- Липная полоса действий: видна только на телефоне -->
-<div class="sticky-cta" id="sticky">
-  <a class="sticky-tg" href="https://t.me/rt_odezhda?utm_source=site&amp;utm_medium=sticky">Telegram</a>
-  <a class="sticky-wa" href="https://wa.me/79990000000?utm_source=site&amp;utm_medium=sticky">WhatsApp</a>
+<dialog class="doc" id="doc" aria-labelledby="docTitle">
+  <div class="doc__h"><h3 id="docTitle">Документ</h3><button class="doc__x" id="docX" aria-label="Закрыть">×</button></div>
+  <div class="doc__b" id="docBody"></div>
+</dialog>
+
+<div class="sticky" id="sticky">
+  <a href="https://t.me/rt_odezhda">Написать в Telegram</a>
+  <a class="alt" href="https://wa.me/79990000000">WhatsApp</a>
 </div>
 
 <script>
-  document.documentElement.classList.add('js');
+/* ══════ CONFIG — единственное место с цифрами и ссылками ══════ */
+const CONFIG = {
+  wa: '79990000000',
+  inWork: 12,
+  leadDays: [7, 10],
+  shipDay: 5,                 // 0=вс … 5=пт
+  stockUpdated: '2026-09-28',
+  cardTilt: 7,                // градусы наклона карточки
+  magnet: .2
+};
 
-  (function () {
-    var header = document.querySelector('.header');
-    var progress = document.getElementById('progress');
-    var hero = document.getElementById('hero-inner');
-    var burger = document.getElementById('burger');
-    var menu = document.getElementById('menu');
-    var sticky = document.getElementById('sticky');
-    var body = document.body;
-    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    var fine = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+(() => {
+  const R = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const fine = matchMedia('(pointer:fine)').matches;
 
-    var lastY = window.pageYOffset;
-    var ticking = false;
+  /* ── тосты ── */
+  const toast = document.getElementById('toast');
+  let tt;
+  const say = m => { toast.textContent = m; toast.classList.add('on'); clearTimeout(tt); tt = setTimeout(() => toast.classList.remove('on'), 2000); };
 
-    /* ---------- Полноэкранное меню ---------- */
-    function openMenu() {
-      body.classList.add('menu-open');
-      burger.setAttribute('aria-expanded', 'true');
-      menu.setAttribute('aria-hidden', 'false');
-      var first = menu.querySelector('a');
-      if (first) first.focus({ preventScroll: true });
-    }
+  /* ── звук: синтез через WebAudio, файлов нет ── */
+  const sndBtn = document.getElementById('snd');
+  let ac = null, on = localStorage.getItem('rt-snd') === '1';
+  const paint = () => { sndBtn.dataset.on = on ? '1' : '0'; sndBtn.setAttribute('aria-pressed', on); };
+  paint();
+  function tick(freq = 1320, dur = .05, vol = .05) {
+    if (!on) return;
+    try {
+      ac || (ac = new (window.AudioContext || window.webkitAudioContext)());
+      if (ac.state === 'suspended') ac.resume();
+      const t = ac.currentTime, o = ac.createOscillator(), g = ac.createGain();
+      o.type = 'triangle'; o.frequency.setValueAtTime(freq, t);
+      o.frequency.exponentialRampToValueAtTime(freq * .72, t + dur);
+      g.gain.setValueAtTime(.0001, t);
+      g.gain.exponentialRampToValueAtTime(vol, t + .004);
+      g.gain.exponentialRampToValueAtTime(.0001, t + dur);
+      o.connect(g).connect(ac.destination); o.start(t); o.stop(t + dur + .03);
+    } catch (e) {}
+  }
+  sndBtn.addEventListener('click', () => {
+    on = !on; localStorage.setItem('rt-snd', on ? '1' : '0'); paint();
+    if (on) { tick(1500); say('Звук включён'); } else say('Звук выключен');
+  });
+  document.addEventListener('click', e => {
+    if (e.target.closest('.btn,.pill,.snd')) tick(e.target.closest('.btn--gold') ? 1180 : 1560, .045, .04);
+  });
 
-    function closeMenu(restoreFocus) {
-      if (!body.classList.contains('menu-open')) return;
-      body.classList.remove('menu-open');
-      burger.setAttribute('aria-expanded', 'false');
-      menu.setAttribute('aria-hidden', 'true');
-      if (restoreFocus) burger.focus({ preventScroll: true });
-    }
+  /* ── reveal ── */
+  const io = new IntersectionObserver(es => es.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+  }), { threshold: .15, rootMargin: '0px 0px -8% 0px' });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
-    if (burger && menu) {
-      burger.addEventListener('click', function () {
-        if (body.classList.contains('menu-open')) closeMenu(true);
-        else openMenu();
-      });
-
-      menu.addEventListener('click', function (e) {
-        if (e.target.closest('a')) closeMenu(false);
-      });
-
-      document.addEventListener('keydown', function (e) {
-        if (e.key === 'Escape') closeMenu(true);
-      });
-
-      /* Пока меню открыто — Tab циклит внутри него,
-         иначе фокус ушёл бы на невидимые ссылки под оверлеем */
-      document.addEventListener('keydown', function (e) {
-        if (e.key !== 'Tab' || !body.classList.contains('menu-open')) return;
-        var f = [burger].concat([].slice.call(menu.querySelectorAll('a')));
-        var first = f[0];
-        var last = f[f.length - 1];
-
-        if (e.shiftKey && (document.activeElement === first || document.activeElement === body)) {
-          e.preventDefault();
-          last.focus();
-        } else if (!e.shiftKey && document.activeElement === last) {
-          e.preventDefault();
-          first.focus();
-        }
-      });
-
-      window.addEventListener('resize', function () {
-        if (window.innerWidth > 820) closeMenu(false);
-      });
-    }
-
-    /* ---------- Прокрутка: прогресс, шапка, параллакс, липкая полоса ---------- */
-    function onScroll() {
-      var y = window.pageYOffset;
-      var max = document.documentElement.scrollHeight - window.innerHeight;
-      var vh = window.innerHeight;
-
-      if (progress) progress.style.transform = 'scaleX(' + (max > 0 ? Math.min(y / max, 1) : 0) + ')';
-      if (header) header.classList.toggle('is-scrolled', y > 8);
-
-      /* Прячем шапку только при осмысленном движении вниз и не на первом экране */
-      if (header && !body.classList.contains('menu-open')) {
-        var down = y > lastY + 8;
-        var up = y < lastY - 8;
-        var focusInside = header.contains(document.activeElement);
-        if (down && y > vh * 0.7 && !focusInside) header.classList.add('is-hidden');
-        else if (up) header.classList.remove('is-hidden');
-        if (y < 12) header.classList.remove('is-hidden');
-      }
-
-      if (hero && !reduce && y < vh) hero.style.transform = 'translate3d(0,' + (y * 0.12) + 'px,0)';
-      if (sticky) sticky.classList.toggle('is-on', y > vh * 0.7);
-
-      if (y !== lastY) lastY = y;
-      ticking = false;
-    }
-
-    window.addEventListener('scroll', function () {
-      if (!ticking) { ticking = true; window.requestAnimationFrame(onScroll); }
+  /* ── второй курсор ── */
+  const cur = document.getElementById('cursor');
+  let cx = innerWidth / 2, cy = innerHeight / 2, tx = cx, ty = cy, seen = false;
+  if (fine && !R) {
+    addEventListener('pointermove', e => {
+      tx = e.clientX; ty = e.clientY;
+      if (!seen) { seen = true; cur.style.opacity = 1; }
+      const hot = e.target.closest('a,button,.card,summary,input');
+      cur.classList.toggle('hot', !!hot);
     }, { passive: true });
-    onScroll();
+    addEventListener('pointerdown', () => cur.classList.add('press'));
+    addEventListener('pointerup', () => cur.classList.remove('press'));
+    addEventListener('mouseleave', () => cur.style.opacity = 0);
+  }
 
-    /* ---------- Появление блоков + stagger внутри группы ---------- */
-    var items = [].slice.call(document.querySelectorAll('.reveal'));
+  /* ── скролл: прогресс с инерцией, шапка, параллакс, наклон бегущей ── */
+  const bar = document.getElementById('progress'), hdr = document.getElementById('hdr'),
+        sticky = document.getElementById('sticky'), glow = document.getElementById('glow'),
+        mark = document.getElementById('heroMark');
+  let y = scrollY, last = y, shown = 0, vel = 0, raf = false;
 
-    if (reduce || !('IntersectionObserver' in window)) {
-      items.forEach(function (el) { el.classList.add('is-visible'); });
-    } else {
-      var io = new IntersectionObserver(function (entries, obs) {
-        entries.forEach(function (entry) {
-          if (!entry.isIntersecting) return;
-          var el = entry.target;
-          var siblings = el.parentNode ? [].slice.call(el.parentNode.children) : [];
-          var group = siblings.filter(function (n) { return n.classList && n.classList.contains('reveal'); });
-          var i = group.indexOf(el);
-          el.style.transitionDelay = (i > 0 ? i * 110 : 0) + 'ms';
-          el.classList.add('is-visible');
-          obs.unobserve(el);
-        });
-      }, { threshold: 0.15, rootMargin: '0px 0px -8% 0px' });
+  const frame = () => {
+    const max = document.documentElement.scrollHeight - innerHeight;
+    const want = max > 0 ? Math.min(y / max, 1) : 0;
+    shown += (want - shown) * (R ? 1 : .12);                 // инерция полосы
+    bar.style.transform = 'scaleX(' + shown.toFixed(4) + ')';
+    hdr.classList.toggle('scrolled', y > 10);
+    hdr.classList.toggle('hide', y > last + 4 && y > 260);
+    sticky.classList.toggle('on', y > 560);
 
-      items.forEach(function (el) { io.observe(el); });
+    vel += (Math.abs(y - last) - vel) * .2;                  // скорость скролла
+    if (!R) {
+      const skew = Math.max(-8, Math.min(8, vel * .5));
+      document.querySelectorAll('.ticker__shear').forEach(s => s.style.setProperty('--skew', skew.toFixed(2) + 'deg'));
+      const p = Math.min(y, innerHeight);
+      glow.style.translate = '-50% calc(-50% + ' + (p * .18).toFixed(1) + 'px)';
+      mark.style.transform = 'translateY(' + (p * .12).toFixed(1) + 'px) rotate(' + (p * .01).toFixed(2) + 'deg)';
     }
+    last = y; raf = false;
+    if (vel > .3) loop();
+  };
+  const loop = () => { if (!raf) { raf = true; requestAnimationFrame(frame); } };
+  addEventListener('scroll', () => { y = scrollY; loop(); }, { passive: true });
+  frame();
 
-    /* ---------- Подсветка активного пункта меню ---------- */
-    var links = [].slice.call(document.querySelectorAll('.nav a[href^="#"]:not(.nav-cta)'));
-    var sections = links.map(function (l) { return document.querySelector(l.getAttribute('href')); }).filter(Boolean);
+  /* ── второй курсор: отдельный цикл, чтобы догонял и в покое ── */
+  if (fine && !R) {
+    (function followCursor() {
+      cx += (tx - cx) * .18; cy += (ty - cy) * .18;
+      cur.style.transform = 'translate(' + cx.toFixed(1) + 'px,' + cy.toFixed(1) + 'px)';
+      requestAnimationFrame(followCursor);
+    })();
+  }
 
-    if ('IntersectionObserver' in window && sections.length) {
-      var spy = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) {
-          if (!entry.isIntersecting) return;
-          links.forEach(function (l) {
-            l.classList.toggle('is-current', l.getAttribute('href') === '#' + entry.target.id);
-          });
-        });
-      }, { rootMargin: '-45% 0px -50% 0px' });
+  /* ── световое пятно в hero ── */
+  const hero = document.querySelector('.hero'), spot = document.getElementById('spot');
+  if (fine && !R) hero.addEventListener('pointermove', e => {
+    const r = hero.getBoundingClientRect();
+    spot.style.setProperty('--px', (e.clientX - r.left) + 'px');
+    spot.style.setProperty('--py', (e.clientY - r.top) + 'px');
+  }, { passive: true });
 
-      sections.forEach(function (s) { spy.observe(s); });
+  /* ── магнитные кнопки ── */
+  if (fine && !R) document.querySelectorAll('.magnet').forEach(el => {
+    el.addEventListener('pointermove', e => {
+      const r = el.getBoundingClientRect();
+      el.style.transition = 'transform .12s linear';
+      el.style.transform = 'translate(' + ((e.clientX - r.left - r.width / 2) * CONFIG.magnet).toFixed(1) + 'px,' +
+                                          (((e.clientY - r.top - r.height / 2) * CONFIG.magnet) - 3).toFixed(1) + 'px)';
+    }, { passive: true });
+    el.addEventListener('pointerleave', () => { el.style.transition = 'transform .55s var(--spring)'; el.style.transform = ''; });
+  });
+
+  /* ── карточки: спотлайт + 3D-наклон + линза зума на картинке ── */
+  if (fine) document.querySelectorAll('.card').forEach(c => {
+    const T = CONFIG.cardTilt;
+    c.addEventListener('pointermove', e => {
+      const r = c.getBoundingClientRect(), px = e.clientX - r.left, py = e.clientY - r.top;
+      const nx = px / r.width - .5, ny = py / r.height - .5;
+      c.style.setProperty('--mx', px + 'px');
+      c.style.setProperty('--my', py + 'px');
+      c.classList.add('live');
+      if (!R) { c.style.setProperty('--ry', (nx * T).toFixed(2) + 'deg'); c.style.setProperty('--rx', (-ny * T).toFixed(2) + 'deg'); }
+      const ph = c.querySelector('.card__ph');
+      if (ph) {
+        const pr = ph.getBoundingClientRect();
+        ph.style.setProperty('--ox', ((e.clientX - pr.left) / pr.width * 100).toFixed(1) + '%');
+        ph.style.setProperty('--oy', ((e.clientY - pr.top) / pr.height * 100).toFixed(1) + '%');
+      }
+      c.style.setProperty('--z', '1.16');
+    }, { passive: true });
+    c.addEventListener('pointerleave', () => {
+      c.classList.remove('live');
+      c.style.setProperty('--rx', '0deg'); c.style.setProperty('--ry', '0deg'); c.style.setProperty('--z', '1');
+    });
+  });
+
+  /* ── активный пункт меню ── */
+  const links = [...document.querySelectorAll('#nav a')];
+  new IntersectionObserver(es => es.forEach(e => {
+    if (!e.isIntersecting) return;
+    links.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + e.target.id));
+  }), { rootMargin: '-45% 0px -50% 0px' }).observe(...document.querySelectorAll('section[id]'));
+
+  /* ── живой статус ── */
+  const fmt = new Intl.DateTimeFormat('ru-RU', { day: 'numeric', month: 'long' });
+  const ship = new Date(); while (ship.getDay() !== CONFIG.shipDay) ship.setDate(ship.getDate() + 1);
+  document.getElementById('liveLead').textContent = CONFIG.leadDays[0] + '–' + CONFIG.leadDays[1] + ' дней';
+  document.getElementById('liveShip').textContent = CONFIG.inWork > 14 ? fmt.format(ship) : 'сегодня до 18:00';
+  document.getElementById('stockDate').textContent = fmt.format(new Date(CONFIG.stockUpdated));
+
+  const num = document.getElementById('liveOrders');
+  if (R) num.textContent = CONFIG.inWork;
+  else {
+    const once = new IntersectionObserver(e => {
+      if (!e[0].isIntersecting) return;
+      const t0 = performance.now(), d = 1200;
+      const run = t => { const k = Math.min((t - t0) / d, 1); num.textContent = Math.round(CONFIG.inWork * (1 - Math.pow(1 - k, 3))); if (k < 1) requestAnimationFrame(run); };
+      requestAnimationFrame(run); once.disconnect();
+    });
+    once.observe(num);
+  }
+
+  /* ── подбор размера ── */
+  const SIZES = [
+    { r: 42, chest: [84, 87],  waist: [65, 68],  hips: [90, 93] },
+    { r: 44, chest: [88, 91],  waist: [69, 72],  hips: [94, 97] },
+    { r: 46, chest: [92, 95],  waist: [73, 76],  hips: [98, 101] },
+    { r: 48, chest: [96, 99],  waist: [77, 80],  hips: [102, 105] },
+    { r: 50, chest: [100, 104], waist: [81, 85], hips: [106, 109] }
+  ];
+  const NM = { chest: 'грудь', waist: 'талия', hips: 'бёдра' };
+  const pick = (v, k) => {
+    if (!v) return null;
+    if (v < SIZES[0][k][0] - 1) return { i: -1 };
+    for (let i = 0; i < SIZES.length; i++) if (v <= SIZES[i][k][1]) return { i };
+    return { i: 99 };
+  };
+  const out = document.getElementById('out');
+  const calc = () => {
+    const v = { chest: +mChest.value || null, waist: +mWaist.value || null, hips: +mHips.value || null };
+    if (!v.chest && !v.waist && !v.hips) { out.classList.remove('hit'); out.innerHTML = '<span class="calc__hint">Введите хотя бы одну мерку.</span>'; return; }
+    const got = [];
+    for (const k of ['chest', 'waist', 'hips']) {
+      const p = pick(v[k], k);
+      if (p && p.i === 99) {
+        out.classList.add('hit'); tick(760, .09, .04);
+        out.innerHTML = '<span class="calc__size">—</span><p class="calc__why">Мерка «' + NM[k] + '» ' + v[k] + ' см вне ряда 42–50. Сошьём по индивидуальным меркам, срок тот же. <b>Напишите в Telegram</b>, обсудим лекала.</p>';
+        return;
+      }
+      if (p) got.push({ k, i: p.i, v: v[k] });
     }
+    if (!got.length) { out.innerHTML = '<span class="calc__hint">Мерки вне диапазона — напишите нам, подберём вручную.</span>'; return; }
+    const worst = got.reduce((a, b) => b.i > a.i ? b : a);
+    const small = worst.i < 0;
+    const size = small ? 42 : SIZES[worst.i].r;
+    let why = 'По ' + NM[worst.k] + ' ' + worst.v + ' см → <b>размер ' + size + '</b>.';
+    const ii = got.map(g => g.i);
+    why += Math.max(...ii) > Math.min(...ii)
+      ? ' Остальные мерки меньше — берём по максимальной, в ' + NM[worst.k] + ' сядет свободно.'
+      : ' Все мерки в одном размере — сядет по таблице.';
+    if (small) why = 'Мерки меньше 42-го. Берём за основу 42-й и <b>шьём по вашим меркам</b> без наценки.';
+    const msg = encodeURIComponent('Мерки: грудь ' + (v.chest || '—') + ', талия ' + (v.waist || '—') + ', бёдра ' + (v.hips || '—') + '. Подскажите размер и посадку');
+    out.classList.add('hit'); tick(1760, .06, .045);
+    out.innerHTML = '<span class="calc__size">' + size + '<i>ваш размер</i></span><p class="calc__why">' + why + ' Ориентир по таблице — точную посадку скажем на фото фигуры.</p>' +
+      '<a class="btn btn--ghost magnet" style="margin-left:auto" target="_blank" rel="noopener" href="https://wa.me/' + CONFIG.wa + '?text=' + msg + '">Отправить мерки</a>';
+  };
+  document.getElementById('calcBtn').addEventListener('click', calc);
+  ['mChest', 'mWaist', 'mHips'].forEach(id => document.getElementById(id).addEventListener('keydown', e => { if (e.key === 'Enter') { e.preventDefault(); calc(); } }));
 
-    if (reduce || !fine) return;
-
-    /* ---------- Магнитные кнопки ---------- */
-    [].forEach.call(document.querySelectorAll('.btn,.nav-cta'), function (el) {
-      el.addEventListener('pointermove', function (e) {
-        var r = el.getBoundingClientRect();
-        var x = (e.clientX - r.left - r.width / 2) * 0.18;
-        var y = (e.clientY - r.top - r.height / 2) * 0.24;
-        el.style.transform = 'translate3d(' + Math.max(-6, Math.min(6, x)) + 'px,' + Math.max(-5, Math.min(5, y)) + 'px,0)';
-      });
-      el.addEventListener('pointerleave', function () { el.style.transform = ''; });
+  /* ── документы ── */
+  const DOCS = {
+    privacy: { t: 'Политика обработки данных', h:
+      '<p>Собираем минимум данных. Счётчиков, пикселей и рекламных трекеров на сайте нет.</p>' +
+      '<h4>Что попадает к нам</h4><ul><li>Мерки, фото и адрес — только когда вы сами пишете в Telegram, WhatsApp или на почту.</li><li>Подбор размера на сайте ничего не отправляет: расчёт идёт в вашем браузере.</li></ul>' +
+      '<h4>Куда идёт</h4><ul><li>Используем для заказа, доставки и связи по нему.</li><li>Не передаём третьим лицам, кроме СДЭК для доставки и банка для приёма оплаты.</li></ul>' +
+      '<h4>Срок и отзыв</h4><ul><li>Переписку храним 12 месяцев.</li><li>Удалить данные — письмом на hello@rt-odezhda.ru, делаем за 10 дней.</li></ul>' },
+    offer: { t: 'Публичная оферта', h:
+      '<h4>Заказ</h4><p>Заказ подтверждается после оплаты. Изделия в наличии отгружаем в течение 2 рабочих дней, под заказ — 7–10 дней.</p>' +
+      '<h4>Оплата</h4><p>Перевод на карту или расчётный счёт. Цена фиксируется в момент подтверждения.</p>' +
+      '<h4>Доставка</h4><p>СДЭК по РФ, тариф службы, трек в день отгрузки.</p>' +
+      '<h4>Возврат и обмен</h4><ul><li>14 дней с получения без следов носки, бирки сохранены (ст. 26.1 ЗоЗПП).</li><li>Наш брак или ошибка размера — обмен за наш счёт, включая обратную доставку.</li><li>Индивидуальный пошив возврату не подлежит (п. 4 ст. 26.1).</li></ul>' +
+      '<p class="muted">Рабочий шаблон: перед публикацией дайте текст юристу.</p>' },
+    requisites: { t: 'Реквизиты для оплаты', h:
+      '<h4>Получатель</h4><ul><li>ИП Фамилия Имя Отчество</li><li>ИНН 000000000000</li><li>ОГРНИП 000000000000000</li><li>Р/с 40802810000000000000</li><li>Банк ПАО «Банк», БИК 044525225</li></ul>' +
+      '<h4>Карта</h4><ul><li id="cardNo">0000 0000 0000 0000</li></ul>' +
+      '<p class="muted">В комментарии укажите модель и размер — так быстрее найдём заказ.</p>' +
+      '<button class="copy" id="copyBtn" type="button">Скопировать номер карты</button>' }
+  };
+  const dlg = document.getElementById('doc');
+  document.querySelectorAll('[data-doc]').forEach(b => b.addEventListener('click', () => {
+    const d = DOCS[b.dataset.doc];
+    document.getElementById('docTitle').textContent = d.t;
+    document.getElementById('docBody').innerHTML = d.h;
+    dlg.showModal();
+    const cp = document.getElementById('copyBtn');
+    if (cp) cp.addEventListener('click', async () => {
+      const txt = document.getElementById('cardNo').textContent.trim();
+      try { await navigator.clipboard.writeText(txt); say('Скопировано'); }
+      catch (e) { say(txt); }
     });
+  }));
+  document.getElementById('docX').addEventListener('click', () => dlg.close());
+  dlg.addEventListener('click', e => { if (e.target === dlg) dlg.close(); });
 
-    /* ---------- Спотлайт на карточках ---------- */
-    [].forEach.call(document.querySelectorAll('.product'), function (card) {
-      var img = card.querySelector('.product-img');
-      if (!img) return;
-      card.addEventListener('pointermove', function (e) {
-        var r = img.getBoundingClientRect();
-        img.style.setProperty('--mx', ((e.clientX - r.left) / r.width * 100).toFixed(1) + '%');
-        img.style.setProperty('--my', ((e.clientY - r.top) / r.height * 100).toFixed(1) + '%');
-      });
-    });
-  })();
+  /* ── меню ── */
+  const burger = document.getElementById('burger');
+  const closeMenu = () => { document.body.classList.remove('menu'); burger.setAttribute('aria-expanded', 'false'); };
+  burger.addEventListener('click', () => { const o = document.body.classList.toggle('menu'); burger.setAttribute('aria-expanded', o); });
+  document.querySelectorAll('#menu a').forEach(a => a.addEventListener('click', closeMenu));
+  addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu(); });
+
+  if (location.hash === '#fit') {
+    document.querySelector('#fit').open = true;
+    addEventListener('load', () => setTimeout(() => mChest.focus(), 800));
+  }
+
+  const who = '';   // впишите сюда «ИП Иvanov I. I. · ИНН … · ОГРНИП …» — строка заменится
+  if (who) document.getElementById('legalWho').textContent = who;
+  document.getElementById('year').textContent = new Date().getFullYear();
+})();
 </script>
-
 </body>
 </html>
