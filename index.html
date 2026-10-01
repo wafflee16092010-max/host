@@ -59,6 +59,8 @@ body{margin:0;background:var(--bg);color:var(--cream);font:400 16px/1.7 Inter,sy
 img{display:block;max-width:100%}
 a{color:inherit;text-decoration:none}
 button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+/* мобильный отклик: без задержки двойного тапа и без серых рамок iOS при тапе */
+a,button,summary,input,select,label{touch-action:manipulation;-webkit-tap-highlight-color:transparent}
 ::selection{background:var(--gold);color:#1a0f08}
 :focus-visible{outline:2px solid var(--gold);outline-offset:3px}
 section[id]{scroll-margin-top:88px}
@@ -109,6 +111,11 @@ section{position:relative}
 .hdr{position:fixed;inset:0 0 auto;z-index:90;padding-top:var(--safe-t);background:rgba(26,15,8,.55);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);border-bottom:1px solid transparent;transition:transform .5s var(--ease),border-color .4s linear,background .4s linear}
 .hdr.scrolled{border-bottom-color:var(--line);background:rgba(26,15,8,.8)}
 .hdr.hide{transform:translateY(-104%)}
+/* без backdrop-filter полупрозрачный фон делает текст под шапки читаемым — делаем плотным */
+@supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){
+  .hdr{background:#1a0f08}
+  .hdr.scrolled{background:#1a0f08}
+}
 .hdr__in{display:flex;align-items:center;gap:22px;height:74px}
 .brand{display:flex;align-items:center;gap:12px;flex:0 0 auto}
 .mono{width:38px;height:38px;flex:0 0 38px;border-radius:50%;display:grid;place-items:center;font-family:"Cormorant Garamond",serif;font-weight:600;font-size:16px;color:#1a0f08;background:linear-gradient(140deg,#f0dca8,var(--gold) 48%,#8a6524);box-shadow:0 0 0 1px rgba(230,200,122,.35),0 6px 18px -8px rgba(201,162,77,.6);transition:rotate .8s var(--spring)}
@@ -351,9 +358,9 @@ dialog.doc[open]{animation:dlg .45s var(--spring)}
 .toast.on{transform:translate(-50%,0);opacity:1}
 
 /* — липкая полоса — */
-.sticky{position:fixed;left:10px;right:10px;bottom:calc(10px + var(--safe-b));z-index:80;display:none;gap:8px;opacity:0;transform:translateY(calc(100% + var(--safe-b)));transition:opacity .5s var(--ease),transform .5s var(--spring)}
+.sticky{position:fixed;left:calc(10px + env(safe-area-inset-left));right:calc(10px + env(safe-area-inset-right));bottom:calc(10px + var(--safe-b));z-index:80;display:none;gap:8px;opacity:0;transform:translateY(calc(100% + var(--safe-b)));transition:opacity .5s var(--ease),transform .5s var(--spring)}
 .sticky.on{opacity:1;transform:none}
-.sticky a{flex:1;text-align:center;padding:16px 10px;border-radius:14px;font-size:14px;font-weight:500;min-height:52px;display:flex;align-items:center;justify-content:center;background:linear-gradient(140deg,var(--gold-soft),var(--gold));color:#221409;box-shadow:0 14px 30px -14px rgba(0,0,0,.9)}
+.sticky a{flex:1;min-width:0;text-align:center;padding:16px 8px;border-radius:14px;font-size:14px;font-weight:500;min-height:52px;display:flex;align-items:center;justify-content:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;background:linear-gradient(140deg,var(--gold-soft),var(--gold));color:#221409;box-shadow:0 14px 30px -14px rgba(0,0,0,.9)}
 .sticky a.alt{background:var(--bg-card);color:var(--cream);border:1px solid var(--line)}
 
 /* ════════ АДАПТИВ ════════ */
@@ -668,8 +675,8 @@ dialog.doc[open]{animation:dlg .45s var(--spring)}
 </dialog>
 
 <div class="sticky" id="sticky">
-  <a href="https://t.me/rt_odezhda">Написать в Telegram</a>
-  <a class="alt" href="https://wa.me/79990000000">WhatsApp</a>
+  <a href="https://t.me/rt_odezhda">Telegram</a>
+  <a class="alt" href="https://wa.me/79990000000" aria-label="Написать в WhatsApp">WhatsApp</a>
 </div>
 
 <script>
