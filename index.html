@@ -211,7 +211,6 @@ body.menu .menu a{opacity:1;transform:none;transition-delay:calc(.12s + var(--d)
 .live b{font-family:"Cormorant Garamond",serif;font-size:26px;font-weight:600;color:var(--gold-soft);vertical-align:-3px;margin-right:6px;font-variant-numeric:tabular-nums}
 .live .muted{font-size:13.5px;margin-top:4px}
 .ph{position:relative;overflow:hidden;border:1px solid var(--line);background:radial-gradient(120% 90% at 30% 10%,rgba(201,162,77,.14),transparent 60%),linear-gradient(160deg,var(--bg-card),var(--bg-alt))}
-.ph::after{content:attr(data-file);position:absolute;left:12px;bottom:10px;z-index:4;font:400 10px/1 Inter;letter-spacing:.14em;color:rgba(240,230,214,.35)}
 .ph .big-mono{position:absolute;inset:0;display:grid;place-items:center;font-family:"Cormorant Garamond",serif;font-weight:600;font-size:clamp(4rem,13vw,10rem);letter-spacing:.04em;color:transparent;-webkit-text-stroke:1px rgba(230,200,122,.32);transition:color .6s var(--ease)}
 .ph img{position:relative;z-index:2;width:100%;height:100%;object-fit:cover}
 .about__img{aspect-ratio:4/5}
@@ -401,11 +400,11 @@ dialog.doc[open]{animation:dlg .45s var(--spring)}
       <a href="#about">О бренде</a><a href="#collection">Коллекция</a>
       <a href="#order">Как заказать</a><a href="#reviews">Отзывы</a><a href="#contacts">Контакты</a>
     </nav>
-    <button class="snd" id="snd" data-on="0" aria-label="Звук интерфейса" aria-pressed="false">
+    <button class="snd" id="snd" type="button" data-on="0" aria-label="Звук интерфейса" aria-pressed="false">
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4z"/><path class="w1" d="M16 8.5a4.6 4.6 0 0 1 0 7v-7z"/><path class="w2" d="M18.4 6a7.8 7.8 0 0 1 0 12v-2a5.8 5.8 0 0 0 0-8V6z"/></svg>
     </button>
     <a class="btn btn--gold magnet" href="#contacts">Связаться</a>
-    <button class="burger" id="burger" aria-label="Меню" aria-expanded="false"><i></i><i></i></button>
+    <button class="burger" id="burger" type="button" aria-label="Меню" aria-expanded="false"><i></i><i></i></button>
   </div>
 </header>
 
@@ -606,17 +605,17 @@ dialog.doc[open]{animation:dlg .45s var(--spring)}
     <div class="sec__head reveal"><span class="idx">04</span><h2><i>Что говорят</i></h2><span class="rule"></span></div>
     <div class="revs">
       <article class="rev reveal" style="--d:0">
-        <div class="rev__h"><div class="rev__ava"><img src="img/review-1.jpg" alt="" width="92" height="92" loading="lazy" onerror="this.remove()">А</div><div><div class="rev__n">Анна</div><div class="rev__m">Бичура · размер 44</div></div></div>
+        <div class="rev__h"><div class="rev__ava"><img src="img/review-1.jpg" alt="" width="92" height="92" loading="lazy" onerror="this.remove()" aria-hidden="true">А</div><div><div class="rev__n">Анна</div><div class="rev__m">Бичура · размер 44</div></div></div>
         <p class="rev__q">«Платье «Милан» село по месту, лён не колется и после трёх стирок не полинял».</p>
         <div class="rev__f">Заказ июль 2026 · со второго размера</div>
       </article>
       <article class="rev reveal" style="--d:1">
-        <div class="rev__h"><div class="rev__ava"><img src="img/review-2.jpg" alt="" width="92" height="92" loading="lazy" onerror="this.remove()">М</div><div><div class="rev__n">Марина</div><div class="rev__m">Казань · размер 48</div></div></div>
+        <div class="rev__h"><div class="rev__ava"><img src="img/review-2.jpg" alt="" width="92" height="92" loading="lazy" onerror="this.remove()" aria-hidden="true">М</div><div><div class="rev__n">Марина</div><div class="rev__m">Казань · размер 48</div></div></div>
         <p class="rev__q">«Сначала прислали замеры рубашки по факту, потом уже оплата. Цвет совпал с фото».</p>
         <div class="rev__f">Заказ август 2026 · СДЭК до пункта, 3 дня</div>
       </article>
       <article class="rev reveal" style="--d:2">
-        <div class="rev__h"><div class="rev__ava"><img src="img/review-3.jpg" alt="" width="92" height="92" loading="lazy" onerror="this.remove()">Е</div><div><div class="rev__n">Елена</div><div class="rev__m">Санкт-Петербург · размер 46</div></div></div>
+        <div class="rev__h"><div class="rev__ava"><img src="img/review-3.jpg" alt="" width="92" height="92" loading="lazy" onerror="this.remove()" aria-hidden="true">Е</div><div><div class="rev__n">Елена</div><div class="rev__m">Санкт-Петербург · размер 46</div></div></div>
         <p class="rev__q">«Шью сама, смотрю на изнанку: швы ровные, оверлок аккуратный, припуски одинаковые».</p>
         <div class="rev__f">Заказ сентябрь 2026 · юбка «Кассель»</div>
       </article>
@@ -664,7 +663,7 @@ dialog.doc[open]{animation:dlg .45s var(--spring)}
 </footer>
 
 <dialog class="doc" id="doc" aria-labelledby="docTitle">
-  <div class="doc__h"><h3 id="docTitle">Документ</h3><button class="doc__x" id="docX" aria-label="Закрыть">×</button></div>
+  <div class="doc__h"><h3 id="docTitle">Документ</h3><button class="doc__x" id="docX" type="button" aria-label="Закрыть">×</button></div>
   <div class="doc__b" id="docBody"></div>
 </dialog>
 
@@ -739,7 +738,7 @@ const CONFIG = {
     }, { passive: true });
     addEventListener('pointerdown', () => cur.classList.add('press'));
     addEventListener('pointerup', () => cur.classList.remove('press'));
-    addEventListener('mouseleave', () => cur.style.opacity = 0);
+    document.documentElement.addEventListener('pointerleave', () => { cur.style.opacity = 0; seen = false; });
   }
 
   /* ── скролл: прогресс с инерцией, шапка, параллакс, наклон бегущей ── */
@@ -826,10 +825,11 @@ const CONFIG = {
 
   /* ── активный пункт меню ── */
   const links = [...document.querySelectorAll('#nav a')];
-  new IntersectionObserver(es => es.forEach(e => {
+  const spy = new IntersectionObserver(es => es.forEach(e => {
     if (!e.isIntersecting) return;
     links.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + e.target.id));
-  }), { rootMargin: '-45% 0px -50% 0px' }).observe(...document.querySelectorAll('section[id]'));
+  }), { rootMargin: '-45% 0px -50% 0px' });
+  document.querySelectorAll('section[id]').forEach(sec => spy.observe(sec));
 
   /* ── живой статус ── */
   const fmt = new Intl.DateTimeFormat('ru-RU', { day: 'numeric', month: 'long' });
@@ -916,6 +916,12 @@ const CONFIG = {
       '<p class="muted">В комментарии укажите модель и размер — так быстрее найдём заказ.</p>' +
       '<button class="copy" id="copyBtn" type="button">Скопировать номер карты</button>' }
   };
+  /* Единый номер: перешиваем все ссылки на WhatsApp из CONFIG,
+     иначе правка в CONFIG оставляла кнопки заказа со старым номером */
+  document.querySelectorAll('a[href*="wa.me/"]').forEach(a => {
+    a.href = a.href.replace(/wa\.me\/\d+/, 'wa.me/' + CONFIG.wa);
+  });
+
   const dlg = document.getElementById('doc');
   document.querySelectorAll('[data-doc]').forEach(b => b.addEventListener('click', () => {
     const d = DOCS[b.dataset.doc];
@@ -939,10 +945,14 @@ const CONFIG = {
   document.querySelectorAll('#menu a').forEach(a => a.addEventListener('click', closeMenu));
   addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu(); });
 
-  if (location.hash === '#fit') {
-    document.querySelector('#fit').open = true;
-    addEventListener('load', () => setTimeout(() => mChest.focus(), 800));
-  }
+  const openFit = focus => {
+    const d = document.getElementById('fit');
+    if (!d) return;
+    d.open = true;
+    if (focus) setTimeout(() => mChest.focus(), 700);
+  };
+  if (location.hash === '#fit') openFit(true);
+  addEventListener('hashchange', () => { if (location.hash === '#fit') openFit(true); });
 
   const who = '';   // впишите сюда «ИП Иvanov I. I. · ИНН … · ОГРНИП …» — строка заменится
   if (who) document.getElementById('legalWho').textContent = who;
