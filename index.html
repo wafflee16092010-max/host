@@ -118,7 +118,7 @@ section{position:relative}
 }
 .hdr__in{display:flex;align-items:center;gap:22px;height:74px}
 .brand{display:flex;align-items:center;gap:12px;flex:0 0 auto}
-.mono{width:38px;height:38px;flex:0 0 38px;border-radius:50%;display:grid;place-items:center;font-family:"Cormorant Garamond",serif;font-weight:600;font-size:16px;color:#1a0f08;background:linear-gradient(140deg,#f0dca8,var(--gold) 48%,#8a6524);box-shadow:0 0 0 1px rgba(230,200,122,.35),0 6px 18px -8px rgba(201,162,77,.6);transition:rotate .8s var(--spring)}
+.mono{width:38px;height:38px;flex:0 0 38px;border-radius:50%;object-fit:cover;display:block;background:#1a0f08;box-shadow:0 0 0 1px rgba(230,200,122,.35),0 6px 18px -8px rgba(201,162,77,.6);transition:rotate .8s var(--spring)}
 .brand:hover .mono{rotate:18deg}
 .brand b{font:500 14px/1 Inter;letter-spacing:.16em;text-transform:uppercase}
 .nav{display:flex;gap:26px;margin-left:auto;font-size:14px}
@@ -163,7 +163,7 @@ body.menu .menu a{opacity:1;transform:none;transition-delay:calc(.12s + var(--d)
 .hero__ring{position:absolute;inset:-16px;border-radius:50%;border:1px dashed rgba(201,162,77,.5);animation:spin 26s linear infinite}
 .hero__ring::after{content:"";position:absolute;top:-3px;left:calc(50% - 2.5px);width:5px;height:5px;border-radius:50%;background:var(--gold-soft);box-shadow:0 0 12px var(--gold)}
 @keyframes spin{to{rotate:360deg}}
-.hero__mark .mono{width:104px;height:104px;flex:none;font-size:38px}
+.hero__mark .mono{width:104px;height:104px;flex:none}
 .hero h1{font-size:var(--h1);letter-spacing:-.02em;margin:0 0 26px;overflow:hidden;padding-bottom:.14em;margin-bottom:calc(26px - .06em)}
 .hero h1 span{display:block;background:linear-gradient(105deg,#f6ecd8 5%,var(--gold-soft) 28%,#fff6e2 42%,var(--gold) 58%,#8a6524 88%);background-size:230% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shimmer 7s ease-in-out infinite,up 1.15s var(--ease) .15s both}
 @keyframes shimmer{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
@@ -402,7 +402,7 @@ dialog.doc[open]{animation:dlg .45s var(--spring)}
 
 <header class="hdr" id="hdr">
   <div class="wrap hdr__in">
-    <a class="brand" href="#top" aria-label="РТ-одежда — наверх"><span class="mono">РТ</span><b>РТ&nbsp;—&nbsp;одежда</b></a>
+    <a class="brand" href="#top" aria-label="РТ-одежда — наверх"><img class="mono" src="img/logo.png" alt="" width="38" height="38"><b>РТ&nbsp;—&nbsp;одежда</b></a>
     <nav class="nav" id="nav">
       <a href="#about">О бренде</a><a href="#collection">Коллекция</a>
       <a href="#order">Как заказать</a><a href="#reviews">Отзывы</a><a href="#contacts">Контакты</a>
@@ -426,7 +426,7 @@ dialog.doc[open]{animation:dlg .45s var(--spring)}
   <div class="hero__spot" id="spot"></div>
   <div class="hero__in">
     <div class="hero__mark reveal" style="--d:0" id="heroMark">
-      <span class="hero__ring" aria-hidden="true"></span><span class="mono">РТ</span>
+      <span class="hero__ring" aria-hidden="true"></span><img class="mono" src="img/logo.png" alt="" width="104" height="104">
     </div>
     <p class="eyebrow reveal" style="--d:1">Женская одежда&nbsp;&nbsp;·&nbsp;&nbsp;Бичура</p>
     <h1><span>РТ-одежда</span></h1>
@@ -657,7 +657,7 @@ dialog.doc[open]{animation:dlg .45s var(--spring)}
 <footer>
   <div class="wrap">
     <div class="foot">
-      <span class="brand"><span class="mono">РТ</span><b>РТ&nbsp;—&nbsp;одежда</b></span>
+      <span class="brand"><img class="mono" src="img/logo.png" alt="" width="38" height="38"><b>РТ&nbsp;—&nbsp;одежда</b></span>
       <span>© <span id="year">2026</span> РТ-одежда. Своё производство, Бичура.</span>
     </div>
     <div class="legal">
