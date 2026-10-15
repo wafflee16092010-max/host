@@ -18,7 +18,12 @@ db.exec(`
   );
 `);
 
-// Проверяем, пустая ли таблица, и при первом запуске заполняем тестовыми товарами
+// Удаляем старые тестовые товары (если они ещё в БД), чтобы подменить их реальными
+db.exec(
+  "DELETE FROM products WHERE title IN ('Футболка','Джинсы','Куртка','Кроссовки','Худи','Кепка')"
+);
+
+// Проверяем, пустая ли таблица, и при первом запуске заполняем реальными товарами
 const count = db.prepare('SELECT COUNT(*) AS cnt FROM products').get().cnt;
 if (count === 0) {
   const insert = db.prepare(
@@ -27,40 +32,28 @@ if (count === 0) {
 
   const seed = [
     {
-      title: 'Футболка',
-      price: 1500,
-      image: 'https://placehold.co/400x400?text=Футболка',
-      description: 'Базовая хлопковая футболка, дышит и не теряет форму.'
+      title: 'Платье «Милан»',
+      price: 6900,
+      image: 'https://placehold.co/600x800/2a1a10/e6c87a?text=Милан',
+      description: '60% лён, 40% вискоза. Длина 124 см, рукав ¾, потайная молния.'
     },
     {
-      title: 'Джинсы',
-      price: 3500,
-      image: 'https://placehold.co/400x400?text=Джинсы',
-      description: 'Классические джинсы из плотного денима.'
+      title: 'Рубашка «Тиволи»',
+      price: 4200,
+      image: 'https://placehold.co/600x800/2a1a10/e6c87a?text=Тиволи',
+      description: '100% хлопок, поплин 120 г/м². Oversize, удлинённая спинка.'
     },
     {
-      title: 'Куртка',
-      price: 7000,
-      image: 'https://placehold.co/400x400?text=Куртка',
-      description: 'Лёгкая куртка на подкладке для прохладной погоды.'
+      title: 'Юбка «Кассель»',
+      price: 3800,
+      image: 'https://placehold.co/600x800/2a1a10/e6c87a?text=Кассель',
+      description: '70% шерсть, 30% вискоза. Миди, пояс на резинке сзади.'
     },
     {
-      title: 'Кроссовки',
-      price: 5000,
-      image: 'https://placehold.co/400x400?text=Кроссовки',
-      description: 'Удобные кроссовки на каждый день.'
-    },
-    {
-      title: 'Худи',
-      price: 2500,
-      image: 'https://placehold.co/400x400?text=Худи',
-      description: 'Тёплое худи из мягкого футера.'
-    },
-    {
-      title: 'Кепка',
-      price: 900,
-      image: 'https://placehold.co/400x400?text=Кепка',
-      description: 'Кепка с регулируемым размером. Защитит от солнца.'
+      title: 'Брюки «Палермо»',
+      price: 5400,
+      image: 'https://placehold.co/600x800/2a1a10/e6c87a?text=Палермо',
+      description: '55% лён, 45% вискоза. Строгий пояс, два кармана, длина 100 см.'
     }
   ];
 

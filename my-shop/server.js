@@ -14,6 +14,40 @@ app.use(express.json());
 // Статические файлы из папки public
 app.use(express.static('public'));
 
+// ───────── Авторизация админки (HTTP Basic Auth) ─────────
+const ADMIN_USER = 'admin';
+const adminPassword = process.env.ADMIN_PASSWORD || 'admin123';
+
+if (!process.env.ADMIN_PASSWORD) {
+  console.warn('⚠️  ADMIN_PASSWORD не задан — используется дефолтный пароль admin123');
+}
+
+// Защищает /admin, все /api/orders и запись товаров (POST/DELETE /api/products).
+// GET /api/products остаётся публичным для витрины.
+function requireAuth(req, res, next) {
+  const adminPage = req.path === '/admin' || req.path.startsWith('/admin/');
+  const ordersApi = req.path.startsWith('/api/orders');
+  const productsWrite =
+    req.path.startsWith('/api/products') &&
+    (req.method === 'POST' || req.method === 'DELETE');
+
+  if (!(adminPage || ordersApi || productsWrite)) return next();
+
+  const header = req.headers.authorization || '';
+  const [scheme, token] = header.split(' ');
+  const valid =
+    scheme === 'Basic' &&
+    Buffer.from(token || '', 'base64').toString('utf8') ===
+      `${ADMIN_USER}:${adminPassword}`;
+
+  if (valid) return next();
+
+  res.setHeader('WWW-Authenticate', 'Basic realm="Admin"');
+  return res.status(401).send('Unauthorized');
+}
+
+app.use(requireAuth);
+
 // Роуты
 app.get('/api/products', (req, res) => {
   const products = db.prepare('SELECT * FROM products').all();

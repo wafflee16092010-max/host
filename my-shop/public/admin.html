@@ -12,6 +12,17 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- Дизайн-система магазина -->
   <link rel="stylesheet" href="style.css">
+  <!-- UX-раскладка таблиц: столбец «Действия» прижат вправо, кнопка заметная -->
+  <style>
+    .delete-product{
+      display:inline-flex;align-items:center;justify-content:center;
+      min-width:90px;padding:8px 14px;font-size:13px;
+    }
+    /* столбец «Действия» — по правому краю, заголовок совпадает с кнопками */
+    #products-body td:last-child, #products-body th:last-child{text-align:right}
+    #products-body tr td:nth-child(3){text-align:right;padding-right:20px}
+    #orders-body td:nth-child(4), #orders-body th:nth-child(4){text-align:right;padding-right:20px}
+  </style>
 </head>
 <body class="bg-[#1a0f08] text-[#f0e6d6] font-sans">
 
@@ -27,7 +38,7 @@
     <!-- Добавление товара -->
     <section>
       <h2 class="sec-title">Добавить товар</h2>
-      <form id="add-product-form" class="p-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
+      <form id="add-product-form" class="p-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 items-end">
         <div>
           <label for="product-title" class="field-label">Название *</label>
           <input type="text" id="product-title" required placeholder="Например: Платье">
@@ -44,8 +55,8 @@
           <label for="product-description" class="field-label">Описание</label>
           <input type="text" id="product-description" placeholder="Короткое описание товара">
         </div>
-        <div class="sm:col-span-2">
-          <button type="submit" class="btn btn--gold">
+        <div class="sm:col-span-2 lg:col-span-4">
+          <button type="submit" class="btn btn--gold" style="width:100%;padding:16px 30px;font-size:15px">
             Добавить товар
           </button>
           <p id="product-form-msg" class="hidden mt-3 text-sm font-medium"></p>

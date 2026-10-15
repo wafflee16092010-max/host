@@ -68,7 +68,14 @@ grid.addEventListener('click', (e) => {
     image: btn.dataset.image
   };
 
-  cart.push(product);
+  // Объединяем дубликаты: если товар уже в корзине — увеличиваем количество
+  const existing = cart.find((item) => item.id === product.id);
+  if (existing) {
+    existing.qty = (existing.qty || 1) + 1;
+  } else {
+    cart.push({ ...product, qty: 1 });
+  }
+
   localStorage.setItem('cart', JSON.stringify(cart));
   updateCartCount();
   btn.textContent = 'Добавлено ✓';
@@ -114,13 +121,15 @@ function renderCart() {
 
   cartItems.innerHTML = cart.map((item, index) => {
     const price = new Intl.NumberFormat('ru-RU').format(item.price);
+    const qty = item.qty || 1;
+    const lineTotal = new Intl.NumberFormat('ru-RU').format(item.price * qty);
     return `
       <div class="flex items-center gap-4">
         <img src="${item.image}" alt="${item.title}"
              class="w-16 h-16 object-cover rounded-lg shrink-0">
         <div class="flex-1 min-w-0">
-          <p class="font-medium truncate">${item.title}</p>
-          <p class="text-sm text-gray-500">${price} ₽</p>
+          <p class="font-medium truncate">${item.title} × ${qty} шт.</p>
+          <p class="text-sm text-gray-500">${price} ₽ / шт. — ${lineTotal} ₽</p>
         </div>
         <button data-index="${index}" class="remove-item text-red-500 hover:text-red-700 transition shrink-0" aria-label="Удалить">
           <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
@@ -145,9 +154,9 @@ cartItems.addEventListener('click', (e) => {
   renderCart();
 });
 
-// Подсчёт итоговой суммы
+// Подсчёт итоговой суммы (с учётом количества)
 function updateCartTotal() {
-  const total = cart.reduce((sum, item) => sum + item.price, 0);
+  const total = cart.reduce((sum, item) => sum + item.price * (item.qty || 1), 0);
   cartTotal.textContent = new Intl.NumberFormat('ru-RU').format(total) + ' ₽';
 }
 
@@ -160,13 +169,23 @@ checkoutBtn.addEventListener('click', async () => {
   if (!customer_name) return; // имя не введено — прерываем
 
   try {
+    // Строки заказа в формате: Название — N шт. — сумма ₽
+    const orderLines = cart
+      .map(
+        (item) =>
+          `${item.title} — ${item.qty || 1} шт. — ${new Intl.NumberFormat('ru-RU').format(
+            item.price * (item.qty || 1)
+          )} ₽`
+      )
+      .join('\n');
+
     const res = await fetch('/api/orders', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         customer_name,
         items: cart,
-        total: cart.reduce((sum, item) => sum + item.price, 0)
+        total: cart.reduce((sum, item) => sum + item.price * (item.qty || 1), 0)
       })
     });
 
@@ -175,7 +194,7 @@ checkoutBtn.addEventListener('click', async () => {
     const data = await res.json();
 
     // Успех: очищаем корзину, закрываем модалку, показываем сообщение
-    alert(`Спасибо, ${customer_name}! Ваш заказ №${data.orderId} принят.`);
+    alert(`Спасибо, ${customer_name}! Ваш заказ №${data.orderId} принят.\n\n${orderLines}`);
     cart = [];
     localStorage.setItem('cart', JSON.stringify(cart));
     updateCartCount();
@@ -186,9 +205,9 @@ checkoutBtn.addEventListener('click', async () => {
   }
 });
 
-// Счётчик в шапке
+// Счётчик в шапке (суммарное количество штук)
 function updateCartCount() {
-  cartCount.textContent = cart.length;
+  cartCount.textContent = cart.reduce((sum, item) => sum + (item.qty || 1), 0);
 }
 
 // Плавный скролл к каталогу
