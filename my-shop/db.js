@@ -18,6 +18,25 @@ db.exec(`
   );
 `);
 
+// Миграция: колонка sizes (JSON-объект вида {"42":1,"44":2,...} — размер: остаток).
+// Уже существующую базу не пересоздаём — добавляем колонку на месте.
+const productCols = db.prepare('PRAGMA table_info(products)').all().map((c) => c.name);
+if (!productCols.includes('sizes')) {
+  db.exec('ALTER TABLE products ADD COLUMN sizes TEXT');
+}
+
+// Остатки по партиям (как на лендинге, секция «Свободно по партиям»)
+const SIZES_BY_TITLE = {
+  'Платье «Милан»': JSON.stringify({ 42: 1, 44: 2, 46: 0, 48: 3, 50: 1 }),
+  'Рубашка «Тиволи»': JSON.stringify({ 42: 4, 44: 5, 46: 2, 48: 1, 50: 0 }),
+  'Юбка «Кассель»': JSON.stringify({ 42: 2, 44: 1, 46: 4, 48: 0, 50: 2 }),
+  'Брюки «Палермо»': JSON.stringify({ 42: 0, 44: 3, 46: 3, 48: 2, 50: 1 })
+};
+const setSizes = db.prepare('UPDATE products SET sizes = ? WHERE title = ?');
+for (const [title, sizes] of Object.entries(SIZES_BY_TITLE)) {
+  setSizes.run(sizes, title);
+}
+
 // Удаляем старые тестовые товары (если они ещё в БД), чтобы подменить их реальными
 db.exec(
   "DELETE FROM products WHERE title IN ('Футболка','Джинсы','Куртка','Кроссовки','Худи','Кепка')"

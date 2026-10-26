@@ -22,16 +22,16 @@ if (!process.env.ADMIN_PASSWORD) {
   console.warn('⚠️  ADMIN_PASSWORD не задан — используется дефолтный пароль admin123');
 }
 
-// Защищает /admin, все /api/orders и запись товаров (POST/DELETE /api/products).
-// GET /api/products остаётся публичным для витрины.
+// Защищает /admin, просмотр заказов (GET /api/orders) и запись товаров (POST/DELETE /api/products).
+// GET /api/products и POST /api/orders (оформление с витрины) остаются публичными.
 function requireAuth(req, res, next) {
   const adminPage = req.path === '/admin' || req.path.startsWith('/admin/');
-  const ordersApi = req.path.startsWith('/api/orders');
+  const ordersRead = req.path.startsWith('/api/orders') && req.method === 'GET';
   const productsWrite =
     req.path.startsWith('/api/products') &&
     (req.method === 'POST' || req.method === 'DELETE');
 
-  if (!(adminPage || ordersApi || productsWrite)) return next();
+  if (!(adminPage || ordersRead || productsWrite)) return next();
 
   const header = req.headers.authorization || '';
   const [scheme, token] = header.split(' ');
@@ -66,7 +66,7 @@ app.get('/api/products/:id', (req, res) => {
 
 // Добавление товара
 app.post('/api/products', (req, res) => {
-  const { title, price, description = '', image = '' } = req.body;
+  const { title, price, description = '', image = '', sizes = null } = req.body;
 
   if (!title || typeof title !== 'string' || !title.trim()) {
     return res.status(400).json({ error: 'Название товара обязательно' });
@@ -76,9 +76,13 @@ app.post('/api/products', (req, res) => {
     return res.status(400).json({ error: 'Цена должна быть числом не меньше 0' });
   }
 
+  const sizesJson = sizes == null || sizes === ''
+    ? null
+    : typeof sizes === 'string' ? sizes : JSON.stringify(sizes);
+
   const result = db
-    .prepare('INSERT INTO products (title, price, image, description) VALUES (?, ?, ?, ?)')
-    .run(title.trim(), Math.round(numPrice), image, description);
+    .prepare('INSERT INTO products (title, price, image, description, sizes) VALUES (?, ?, ?, ?, ?)')
+    .run(title.trim(), Math.round(numPrice), image, description, sizesJson);
 
   res.json({ success: true, productId: result.lastInsertRowid });
 });

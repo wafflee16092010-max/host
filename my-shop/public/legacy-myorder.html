@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>РТ-одежда — секция «Мой заказ» (архив)</title>
+<meta name="robots" content="noindex">
+</head>
+<body style="background:#1a0f08;color:#f0e6d6;font:400 16px/1.7 Inter,system-ui,sans-serif;margin:0;padding:20px">
+<p>Это архивная секция «Мой заказ» из лендинга. Она перенесена сюда при интеграции витрины (my-shop) в основной сайт. Если захочешь вернуть — вставь блок обратно в index.html и восстанови связанный JS.</p>
+<hr style="border-color:rgba(201,162,77,.18)">
+<!-- ============ ВЫРЕЗАНО ИЗ my-shop/public/index.html ============ -->
+<section class="sec sec--alt" id="myorder">
+  <div class="wrap">
+    <div class="sec__head reveal"><span class="idx">03</span><h2><i>Мой заказ</i></h2><span class="rule"></span></div>
+    <div class="basket">
+      <div>
+        <div class="basket__items" id="basketItems"></div>
+        <div class="basket__empty" id="basketEmpty">
+          <p>Пока пусто. Выберите вещь в <a href="#collection">коллекции</a> — там можно указать размер и количество, и позиция появится здесь.</p>
+        </div>
+      </div>
+      <div class="basket__side">
+        <div class="basket__total"><span>Итого</span><b id="basketTotal">0 ₽</b></div>
+        <label class="field"><span>Ваше имя</span><input type="text" id="custName" placeholder="Мария"></label>
+        <label class="field"><span>Телефон или @telegram</span><input type="text" id="custContact" placeholder="+7 …"></label>
+        <label class="field"><span>Комментарий</span><textarea id="custNote" placeholder="Цвет, длина, сроки — что важно"></textarea></label>
+        <div class="basket__btns">
+          <button class="btn btn--gold" id="basketSend" type="button" disabled>Отправить в WhatsApp</button>
+          <button class="btn btn--ghost" id="basketClear" type="button">Очистить</button>
+        </div>
+        <p class="basket__hint" id="basketHint">Откроется WhatsApp с готовым сообщением. Оплата и сроки — после подтверждения.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ============ КОНЕЦ ВЫРЕЗКИ ============ -->
+<p><small>Связанный JS (store/cart/basketSend…) был вырезан из inline-скрипта лендинга вместе с этой секцией.</small></p>
+</body>
+</html>

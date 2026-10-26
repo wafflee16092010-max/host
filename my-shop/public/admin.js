@@ -82,12 +82,14 @@ function renderProducts(products) {
 
   productsEmpty.classList.add('hidden');
   productsBody.innerHTML = products
-    .map(
-      (product) => `
+    .map((product) => {
+      const total = formatSizes(product.sizes);
+      return `
       <tr class="border-b border-gray-100 hover:bg-gray-50">
         <td class="px-4 py-3 font-medium">${product.id}</td>
-        <td class="px-4 py-3">${product.title}</td>
+        <td class="px-4 py-3 font-medium">${product.title}</td>
         <td class="px-4 py-3">${new Intl.NumberFormat('ru-RU').format(product.price)} ₽</td>
+        <td class="px-4 py-3">${total}</td>
         <td class="px-4 py-3">
           <button data-id="${product.id}" data-title="${product.title}"
                   class="delete-product bg-red-500 text-white text-xs font-medium px-3 py-1.5 rounded-lg hover:bg-red-600 transition">
@@ -95,9 +97,22 @@ function renderProducts(products) {
           </button>
         </td>
       </tr>
-    `
-    )
+    `;
+    })
     .join('');
+}
+
+function formatSizes(raw) {
+  if (!raw) return '—';
+  try {
+    const obj = typeof raw === 'string' ? JSON.parse(raw) : raw;
+    if (!obj || typeof obj !== 'object') return '—';
+    return Object.entries(obj)
+      .map(([size, left]) => `${size}:${left}`)
+      .join(' · ');
+  } catch {
+    return String(raw ?? '—');
+  }
 }
 
 // Вспомогательная функция: показать сообщение под формой
@@ -115,12 +130,25 @@ form.addEventListener('submit', async (e) => {
   const price = document.getElementById('product-price').value;
   const image = document.getElementById('product-image').value.trim();
   const description = document.getElementById('product-description').value.trim();
+  const sizesRaw = document.getElementById('product-sizes').value.trim();
+
+  // Размеры приходят JSON-строкой — пробуем распарсить, иначе шлём как есть
+  let sizes;
+  if (sizesRaw) {
+    try {
+      sizes = JSON.parse(sizesRaw);
+    } catch {
+      sizes = null;
+      showFormMsg('Неверный JSON в поле «Размеры»');
+      return;
+    }
+  }
 
   try {
     const res = await fetch('/api/products', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ title, price, image, description })
+      body: JSON.stringify({ title, price, image, description, sizes })
     });
 
     if (!res.ok) {

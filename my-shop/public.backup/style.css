@@ -1,0 +1,231 @@
+/* ══════════════════════════════════════
+   РТ-одежда — дизайн-система для магазина
+   Тёмная «премиум» палитра, как в landing.html
+   ══════════════════════════════════════ */
+
+/* ───────── ТОКЕНЫ ───────── */
+:root{
+  --bg:#1a0f08;
+  --bg-alt:#24160e;
+  --card:#2a1a10;
+  --gold:#c9a24d;
+  --gold-soft:#e6c87a;
+  --text:#f0e6d6;
+  --text-muted:#9c8471;
+  --border:rgba(201,162,77,.18);
+  --ease:cubic-bezier(.28,.84,.42,1);
+  --spring:cubic-bezier(.34,1.4,.64,1);
+  color-scheme:dark;
+}
+
+/* ───────── БАЗА ───────── */
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font:400 16px/1.7 Inter,system-ui,sans-serif;
+  overflow-x:hidden;
+}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+p{margin:0 0 1em}
+::selection{background:var(--gold);color:#1a0f08}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+section[id]{scroll-margin-top:96px}
+h1,h2,h3,h4{font-family:"Cormorant Garamond",Georgia,serif;font-weight:600;line-height:1.08;margin:0}
+.gold{color:var(--gold-soft)}
+
+/* ───────── КНОПКИ-ПИЛЮЛИ + ОТБЛИК ───────── */
+.btn{
+  position:relative;overflow:hidden;display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  padding:14px 30px;border-radius:999px;font-size:14px;border:1px solid var(--border);min-height:48px;
+  transition:transform .45s var(--spring),box-shadow .45s var(--ease),background .35s,border-color .35s;
+  will-change:transform;
+}
+.btn::after{
+  content:"";position:absolute;top:0;left:-60%;width:40%;height:100%;
+  background:linear-gradient(100deg,transparent,rgba(255,248,230,.4),transparent);
+  transform:skewX(-18deg);transition:left .7s var(--ease);
+}
+.btn:hover::after{left:130%}
+.btn--gold{background:linear-gradient(140deg,var(--gold-soft),var(--gold));color:#221409;border-color:transparent;font-weight:500}
+.btn--gold:hover{transform:translateY(-3px);box-shadow:0 16px 34px -14px rgba(201,162,77,.75)}
+
+/* ══════════════════════════════════════
+   ПЕРЕОПРЕДЕЛЕНИЕ TAILWIND-КЛАССОВ
+   (карточки, таблицы и кнопки рендерятся в
+   script.js / admin.js — логику не трогаем,
+   перекрашиваем только эти классы)
+   ══════════════════════════════════════ */
+
+/* фон карточек, форм, обёрток таблиц */
+body .bg-white{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:14px;
+}
+
+/* главные кнопки: синий Tailwind → золотая пилюля */
+body .bg-blue-600{
+  background:linear-gradient(140deg,var(--gold-soft),var(--gold));
+  color:#221409;border-radius:999px;border:0;box-shadow:none;font-weight:500;
+  padding:10px 18px;font-size:13px;min-height:0;width:auto;display:inline-flex;align-items:center;justify-content:center;
+}
+body .bg-blue-600:hover,body .hover\:bg-blue-700:hover{
+  transform:translateY(-3px);
+  box-shadow:0 16px 34px -14px rgba(201,162,77,.75);
+}
+
+/* состояние «Добавлено ✓» (script.js добавляет класс на лету) */
+body .bg-green-600{
+  background:linear-gradient(140deg,#b3903a,var(--gold));
+  color:#221409;border-radius:999px;
+}
+
+/* цена на карточке товара */
+body .text-gray-900{color:var(--gold-soft)}
+
+/* приглушённый текст: описания, пустые сообщения, даты */
+body .text-gray-500{color:var(--text-muted)}
+body .text-gray-400{color:#7b6757}
+body .hover\:text-gray-700:hover{color:var(--gold-soft)}
+
+/* крестик удаления в корзине */
+body .text-red-500{color:#c67c72}
+body .hover\:text-red-700:hover{color:#e79c92}
+
+/* кнопка «Удалить» в админке */
+body .bg-red-500{background:#8a5b4a;color:#f0e6d6;border-radius:999px;border:0}
+body .hover\:bg-red-600:hover{background:#9c6a55;transform:translateY(-2px)}
+
+/* сообщения формы добавления товара */
+body .text-green-600{color:var(--gold-soft)}
+body .text-red-600{color:#c67c72}
+
+/* разделители строк таблиц и панелей */
+body .border-gray-100{border-color:var(--border)}
+body .border-gray-200{border-color:var(--border)}
+body .hover\:bg-gray-50:hover{background:rgba(201,162,77,.07)}
+
+/* шапка админки / тёмные блоки (старый bg-gray-900) */
+body .bg-gray-900{background:var(--bg-alt)}
+
+/* карточки товаров: подъём + золотое свечение при наведении */
+body .hover\:shadow-md:hover{
+  box-shadow:0 30px 54px -28px rgba(0,0,0,.9),0 10px 30px -18px rgba(201,162,77,.45);
+  border-color:rgba(201,162,77,.42);
+  transform:translateY(-8px);
+}
+
+/* фотография в карточке: кадрирование 3:4 */
+#products-grid img{aspect-ratio:3/4;height:auto;object-fit:cover}
+
+/* ───────── ТАБЛИЦЫ (админка) ───────── */
+table{width:100%;border-collapse:collapse;font-size:14px}
+th,td{padding:12px 10px;text-align:left;border-bottom:1px solid var(--border)}
+th{font:500 11px/1.4 Inter;letter-spacing:.16em;text-transform:uppercase;color:var(--gold)}
+td{color:#c9b8a4;transition:background .3s,color .3s}
+td:first-child{font-family:"Cormorant Garamond",serif;font-size:19px;color:var(--text)}
+tbody tr:hover td{background:rgba(201,162,77,.07);color:var(--text)}
+
+/* ───────── ФОРМЫ (админка) ───────── */
+.field-label{
+  display:block;font:500 11px/1.4 Inter;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--gold);margin-bottom:8px;
+}
+#add-product-form input{
+  width:100%;padding:13px 16px;border:1px solid var(--border);background:var(--bg);
+  color:var(--text);border-radius:10px;font:400 15px/1.3 Inter;
+  transition:border-color .3s,background .3s,box-shadow .3s;
+}
+#add-product-form input::placeholder{color:#5f4c3d}
+#add-product-form input:focus{
+  outline:0;border-color:rgba(201,162,77,.6);background:#20130a;
+  box-shadow:0 0 0 4px rgba(201,162,77,.1);
+}
+
+/* ───────── ШАПКА ВИТРИНЫ ───────── */
+.shop-hdr{
+  position:fixed;inset:0 0 auto;z-index:90;
+  background:rgba(26,15,8,.55);
+  -webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);
+  border-bottom:1px solid transparent;
+  transition:border-color .4s linear,background .4s linear;
+}
+@supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){
+  .shop-hdr{background:#1a0f08}
+}
+.shop-brand{
+  font:500 14px/1 Inter;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--gold);transition:color .3s;
+}
+.shop-brand:hover{color:var(--gold-soft)}
+.shop-nav{display:flex;gap:28px;margin-left:auto;font-size:14px}
+.shop-nav a{color:var(--text-muted);position:relative;padding:6px 0;transition:color .3s var(--ease)}
+.shop-nav a::after{
+  content:"";position:absolute;left:0;bottom:0;height:1px;width:100%;background:var(--gold);
+  transform:scaleX(0);transform-origin:0 50%;transition:transform .45s var(--ease);
+}
+.shop-nav a:hover{color:var(--text)}
+.shop-nav a:hover::after{transform:scaleX(1)}
+.cart-btn{
+  position:relative;width:42px;height:42px;border:1px solid var(--border);border-radius:50%;
+  display:grid;place-items:center;color:var(--gold);flex:0 0 42px;
+  transition:border-color .3s,color .3s,transform .4s var(--spring);
+}
+.cart-btn:hover{border-color:var(--gold);transform:translateY(-2px)}
+.cart-btn svg{width:17px;height:17px}
+#cart-count{
+  position:absolute;top:-4px;right:-4px;min-width:19px;height:19px;padding:0 5px;border-radius:999px;
+  background:var(--gold);color:#221409;font:500 11px/19px Inter;text-align:center;
+}
+
+/* ───────── HERO ───────── */
+.hero{
+  position:relative;display:grid;place-items:center;text-align:center;
+  padding:150px 20px 80px;overflow:hidden;
+  min-height:60vh;
+}
+@media (max-width:640px){
+  .hero{padding:120px 20px 60px;min-height:60vh}
+}
+.hero__glow{
+  position:absolute;top:50%;left:50%;width:min(560px,90vw);aspect-ratio:1;
+  transform:translate(-50%,-50%);border-radius:50%;pointer-events:none;
+  background:radial-gradient(circle,rgba(201,162,77,.18),rgba(201,162,77,.05) 45%,transparent 70%);
+  animation:pulse 7s ease-in-out infinite;
+}
+@keyframes pulse{0%,100%{opacity:.6;transform:translate(-50%,-50%) scale(1)}50%{opacity:1;transform:translate(-50%,-50%) scale(1.1)}}
+.hero__in{position:relative;z-index:2}
+.hero .eyebrow{
+  font:500 12px/1 Inter;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);margin:0 0 16px;
+}
+.hero h1{font-size:clamp(2rem,6vw,4rem);letter-spacing:-.02em;margin:0 0 12px;color:var(--text)}
+.hero .lead{max-width:480px;margin:0 auto 24px;color:var(--text-muted);font-size:16px}
+
+/* ───────── СЕКЦИИ ───────── */
+.sec-title{font-size:clamp(1.75rem,4vw,2.5rem);margin-bottom:28px;color:var(--text)}
+
+/* ───────── МОДАЛКА КОРЗИНЫ ───────── */
+#cart-overlay{background:rgba(10,5,2,.72);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+#cart-panel{background:var(--bg-alt)}
+#cart-close{
+  width:36px;height:36px;display:grid;place-items:center;color:var(--gold);
+  transition:background .3s,transform .4s var(--spring);
+}
+#cart-close:hover{background:rgba(201,162,77,.12);transform:rotate(90deg)}
+#cart-close svg{width:18px;height:18px}
+#cart-total{color:var(--gold-soft);font-family:"Cormorant Garamond",serif;font-size:30px;font-weight:600}
+#cart-items .remove-item{transition:color .3s,transform .4s var(--spring)}
+#cart-items .remove-item:hover{transform:rotate(90deg)}
+
+/* ───────── ФУТЕР ───────── */
+.shop-foot{
+  border-top:1px solid var(--border);
+  background:var(--bg-alt);color:var(--text-muted);margin-top:60px;
+}
+.admin-link{color:var(--gold);font-size:14px;transition:color .3s;text-decoration:underline;text-underline-offset:3px}
+.admin-link:hover{color:var(--gold-soft)}

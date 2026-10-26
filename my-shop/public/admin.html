@@ -55,6 +55,10 @@
           <label for="product-description" class="field-label">Описание</label>
           <input type="text" id="product-description" placeholder="Короткое описание товара">
         </div>
+        <div>
+          <label for="product-sizes" class="field-label">Размеры (JSON, напр. {"42":1,"44":2})</label>
+          <input type="text" id="product-sizes" placeholder='{"42":1,"44":2,"46":0}' value='{"42":1,"44":2,"46":3,"48":1,"50":1}'>
+        </div>
         <div class="sm:col-span-2 lg:col-span-4">
           <button type="submit" class="btn btn--gold" style="width:100%;padding:16px 30px;font-size:15px">
             Добавить товар
@@ -74,6 +78,7 @@
               <th class="px-4 py-3">ID</th>
               <th class="px-4 py-3">Название</th>
               <th class="px-4 py-3">Цена</th>
+              <th class="px-4 py-3">Размеры</th>
               <th class="px-4 py-3">Действия</th>
             </tr>
           </thead>

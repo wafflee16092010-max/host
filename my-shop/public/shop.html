@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#1a0f08" />
+    <title>РТ-одежда — Магазин</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Inter:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Tailwind как каркас утилит -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Дизайн-система магазина (переопределяет Tailwind-цвета) -->
+    <link rel="stylesheet" href="style.css" />
+    <!-- UX-раскладка: крупная зона клика корзины и видимый счётчик -->
+    <style>
+      #cart-btn{width:44px;height:44px}
+      #cart-count{min-width:22px;height:22px;font:500 12px/22px Inter;background:var(--gold);box-shadow:0 0 0 2px var(--bg)}
+    </style>
+  </head>
+  <body class="bg-[#1a0f08] text-[#f0e6d6] font-sans">
+    <!-- Шапка -->
+    <header class="shop-hdr">
+      <div class="max-w-6xl mx-auto px-5 flex items-center gap-6" style="height:74px">
+        <a href="#" class="shop-brand">РТ-одежда</a>
+        <nav class="shop-nav hidden sm:flex">
+          <a href="#catalog">Каталог</a>
+          <a href="#catalog">Доставка</a>
+          <a href="#catalog">Контакты</a>
+        </nav>
+        <button id="cart-btn" class="cart-btn ml-auto" aria-label="Корзина">
+          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="width:20px;height:20px">
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.3 4.6a1 1 0 00.9 1.4H19M9 21a1 1 0 100-2 1 1 0 000 2zm8 0a1 1 0 100-2 1 1 0 000 2z"
+            />
+          </svg>
+          <span id="cart-count">0</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero__glow"></div>
+      <div class="max-w-6xl mx-auto px-5 hero__in">
+        <p class="eyebrow">Новая коллекция</p>
+        <h1>Новая коллекция</h1>
+        <p class="lead">
+          Стильная одежда для каждого дня — уже в наличии
+        </p>
+        <a href="#catalog" id="catalog-btn" class="btn btn--gold" style="font-size:15px">
+          Смотреть каталог
+        </a>
+      </div>
+    </section>
+
+    <!-- Каталог -->
+    <section id="catalog" class="max-w-6xl mx-auto px-5 py-[60px]">
+      <h2 class="sec-title">Каталог</h2>
+      <div
+        id="products-grid"
+        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"
+      ></div>
+    </section>
+
+    <!-- Футер -->
+    <footer class="shop-foot">
+      <div class="max-w-6xl mx-auto px-5 py-10 flex flex-wrap items-center justify-between gap-4 text-sm">
+        <span>© 2026 РТ-одежда. Все права защищены.</span>
+        <a href="/admin" class="admin-link">Админ-панель</a>
+      </div>
+    </footer>
+
+    <!-- Модальное окно корзины (выезжающая панель справа) -->
+    <div id="cart-overlay" class="fixed inset-0 z-20 hidden">
+      <aside
+        id="cart-panel"
+        class="absolute inset-y-0 right-0 w-full max-w-md ml-auto h-full flex flex-col"
+      >
+        <!-- Шапка панели -->
+        <div class="flex items-center justify-between px-6 py-4 border-b" style="border-color:var(--border)">
+          <h2 class="text-2xl">Корзина</h2>
+          <button
+            id="cart-close"
+            aria-label="Закрыть"
+            style="width:44px;height:44px;display:grid;place-items:center;color:var(--gold);font-size:22px;line-height:1"
+          >
+            <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" style="width:22px;height:22px">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+
+        <!-- Список товаров -->
+        <div id="cart-items" class="flex-1 overflow-y-auto px-6 py-4 space-y-4"></div>
+
+        <!-- Итог и оформление -->
+        <div class="px-6 py-4 border-t space-y-4" style="border-color:var(--border)">
+          <div class="flex items-center justify-between gap-4">
+            <span class="text-sm" style="color:var(--text-muted)">Итого:</span>
+            <span id="cart-total">0 ₽</span>
+          </div>
+          <button id="checkout-btn" class="btn btn--gold w-full" style="width:100%">
+            Оформить заказ
+          </button>
+        </div>
+      </aside>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
